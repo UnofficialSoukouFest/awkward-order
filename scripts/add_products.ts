@@ -1,6 +1,6 @@
-import type { Product } from "~/lib";
+import { readFile, writeFile } from "node:fs/promises";
 import { v4 as uuidv4 } from "uuid";
-import * as fs from "node:fs/promises";
+import type { Product } from "../app/lib";
 
 let products: Product[] = [];
 
@@ -28,7 +28,7 @@ function export_json(): string {
 }
 
 async function main() {
-	const content = await fs.readFile("./scripts/products_template.json", {
+	const content = await readFile("./scripts/products_template.json", {
 		encoding: "utf-8",
 	});
 	const template: {
@@ -47,7 +47,7 @@ async function main() {
 			),
 		);
 	}
-	await fs.writeFile("./app/products.json", export_json());
+	await writeFile("./app/products.json", export_json());
 }
 
 await main();
