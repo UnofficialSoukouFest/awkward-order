@@ -1,9 +1,8 @@
 import type { ComponentPropsWithRef } from "react";
 
-const IMAGE_HOST_URL =
-	import.meta.env.MODE === "development"
-		? "http://localhost:3000"
-		: "https://assets-proxy.kanium.workers.dev";
+const IMAGE_HOST_URL = import.meta.env.DEV
+	? "http://localhost:3000"
+	: "https://assets-proxy.kanium.workers.dev";
 
 function buildImageUrl(
 	src: string,
