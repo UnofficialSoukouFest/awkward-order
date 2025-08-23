@@ -1,0 +1,46 @@
+{
+	"name": "@latimeria/latimeria-cli",
+	"version": "0.1.0",
+	"description": "A supporting tools for developing latimeria",
+	"license": "Apache-2.0 AND MIT",
+	"type": "module",
+	"main": "dist/cjs/latimeria.cjs",
+	"bin": {
+		"latimeria": "dist/cjs/latimeria.cjs"
+	},
+	"private": true,
+	"scripts": {
+		"lint": "eslint .",
+		"syncPublic": "tsx bin/latimeria.ts",
+		"format": "eslint . --fix",
+		"typecheck": "tsc --noEmit",
+		"dev": "rslib build --watch",
+		"build": "rslib build",
+		"gen:openapi": "openapi-typescript http://localhost:8787/openapi -o src/generated/openapi.d.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kanium3/YSF17_SchoolFestival.git"
+	},
+	"dependencies": {
+		"@google-cloud/local-auth": "^3.0.1",
+		"c12": "^3.2.0",
+		"citty": "^0.1.6",
+		"es-toolkit": "^1.39.10",
+		"google-auth-library": "^9.15.1",
+		"googleapis": "^149.0.0",
+		"mime": "^4.0.7",
+		"openapi-fetch": "^0.14.0",
+		"openapi-typescript": "^7.9.1",
+		"pouchdb": "^9.0.0",
+		"pathe": "^2.0.3"
+	},
+	"devDependencies": {
+		"@rslib/core": "^0.12.2",
+		"@tsconfig/node-lts": "^22.0.2",
+		"@types/node": "catalog:",
+		"@types/pouchdb": "^6.4.2",
+		"tsx": "catalog:",
+		"typescript": "catalog:"
+	}
+}
