@@ -24,6 +24,7 @@
 	},
 	"dependencies": {
 		"@google-cloud/local-auth": "^3.0.1",
+		"@latimeria/shared": "workspace:^",
 		"c12": "^3.2.0",
 		"citty": "^0.1.6",
 		"es-toolkit": "^1.39.10",
@@ -33,10 +34,11 @@
 		"openapi-fetch": "^0.14.0",
 		"openapi-typescript": "^7.9.1",
 		"pouchdb": "^9.0.0",
-		"pathe": "^2.0.3"
+		"pathe": "^2.0.3",
+		"uuid": "^11.1.0"
 	},
 	"devDependencies": {
-		"@rslib/core": "^0.12.2",
+		"@rslib/core": "catalog:",
 		"@tsconfig/node-lts": "^22.0.2",
 		"@types/node": "catalog:",
 		"@types/pouchdb": "^6.4.2",
