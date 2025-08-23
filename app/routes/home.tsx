@@ -3,8 +3,11 @@ import type { Route } from "../../.react-router/types/app/routes/+types/home";
 
 export function meta() {
 	return [
-		{ title: "New React Router App" },
-		{ name: "description", content: "Welcome to React Router!" },
+		{ title: "Awkward-Order for YSF - 食販アプリ" },
+		{
+			name: "description",
+			content: "食販企画のメニューや注文の確認ができます",
+		},
 	];
 }
 

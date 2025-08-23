@@ -12,7 +12,8 @@
 		"generate:data": "tsx packages/scripts/src/product.ts",
 		"generate:cf-type": "wrangler types",
 		"generate:react-router": "react-router typegen",
-		"typecheck": "react-router typegen && tsc"
+		"typecheck": "react-router typegen && tsc",
+		"syncPublic": "latimeria gdrive"
 	},
 	"dependencies": {
 		"@latimeria/design-token": "^0.2.0",
@@ -39,6 +40,7 @@
 		"typescript": "catalog:",
 		"vite": "^7.1.3",
 		"vite-tsconfig-paths": "^5.1.4",
-		"wrangler": "^4.31.0"
+		"wrangler": "^4.31.0",
+		"@latimeria/latimeria-cli": "workspace:^"
 	}
 }

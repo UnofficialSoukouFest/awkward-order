@@ -1,18 +1,5 @@
-# Welcome to React Router!
-
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+# Awkward Order
+蒼煌祭食販向けのwebアプリケーション
 
 ## Getting Started
 
@@ -21,7 +8,7 @@ A modern, production-ready template for building full-stack React applications u
 Install the dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### Development
@@ -29,59 +16,27 @@ npm install
 Start the development server with HMR:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+`http://localhost:5173`からサイトにアクセスできます。
 
-## Building for Production
-
-Create a production build:
+### syncPublic
 
 ```bash
-npm run build
+pnpm run syncPublic
 ```
 
-## Deployment
+このコマンドはgoogleドライブの蒼煌祭の画像フォルダの中身をダウンロードします。  
+ローカルに存在していなかったり、ハッシュが異なるものだけをダウンロードできるようになっています。  
+動かすには以下の手順が必要です。
 
-### Docker Deployment
+1. `latimeria.config.jsonc.template`を`latimeria.config.jsonc`にリネーム
+2. Google Cloud コンソールで、Google Drive API を有効化
+3. OAuthの有効化
+4. [対象](https://console.cloud.google.com/auth/audience)にて、テストユーザーに自分のメアドを追加
+5. ホームディレクトリ(このファイルの属する階層)に`credentials.json`を配置
+6. コマンドを実行するとOAuthの許可画面が出てくるので許可する
 
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+1,2の手順は[これ](https://developers.google.com/workspace/drive/api/quickstart/nodejs?hl=ja)の通りにやるといいです。  
+あと、学校アカウントではテストしていないのでご了承下さい。多分動かないです
