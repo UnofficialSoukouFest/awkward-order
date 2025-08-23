@@ -11,3 +11,8 @@ worker-configuration.d.ts
 
 # Editor
 /.idea
+
+# Env
+credentials.json
+token.json
+latimeria.config.jsonc

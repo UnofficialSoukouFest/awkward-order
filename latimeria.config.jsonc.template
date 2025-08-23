@@ -1,0 +1,10 @@
+{
+  "drive": {
+    "driveIds": ["1ubSpJEvVoAgLNaM3FL_sdrtP3BB5lRMz"],
+    "syncDir": ["public"],
+  },
+  "assets": {
+    "accessToken": "<YOUR_ASSET_PROXY_ACCESS_TOKEN>",
+    "syncDir": ["public"]
+  },
+}
