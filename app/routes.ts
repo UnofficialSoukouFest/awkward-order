@@ -8,6 +8,10 @@ import {
 export default [
 	layout("routes/layout.tsx", [
 		index("routes/home.tsx"),
-		route("order", "routes/order/index.tsx"),
+		route("menu", "routes/menu/index.tsx"),
+		route("order/:orderId", "routes/order/index.tsx"),
+		route(":classId", "routes/hclass/index.tsx"),
+		route(":classId/select", "routes/select/index.tsx"),
+
 	]),
 ] satisfies RouteConfig;

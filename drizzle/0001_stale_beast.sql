@@ -1,0 +1,1 @@
+ALTER TABLE `order` ADD `timestamp` integer;

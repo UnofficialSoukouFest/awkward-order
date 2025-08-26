@@ -9,11 +9,11 @@
 		"lint": "biome check",
 		"format": "biome format --write",
 		"generate": "npm-run-all --parallel generate:*",
-		"generate:data": "tsx packages/scripts/src/product.ts",
 		"generate:cf-type": "wrangler types",
 		"generate:react-router": "react-router typegen",
 		"typecheck": "react-router typegen && tsc",
-		"syncPublic": "latimeria gdrive"
+		"syncPublic": "latimeria gdrive",
+		"db:generate": "drizzle-kit generate"
 	},
 	"dependencies": {
 		"@latimeria/design-token": "^0.2.0",
@@ -21,26 +21,36 @@
 		"@latimeria/shared": "workspace:^",
 		"@react-router/node": "^7.8.1",
 		"@react-router/serve": "^7.8.1",
+		"drizzle-orm": "^0.44.4",
+		"drizzle-valibot": "^0.4.2",
 		"hono": "catalog:",
 		"isbot": "^5.1.30",
 		"jotai": "^2.13.1",
 		"react": "^19.1.1",
+		"react-aria-components": "^1.11.0",
 		"react-dom": "^19.1.1",
-		"react-router": "^7.8.1"
+		"react-router": "^7.8.1",
+		"uuid": "^11.1.0",
+		"valibot": "catalog:",
+		"@valibot/to-json-schema": "catalog:",
+		"hono-openapi": "catalog:",
+		"@hono/valibot-validator": "catalog:"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "catalog:",
 		"@cloudflare/vite-plugin": "^1.11.6",
+		"@iconify-json/mdi": "^1.2.3",
+		"@latimeria/latimeria-cli": "workspace:^",
 		"@react-router/dev": "^7.8.1",
 		"@types/node": "catalog:",
 		"@types/react": "^19.1.10",
 		"@types/react-dom": "^19.1.7",
+		"drizzle-kit": "^0.31.4",
 		"npm-run-all2": "^8.0.4",
-		"tsx": "catalog:",
 		"typescript": "catalog:",
+		"unplugin-icons": "^22.2.0",
 		"vite": "^7.1.3",
 		"vite-tsconfig-paths": "^5.1.4",
-		"wrangler": "^4.31.0",
-		"@latimeria/latimeria-cli": "workspace:^"
+		"wrangler": "catalog:"
 	}
 }

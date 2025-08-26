@@ -1,0 +1,4 @@
+.detailsCard {
+	border-radius: var(--semantic-radius-circle);
+	background-color: #fff29f;
+}

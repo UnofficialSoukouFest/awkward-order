@@ -1,11 +1,8 @@
 import { Hono } from "hono";
 import { createRequestHandler } from "react-router";
+import Api from "./api";
 
 const app = new Hono();
-
-app.get("/api/hello", (c) => {
-	return c.json({ text: "hello!" });
-});
 
 app.get("*", (c) => {
 	const requestHandler = createRequestHandler(
@@ -17,5 +14,7 @@ app.get("*", (c) => {
 		cloudflare: { env: c.env, ctx: c.executionCtx },
 	});
 });
+
+app.route("/api", Api);
 
 export default app;
