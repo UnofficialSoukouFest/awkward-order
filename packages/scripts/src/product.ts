@@ -1,8 +1,6 @@
 import { readFile, writeFile } from "node:fs/promises";
+import type { Product } from "@latimeria/shared";
 import { v4 as uuidv4 } from "uuid";
-import type { Product } from "../app/lib";
-
-let products: Product[] = [];
 
 function createProduct(
 	name: string,
@@ -19,16 +17,12 @@ function createProduct(
 	};
 }
 
-function add_product(product: Product) {
-	products = [...products, product];
+function export_json(product: Product[]): string {
+	return JSON.stringify(product);
 }
 
-function export_json(): string {
-	return JSON.stringify(products);
-}
-
-async function main() {
-	const content = await readFile("./scripts/products_template.json", {
+export async function productCompile(inputPath: string, outputPath: string) {
+	const content = await readFile(inputPath, {
 		encoding: "utf-8",
 	});
 	const template: {
@@ -37,8 +31,9 @@ async function main() {
 		tags: string[];
 		imagePath?: string;
 	}[] = JSON.parse(content);
+	const products: Product[] = [];
 	for (const templateElement of template) {
-		add_product(
+		products.push(
 			createProduct(
 				templateElement.name,
 				templateElement.price,
@@ -47,7 +42,5 @@ async function main() {
 			),
 		);
 	}
-	await writeFile("./app/products.json", export_json());
+	await writeFile(outputPath, export_json(products));
 }
-
-await main();

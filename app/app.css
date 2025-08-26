@@ -1,7 +1,38 @@
+@font-face {
+	font-family: "LINE Seed JP";
+	font-style: normal;
+	font-weight: bold;
+	src: local("LINESeedJP_OTF_Bd.woff2");
+}
+
+@font-face {
+	font-family: "LINE Seed JP";
+	font-style: normal;
+	font-weight: normal;
+	src: local("LINESeedJP_OTF_Rg.woff2");
+}
+
+@font-face {
+	font-family: "LINE Seed JP";
+	font-style: normal;
+	font-weight: 300;
+	src: local("LINESeedJP_OTF_Th.woff2");
+}
+
+@font-face {
+	font-family: "LINE Seed JP";
+	font-style: normal;
+	font-weight: 900;
+	src: local("LINESeedJP_OTF_Eb.woff2");
+}
+
 :root {
-	--font-sans:
-		"Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--background: var(--semantic-background-white);
+	--foreground: var(--semantic-text-dark);
+	--font-noto-sans-jp: "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+	--font-michroma: "Michroma", ui-sans-serif, system-ui, sans-serif;
+	--font-line-seed-jp: "LINE Seed JP", ui-sans-serif, system-ui, sans-serif;
+	color-scheme: only light;
 }
 
 html,

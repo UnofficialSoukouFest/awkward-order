@@ -16,3 +16,9 @@ worker-configuration.d.ts
 credentials.json
 token.json
 latimeria.config.jsonc
+/latimeriadb/
+
+# public
+/public/
+!/public/.gitkkep
+

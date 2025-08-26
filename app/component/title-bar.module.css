@@ -1,0 +1,28 @@
+.title-bar,
+.title-bar-b {
+	display: flex;
+	align-items: center;
+	margin-block: 0.5em;
+	border-bottom: solid 2px hwb(200 20% 0% / 0.8);
+	/* @/app/global.cssから拝借 */
+}
+
+.title-bar-b {
+	padding-right: 36px;
+}
+
+.page-title {
+	text-align: center;
+	color: #008;
+	flex: 1;
+	font-weight: bold;
+}
+
+.page-title span {
+	padding-right: 0.1em;
+}
+
+.back-button {
+	color: #008;
+	cursor: pointer;
+}

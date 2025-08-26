@@ -6,7 +6,25 @@ import {
 	authorize,
 	authorizeAuto,
 	driveHandler,
+	productCompile,
 } from "../src";
+
+const Product = defineCommand({
+	meta: {
+		name: "Manage Products",
+	},
+	args: {
+		inputPath: {
+			type: "string",
+		},
+		outputPath: {
+			type: "string",
+		},
+	},
+	run({ args }) {
+		productCompile(args.inputPath, args.outputPath).catch(console.error);
+	},
+});
 
 const AssetsProxy = defineCommand({
 	meta: {
@@ -58,6 +76,7 @@ const app = defineCommand({
 	subCommands: {
 		gdrive: GDrive,
 		assets: AssetsProxy,
+		product: Product,
 	},
 });
 
