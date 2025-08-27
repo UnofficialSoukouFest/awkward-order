@@ -7,6 +7,7 @@ import {
 	authorizeAuto,
 	driveHandler,
 	productCompile,
+	programMigrate,
 } from "../src";
 
 const Product = defineCommand({
@@ -23,6 +24,24 @@ const Product = defineCommand({
 	},
 	run({ args }) {
 		productCompile(args.inputPath, args.outputPath).catch(console.error);
+	},
+});
+
+const Program = defineCommand({
+	meta: {
+		name: "Manage Programs",
+	},
+	args: {
+		inputPath: {
+			type: "string",
+		},
+		outputPath: {
+			type: "string",
+			required: false,
+		},
+	},
+	run({ args }) {
+		programMigrate(args.inputPath, args.outputPath).catch(console.error);
 	},
 });
 
@@ -77,6 +96,7 @@ const app = defineCommand({
 		gdrive: GDrive,
 		assets: AssetsProxy,
 		product: Product,
+		program: Program,
 	},
 });
 

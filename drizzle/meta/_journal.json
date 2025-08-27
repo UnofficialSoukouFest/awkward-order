@@ -15,6 +15,13 @@
       "when": 1756126534127,
       "tag": "0001_stale_beast",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1756301767226,
+      "tag": "0002_happy_mathemanic",
+      "breakpoints": true
     }
   ]
 }

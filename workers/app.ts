@@ -1,8 +1,26 @@
+import { type DrizzleD1Database, drizzle } from "drizzle-orm/d1";
 import { Hono } from "hono";
 import { createRequestHandler } from "react-router";
-import Api from "./api";
+import * as schema from "~/schema";
+import { app as apiApp } from "./api";
 
-const app = new Hono();
+declare module "react-router" {
+	export interface AppLoadContext {
+		cloudflare: {
+			env: Env;
+			ctx: ExecutionContext;
+		};
+		db: DrizzleD1Database<typeof schema> & { $client: D1Database };
+	}
+}
+
+type Bindings = {
+	DB: D1Database;
+};
+
+const app = new Hono<{ Bindings: Bindings }>();
+
+app.route("/api", apiApp);
 
 app.get("*", (c) => {
 	const requestHandler = createRequestHandler(
@@ -10,11 +28,11 @@ app.get("*", (c) => {
 		import.meta.env.MODE,
 	);
 
+	const db = drizzle(c.env.DB, { schema });
 	return requestHandler(c.req.raw, {
 		cloudflare: { env: c.env, ctx: c.executionCtx },
+		db: db,
 	});
 });
-
-app.route("/api", Api);
 
 export default app;

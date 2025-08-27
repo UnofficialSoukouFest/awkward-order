@@ -1,4 +1,10 @@
 import type { Product } from "@latimeria/shared";
+import type { DrizzleD1Database } from "drizzle-orm/d1";
+import type * as schema from "~/schema";
+
+export type DBClient = DrizzleD1Database<typeof schema> & {
+	$client: D1Database;
+};
 
 /**
  * Rust-likeな例外が投げられる可能性のあることを表現する型です

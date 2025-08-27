@@ -13,7 +13,7 @@ flowchart TB
 	menuList["企画のメニュー一覧ページ"]
 	menuProfile["メニューの詳細情報ページ"]
 	cartCheck["カートに入っているもの確認"]
-	showBought["購入するものリスト"]
+	showBought["カートに入っているものプレビュー(拡大表示)"]
 
 	main --> programAbout
 	main --> AllMenuList
@@ -53,20 +53,19 @@ flowchart TB
 - アレルゲンでフィルターをかけられます
 - このページより後においては、カートを保持します
 	- 企画ページ(あるいはトップ)に戻るとカートの内容は破棄される
+    - カートはメモみたいな感じ
 - 複数選択、複数個注文可能に
 	- 選択時、モーダルによって数量調整可能
 	- 選択したものは枠線で囲われる 視覚的に選んだものがわかる
 
 ### 選択商品表示ページ(`/order/<メニューのid>`)
-- 選択した商品を表示します。下記は載せる情報
+- カートに入っている商品を拡大表示します。(選択ページでカートに入れたので)
+下記は載せる情報
 	- **商品名**
 	- **選択個数×商品の価格 の値**
 	- **選択個数**
 	- 商品の画像
 	- 合計価格
-- SNS共有ボタンを設置する
-	- Twitter,Instagram,LINE
-	- 「◯◯を頼んだよ！」って投稿できるやつです
 
 ## その他全体情報
 - サイトはライトモードだけにする
@@ -76,7 +75,7 @@ flowchart TB
 	- 特定個人がリピートした、とかの情報は得られない
 
 # API
-ログデータや解析、遊びを持たすためのAPIです。サイトで使うことは想定していない(呼び出せないというのもある)
+ログデータや解析、遊びを持たすためのAPIです。Localのデータ処理やフロント側でも使用します
 
 ## GET `/api/order/<order_id>`
 ### query
@@ -112,6 +111,13 @@ flowchart TB
 	- 配信基盤として、
 	- 画像関係の配信APIは引き継ぐ
 	- `R2`や`KV`があったりするのでバックエンドで施すこともできる
+- `Cloudflare D1`
+    - データ保存はそこに
+    - 企画や商品関連のデータもそこに格納
+    - 売り切れ等を管理したりする
+- `Drizzle`
+    - `D1`に格納されたデータを操作するSQLのORMです
+    - `TypeScript`でスキーマが書けたり、クエリの補完が効くので便利
 - `hono`
 	- `API`実装する場合はそこから配信できる
 	- 書き心地が良い
@@ -166,8 +172,20 @@ interface Product {
 	price: number // 日本円
 	assets: {
 		thumbnail?: string
+        // etc...
 	} // ファイル名、画像URLなど
-	allergens: string[] // 28品目
+	allergens: string[], // 28品目
+    rootIngredients: string[] // 原材料
+    compositeIngredients: {
+        name: string // rootIngredientsの中の一つ
+            compositeIngredients: [
+                {
+                    name: string // 原材料の原材料
+                    compositeIngredients: [] // この中に同じように続いていく
+                }
+            ...
+        ]
+    }
 }
 ```
 
