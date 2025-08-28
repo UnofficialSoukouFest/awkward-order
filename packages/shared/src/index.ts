@@ -11,7 +11,7 @@ export type ProductID = number;
 export type Assets = {
 	thumbnail?: string;
 	header?: string;
-} & { [key: string]: string };
+} & { [key: string]: string | undefined };
 
 export type Program = {
 	id: ClassID;

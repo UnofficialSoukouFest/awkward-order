@@ -15,8 +15,23 @@ export async function addProduct(
 	const { success, issues, output } = safeParse(productInsertSchema, product);
 	if (success) {
 		const returns = await db.insert(productTable).values(output).returning();
-		const first: Product = returns[0];
-		return Ok(first);
+		const first = returns[0];
+		const product = {
+			id: first.id,
+			classId: first.classId,
+			name: first.name,
+			price: first.price,
+			allergens: first.allergen ?? [],
+			rootIngredients: first.rootIngredients ?? [],
+			compositeIngredients: first.compositeIngredients ?? [],
+			assets: {
+				thumbnail: first.assets?.thumbnail,
+			},
+			stock: {
+				sellout: false,
+			},
+		} satisfies Product;
+		return Ok(product);
 	} else {
 		return Err(new Error(`${issues}`));
 	}
@@ -30,8 +45,23 @@ export async function updateProduct(
 	if (success) {
 		const builder = db.update(productTable).set(output);
 		const returns = await builder.returning();
-		const first: Product = returns[0];
-		return Ok(first);
+		const first = returns[0];
+		const product = {
+			id: first.id,
+			classId: first.classId,
+			name: first.name,
+			price: first.price,
+			allergens: first.allergen ?? [],
+			rootIngredients: first.rootIngredients ?? [],
+			compositeIngredients: first.compositeIngredients ?? [],
+			assets: {
+				thumbnail: first.assets?.thumbnail,
+			},
+			stock: {
+				sellout: false,
+			},
+		} satisfies Product;
+		return Ok(product);
 	} else {
 		return Err(new Error(`${issues}`));
 	}
@@ -50,7 +80,27 @@ export async function matchProducts(
 		},
 	});
 	const matched = await queryBuilder;
-	return Ok(matched);
+	if (!matched) {
+		return Err(new Error("No matched thing"));
+	}
+	const products = matched.map((v) => ({
+		id: v.id,
+		classId: v.classId,
+		name: v.name,
+		price: v.price,
+		allergens: v.allergen ?? [],
+		rootIngredients: v.rootIngredients ?? [],
+		compositeIngredients: v.compositeIngredients ?? [],
+		assets: {
+			thumbnail: v.assets?.thumbnail,
+		},
+		stock: {
+			sellout: v.productStock?.sellout ?? false,
+			volume: v.productStock?.volume ?? 100,
+		},
+	}));
+
+	return Ok(products);
 }
 
 /**
@@ -70,7 +120,23 @@ export async function deleteProduct(
 		queryBuilder.where(eq(productTable.name, query.name));
 	}
 	const matched = await queryBuilder.returning();
+	const first = matched[0];
+	const product = {
+		id: first.id,
+		classId: first.classId,
+		name: first.name,
+		price: first.price,
+		allergens: first.allergen ?? [],
+		rootIngredients: first.rootIngredients ?? [],
+		compositeIngredients: first.compositeIngredients ?? [],
+		assets: {
+			thumbnail: first.assets?.thumbnail,
+		},
+		stock: {
+			sellout: false,
+		},
+	} satisfies Product;
 	return matched.length > 0 && matched.length < 2
-		? Ok(matched[0])
+		? Ok(product)
 		: Err(new Error(`Deleted ${matched.length} results. It's unexpected.`));
 }
