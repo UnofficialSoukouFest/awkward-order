@@ -1,8 +1,8 @@
 {
 	"version": "6",
 	"dialect": "sqlite",
-	"id": "b3b105b7-1d0b-4fa6-8819-500dd2ed81de",
-	"prevId": "69af73f6-791a-4183-9354-b85fd2441ea6",
+	"id": "587d68d2-4aeb-4942-8c13-44efedf35f3f",
+	"prevId": "b3b105b7-1d0b-4fa6-8819-500dd2ed81de",
 	"tables": {
 		"order": {
 			"name": "order",
@@ -52,6 +52,47 @@
 			"uniqueConstraints": {},
 			"checkConstraints": {}
 		},
+		"stock": {
+			"name": "stock",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "integer",
+					"primaryKey": false,
+					"notNull": false,
+					"autoincrement": false
+				},
+				"sellout": {
+					"name": "sellout",
+					"type": "integer",
+					"primaryKey": false,
+					"notNull": false,
+					"autoincrement": false
+				},
+				"volume": {
+					"name": "volume",
+					"type": "integer",
+					"primaryKey": false,
+					"notNull": false,
+					"autoincrement": false
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {
+				"stock_id_product_id_fk": {
+					"name": "stock_id_product_id_fk",
+					"tableFrom": "stock",
+					"tableTo": "product",
+					"columnsFrom": ["id"],
+					"columnsTo": ["id"],
+					"onDelete": "no action",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"checkConstraints": {}
+		},
 		"product": {
 			"name": "product",
 			"columns": {
@@ -73,7 +114,7 @@
 					"name": "class_id",
 					"type": "integer",
 					"primaryKey": false,
-					"notNull": false,
+					"notNull": true,
 					"autoincrement": false
 				},
 				"description": {
@@ -106,6 +147,20 @@
 				},
 				"assets": {
 					"name": "assets",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false,
+					"autoincrement": false
+				},
+				"rootIngredients": {
+					"name": "rootIngredients",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false,
+					"autoincrement": false
+				},
+				"compositeIngredients": {
+					"name": "compositeIngredients",
 					"type": "text",
 					"primaryKey": false,
 					"notNull": false,

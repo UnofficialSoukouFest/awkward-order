@@ -16,7 +16,8 @@
 		"typecheck": "tsc --noEmit",
 		"dev": "rslib build --watch",
 		"build": "rslib build",
-		"gen:openapi": "openapi-typescript http://localhost:8787/openapi -o src/generated/openapi.d.ts"
+		"gen:assets-proxy": "openapi-typescript http://localhost:8787/openapi -o src/generated/assets-proxy.d.ts",
+		"gen:awkward-order": "openapi-typescript http://localhost:5173/api/openapi -o src/generated/awkward-order.d.ts"
 	},
 	"repository": {
 		"type": "git",

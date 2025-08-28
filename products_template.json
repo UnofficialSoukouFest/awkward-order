@@ -2,19 +2,16 @@
 	{
 		"name": "カレーライス",
 		"price": 200,
-		"tags": ["curry"],
 		"imagePath": "curry.jpg"
 	},
 	{
 		"name": "寿司",
 		"price": 300,
-		"tags": ["sushi"],
 		"imagePath": "sushi.webp"
 	},
 	{
 		"name": "たいやき",
 		"price": 300,
-		"tags": ["okashi"],
 		"imagePath": "taiyaki.jpg"
 	}
 ]

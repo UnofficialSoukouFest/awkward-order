@@ -12,6 +12,5 @@ export default [
 		route("order/:orderId", "routes/order/index.tsx"),
 		route(":classId", "routes/hclass/index.tsx"),
 		route(":classId/select", "routes/select/index.tsx"),
-
 	]),
 ] satisfies RouteConfig;

@@ -4,13 +4,13 @@ import { describeRoute, openAPISpecs } from "hono-openapi";
 import { validator as vValidator } from "hono-openapi/valibot";
 import * as v from "valibot";
 import { isOk } from "~/lib";
-import { addProgram } from "~/lib/product";
+import { addProgram } from "~/lib/program";
 
 type Binding = {
 	DB: D1Database;
 };
 
-const app = new Hono<{ Bindings: Binding }>();
+export const app = new Hono<{ Bindings: Binding }>();
 
 const addProgramSchema = v.object({
 	name: v.string(),
@@ -54,11 +54,9 @@ app.get(
 			info: {
 				title: "Awkward-Order Manage API",
 				version: "0.1.0",
-				description: "Management API. it's used such as add/delete product and program",
+				description:
+					"Management API. it's used such as add/delete product and program",
 			},
-			servers: [],
 		},
 	}),
 );
-
-export default app;

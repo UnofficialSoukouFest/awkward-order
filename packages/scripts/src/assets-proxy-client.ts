@@ -1,5 +1,5 @@
 import createClient, { type Client, type Middleware } from "openapi-fetch";
-import type { paths } from "./generated/openapi";
+import type { paths } from "./generated/assets-proxy";
 
 export const DEFAULT_ENDPOINT = "https://assets-proxy.kanium.workers.dev";
 

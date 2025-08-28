@@ -1,15 +1,15 @@
 import { readFile, writeFile } from "node:fs/promises";
 import type { Product } from "@latimeria/shared";
-import { v4 as uuidv4 } from "uuid";
+
+type ProductIDOmitted = Omit<Product, "id">;
 
 function createProduct(
 	name: string,
 	price: number,
 	tags: string[],
 	imagePath?: string,
-): Product {
+): ProductIDOmitted {
 	return {
-		id: uuidv4(),
 		name,
 		price,
 		tags,
@@ -17,7 +17,7 @@ function createProduct(
 	};
 }
 
-function export_json(product: Product[]): string {
+function export_json(product: ProductIDOmitted[]): string {
 	return JSON.stringify(product);
 }
 
@@ -31,7 +31,7 @@ export async function productCompile(inputPath: string, outputPath: string) {
 		tags: string[];
 		imagePath?: string;
 	}[] = JSON.parse(content);
-	const products: Product[] = [];
+	const products: ProductIDOmitted[] = [];
 	for (const templateElement of template) {
 		products.push(
 			createProduct(
