@@ -22,20 +22,6 @@
       "when": 1756301767226,
       "tag": "0002_happy_mathemanic",
       "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "6",
-      "when": 1756383715382,
-      "tag": "0003_tricky_norrin_radd",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "6",
-      "when": 1756386969444,
-      "tag": "0004_true_inertia",
-      "breakpoints": true
     }
   ]
 }
