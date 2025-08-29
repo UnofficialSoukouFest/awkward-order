@@ -1,0 +1,17 @@
+.menu{
+    display: flex;
+}
+.menu h1{
+    margin-right: auto;
+    color: var(--semantic-color-primary);
+}
+.topmenu{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+.topmenu h2{
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--semantic-color-accent);
+}

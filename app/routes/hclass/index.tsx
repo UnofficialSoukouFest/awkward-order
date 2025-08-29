@@ -2,6 +2,7 @@ import { data } from "react-router";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
 import type { Route } from "./+types/index";
+import { programs } from "./programs.jsx";
 
 export async function loader({ params, context }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -23,5 +24,10 @@ export async function loader({ params, context }: Route.LoaderArgs) {
 }
 
 export default function HClass({ loaderData }: Route.ComponentProps) {
-	return <h1>{loaderData.program.name}</h1>;
+	return (
+		<>
+		<h1>{loaderData.program.name}</h1>
+		<programs />
+		</>
+);
 }
