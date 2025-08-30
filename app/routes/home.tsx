@@ -1,6 +1,7 @@
 import DetailsCard from "~/component/card/details-card";
 import MinimalCard from "~/component/card/minimal-card";
 import styles from "./home.module.css";
+import { Map } from "~/component/map/load-map"
 
 export function meta() {
 	return [
@@ -63,7 +64,9 @@ export default function Home() {
 			</div>
 			<div className={styles.mapContainer}>
 				<h2 className={styles.mainHeading}>販売場所</h2>
-				{/* TODO: 校内地図コンポーネントを挿入 */}
+				<div className={styles.YSFmap}>
+					<Map height={300} />
+				</div>
 			</div>
 		</>
 	);
