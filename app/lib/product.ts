@@ -5,6 +5,8 @@ import { safeParse } from "valibot";
 import { productTable } from "../schema";
 import { type DBClient, Err, Ok, type Result } from ".";
 
+type PartialProducts = Partial<Product>[];
+
 const productInsertSchema = createInsertSchema(productTable);
 const productUpdateSchema = createUpdateSchema(productTable);
 
@@ -69,14 +71,12 @@ export async function updateProduct(
 
 export async function matchProducts(
 	db: DBClient,
-	query: Partial<Product>,
+	query: PartialProducts,
 ): Promise<Result<Products>> {
 	const queryBuilder = db.query.productTable.findMany({
 		with: { productStock: true },
-		where(fields, { eq }) {
-			if (query.id) {
-				return eq(fields.id, query.id);
-			}
+		where(fields, { or, eq }) {
+			return or(...query.map((v) => eq(fields.id, Number(v.id))));
 		},
 	});
 	const matched = await queryBuilder;

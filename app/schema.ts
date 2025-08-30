@@ -1,4 +1,4 @@
-import type { CompositeIngredients } from "@latimeria/shared";
+import type { CompositeIngredients, ProductID } from "@latimeria/shared";
 import { relations } from "drizzle-orm";
 import { int, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { v7 as uuidV7 } from "uuid";
@@ -44,9 +44,13 @@ export const productStockRelations = relations(
 	}),
 );
 
-export const OrderDataTable = sqliteTable("order", {
-	id: text().$defaultFn(() => uuidV7()),
-	classId: int("class_id").references(() => programTable.id),
-	timestamp: int({ mode: "timestamp" }),
-	purchases: text({ mode: "json" }).$type<string[]>(),
+export const orderDataTable = sqliteTable("order", {
+	id: text()
+		.primaryKey()
+		.$defaultFn(() => uuidV7()),
+	classId: int("class_id")
+		.notNull()
+		.references(() => programTable.id),
+	timestamp: int({ mode: "timestamp" }).notNull(),
+	purchases: text({ mode: "json" }).$type<ProductID[]>(),
 });

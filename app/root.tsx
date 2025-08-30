@@ -8,7 +8,7 @@ import {
 } from "react-router";
 import type { Route } from "./+types/root";
 import "@latimeria/ganoine/base.css";
-import "./app.css";
+import "./global.css";
 import type { ReactNode } from "react";
 
 export const links: Route.LinksFunction = () => [
@@ -20,7 +20,7 @@ export const links: Route.LinksFunction = () => [
 	},
 	{
 		rel: "stylesheet",
-		href: "https://fonts.googleapis.com/css2?family=Michroma&family=Noto+Sans+JP:wght@100..900&display=swap",
+		href: "https://fonts.googleapis.com/css2?family=Michroma&family=Noto+Sans+JP:wght@100..900&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap",
 	},
 ];
 

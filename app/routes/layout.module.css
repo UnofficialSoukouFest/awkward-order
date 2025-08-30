@@ -1,5 +1,5 @@
 .mainLayout {
 	display: grid;
-	grid-template-columns: repeat(12, 1fr);
-	gap: var(--semantic-space-1);
+	grid-template-columns: repeat(12, calc(100vw / 12));
+	width: 100vw;
 }

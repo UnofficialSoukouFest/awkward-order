@@ -1,7 +1,7 @@
 {
 	"version": "6",
 	"dialect": "sqlite",
-	"id": "d5280675-c344-433d-9afd-39c22fb153ac",
+	"id": "50aab144-1856-4acc-8277-132ab78895c2",
 	"prevId": "587d68d2-4aeb-4942-8c13-44efedf35f3f",
 	"tables": {
 		"order": {
@@ -10,22 +10,22 @@
 				"id": {
 					"name": "id",
 					"type": "text",
-					"primaryKey": false,
-					"notNull": false,
+					"primaryKey": true,
+					"notNull": true,
 					"autoincrement": false
 				},
 				"class_id": {
 					"name": "class_id",
 					"type": "integer",
 					"primaryKey": false,
-					"notNull": false,
+					"notNull": true,
 					"autoincrement": false
 				},
 				"timestamp": {
 					"name": "timestamp",
 					"type": "integer",
 					"primaryKey": false,
-					"notNull": false,
+					"notNull": true,
 					"autoincrement": false
 				},
 				"purchases": {
@@ -152,15 +152,15 @@
 					"notNull": false,
 					"autoincrement": false
 				},
-				"root_ingredients": {
-					"name": "root_ingredients",
+				"rootIngredients": {
+					"name": "rootIngredients",
 					"type": "text",
 					"primaryKey": false,
 					"notNull": false,
 					"autoincrement": false
 				},
-				"composite_ingredients": {
-					"name": "composite_ingredients",
+				"compositeIngredients": {
+					"name": "compositeIngredients",
 					"type": "text",
 					"primaryKey": false,
 					"notNull": false,
@@ -226,10 +226,7 @@
 	"_meta": {
 		"schemas": {},
 		"tables": {},
-		"columns": {
-			"\"product\".\"rootIngredients\"": "\"product\".\"root_ingredients\"",
-			"\"product\".\"compositeIngredients\"": "\"product\".\"composite_ingredients\""
-		}
+		"columns": {}
 	},
 	"internal": {
 		"indexes": {}

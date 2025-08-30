@@ -1,4 +1,8 @@
 .detailsCard {
-	border-radius: var(--semantic-radius-circle);
+	width: calc(2 * (156px + var(--semantic-space-0-5)));
+	margin: var(--semantic-space-0-5);
+	border: 1px solid var(--semantic-background-white);
+	box-shadow: 0px 4px 4px var(--semantic-shadow-default);
+	border-radius: var(--semantic-radius-medium);
 	background-color: #fff29f;
 }

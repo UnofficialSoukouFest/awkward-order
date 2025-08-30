@@ -1,7 +1,7 @@
 import { defineFactory } from "@praha/drizzle-factory";
 import { v7 } from "uuid";
 import {
-	OrderDataTable,
+	orderDataTable,
 	productStockTable,
 	productTable,
 	programTable,
@@ -11,7 +11,7 @@ const schema = {
 	program: programTable,
 	product: productTable,
 	stock: productStockTable,
-	order: OrderDataTable,
+	order: orderDataTable,
 };
 
 export const programFactory = defineFactory({
@@ -30,7 +30,10 @@ export const productFactory = defineFactory({
 	resolver: ({ sequence, use }) => ({
 		id: sequence,
 		name: `name-${sequence}`,
-		classId: () => use(programFactory).create().then(p => p.id),
+		classId: () =>
+			use(programFactory)
+				.create()
+				.then((p) => p.id),
 		description: `it is name-${sequence}`,
 		price: 300,
 		topping: ["たれ", "しお"],
