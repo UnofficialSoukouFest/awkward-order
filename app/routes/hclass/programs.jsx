@@ -1,3 +1,4 @@
+import menuCard from "../../component/card/menu-card"
 import styles from "./programs.module.css"
 import { TitleBar } from "../../component/title-bar"
 //menucardはcomponentに作って後でゴニョゴニョ
@@ -21,6 +22,7 @@ export default function programs() {
                 <div className={styles.othermenu}>
                     <h2>その他のメニュー</h2>
                     {/* TODO：ここにcomponentでカードを作って挿入する。通常サイズ。横2 ✕ 縦nで配置。 */}
+                    <menuCard />
                 </div>
                 {/* TODO：ganoineのボタンをここに導入する。 */}
             </div>

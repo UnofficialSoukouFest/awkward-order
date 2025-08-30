@@ -1,0 +1,16 @@
+.menuCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.menuCard img{
+    display: flex;
+}
+.cardText{
+    display: flex;
+}
+.menuName{
+    margin: 0,auto,0,auto;
+}
+.price{
+    margin: auto,0,auto;
+}
