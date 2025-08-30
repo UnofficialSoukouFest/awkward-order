@@ -32,6 +32,7 @@
 	--font-noto-sans-jp: "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
 	--font-michroma: "Michroma", ui-sans-serif, system-ui, sans-serif;
 	--font-line-seed-jp: "LINE Seed JP", ui-sans-serif, system-ui, sans-serif;
+	--font-zen-maru-gothic: "Zen Maru Gothic", ui-sans-serif, system-ui, sans-serif;
 	color-scheme: only light;
 }
 
@@ -40,4 +41,10 @@ body {
 	@media (prefers-color-scheme: dark) {
 		color-scheme: only light;
 	}
+
+	margin:0;
+}
+
+main>* {
+	grid-column: 1 / -1;
 }
