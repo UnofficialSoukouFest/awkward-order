@@ -4,7 +4,7 @@
     border: 1px solid;
     border-radius: var(--semantic-radius-small);
     background-color: var(--semantic-background-white);
-    width: 10rem;
+    width: 15rem;
 }
 .menuCard img{
     display: flex;
@@ -15,7 +15,7 @@
     display: grid;
     border-top: 1px solid;
     grid-template-rows: 1fr 1fr;
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 .menuName{
     margin: 0 auto auto 0;

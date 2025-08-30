@@ -1,11 +1,11 @@
 import styles from "./menu-card.module.css"
-export default function MenuCard( info ){
+export default function MenuCard(){
     return(
         <div className={styles.menuCard}>
-            <img src={info.image} alt={info.name} />
+            <img alt="商品の画像です。" />
             <div className={styles.cardText}>
-                <p className={styles.menuName}>{info.name}</p>
-                <p className={styles.price}>{info.price}</p>
+                <p className={styles.menuName}>メニュー名＊＊＊＊＊＊＊＊＊</p>
+                <p className={styles.price}>100円</p>
             </div>
         </div>
     )
