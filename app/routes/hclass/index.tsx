@@ -4,7 +4,7 @@ import { matchProgram } from "~/lib/program";
 import type { Route } from "./+types/index";
 import { Button } from "@latimeria/ganoine"
 import styles from "./programs.module.css"
-// import { TitleBar } from "~/component/title-bar"
+import { TitleBar } from "~/component/title-bar"
 import MenuCard from "~/component/card/menu-card"
 import MenuCardPick from "~/component/card/menu-card-pickup"
 
@@ -39,7 +39,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 	return (
         <div className={styles.body}>
 			<h1>{ loaderData.program.name }</h1>
-			{/* <TitleBar pagename="2組" themeColor="#000000"/> */}
+			<TitleBar pagename={loaderData.program.name} themeColor="#1ACACA"/>
             <div className={styles.pr}>
                 {/* TODO：データベースから各クラス向けに引用してくる。データベースにはテキストと画像パスは定義されていないので今はこれが限界 */}
                 <img />
