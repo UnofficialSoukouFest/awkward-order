@@ -3,8 +3,12 @@ import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
 import type { Route } from "./+types/index";
 import { Button } from "@latimeria/ganoine"
-import style from "./programs.module.css"
-import { menuCard } from "~/component/card/menu-card"
+import styles from "./programs.module.css"
+import { TitleBar } from "~/component/title-bar";
+/* import { MenuCard } from "~/component/card/menu-card"
+{loaderData.products.map(detail => (
+						<MenuCard key={ detail.name } product={ detail } />
+					))} */
 
 export async function loader({ params, context }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -45,9 +49,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
                 <div className={styles.othermenu}>
                     <h2>その他のメニュー</h2>
                     {/* TODO：ここにcomponentでカードを作って挿入する。通常サイズ。横2 ✕ 縦nで配置。 */}
-					{loaderData.products.map(product => (
-						<menuCard key={products.name} product={products} />
-					))}
+					
                 </div>
                 <Button>
 					<p>
