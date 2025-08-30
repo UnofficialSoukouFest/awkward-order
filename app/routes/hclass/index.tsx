@@ -10,9 +10,11 @@ export async function loader({ params, context }: Route.LoaderArgs) {
 	if (programResult.type === "error") {
 		throw data(programResult.payload, { status: 500 });
 	}
-	const productResult = await matchProducts(context.db, {
-		classId: Number(params.classId),
-	});
+	const productResult = await matchProducts(context.db, [
+		{
+			classId: Number(params.classId),
+		},
+	]);
 	if (productResult.type === "error") {
 		throw data(productResult.payload, { status: 500 });
 	}

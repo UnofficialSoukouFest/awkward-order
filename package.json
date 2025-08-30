@@ -15,12 +15,12 @@
 		"start": "react-router-serve ./build/server/index.js",
 		"lint": "biome check",
 		"format": "biome format --write",
-		"generate": "npm-run-all --parallel generate:*",
+		"generate": "pnpm run '/^generate:.*/'",
 		"generate:cf-type": "wrangler types",
 		"generate:react-router": "react-router typegen",
-		"typecheck": "react-router typegen && tsc",
+		"typecheck": "tsc --noEmit",
 		"syncPublic": "latimeria gdrive",
-		"db:generate": "drizzle-kit generate"
+		"db:sync": "drizzle-kit generate && drizzle-kit push"
 	},
 	"dependencies": {
 		"@hono/valibot-validator": "catalog:",
@@ -55,7 +55,6 @@
 		"@types/react": "^19.1.10",
 		"@types/react-dom": "^19.1.7",
 		"drizzle-kit": "^0.31.4",
-		"npm-run-all2": "^8.0.4",
 		"typescript": "catalog:",
 		"unplugin-icons": "^22.2.0",
 		"vite": "^7.1.3",

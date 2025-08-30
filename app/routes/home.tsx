@@ -26,19 +26,25 @@ export default function Home() {
 					/>
 				</div>
 				<div className={styles.top_visual_info}>
-					<p className={styles.subtitle}>Yokohama Science High School 文化祭企画団体</p>
+					<p className={styles.subtitle}>
+						Yokohama Science High School 文化祭企画団体
+					</p>
 					<p className={styles.title}>
-						3年食販企画<br />
+						3年食販企画
+						<br />
 						特集サイト
 					</p>
 					<p className={styles.infoText}>9月6日/7日　10時15分整列開始</p>
 					<p className={styles.infoText}>
-						@サイエンスフロンティア高校<br />
+						@サイエンスフロンティア高校
+						<br />
 						コミュニケーションコート
 					</p>
 				</div>
 			</div>
-			<h2 className={`${styles.mainHeading} ${styles.mainHeading1}`}>3年食販企画一覧</h2>
+			<h2 className={`${styles.mainHeading} ${styles.mainHeading1}`}>
+				3年食販企画一覧
+			</h2>
 			<div className={`${styles.cardContainer} overlayContent`}>
 				<div className={styles.cardWrapping}>
 					<MinimalCard classNumber={1} title={`POP\nMART`} />
@@ -49,7 +55,9 @@ export default function Home() {
 					<MinimalCard classNumber={6} title={`Waffle-\n puff`} />
 					<DetailsCard>
 						<h2 className={styles.detailsContent}>メニューの一覧</h2>
-						<p className={styles.detailsContent}>6団体すべての商品を見るならこちら！</p>
+						<p className={styles.detailsContent}>
+							6団体すべての商品を見るならこちら！
+						</p>
 					</DetailsCard>
 				</div>
 			</div>
