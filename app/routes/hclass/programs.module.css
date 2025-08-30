@@ -51,8 +51,9 @@
 .cards{
     display: flex;
     flex-wrap: wrap;
-    margin-left: 10px;
-    margin-right: 10px;
+    width: 25rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 .place{
     display: flex;
@@ -60,4 +61,10 @@
 }
 .place h1{
     color: var(--semantic-color-primary);
+}
+.body Button{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: min(20vw,40rem);
 }

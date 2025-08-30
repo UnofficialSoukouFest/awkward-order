@@ -5,6 +5,8 @@
     border-radius: var(--semantic-radius-small);
     background-color: var(--semantic-background-white);
     width: 10rem;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .menuCard img{
     display: flex;

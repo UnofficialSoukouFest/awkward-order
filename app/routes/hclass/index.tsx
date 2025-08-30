@@ -4,7 +4,7 @@ import { matchProgram } from "~/lib/program";
 import type { Route } from "./+types/index";
 import { Button } from "@latimeria/ganoine"
 import styles from "./programs.module.css"
-// import { TitleBarWithBack } from "~/component/title-bar";
+// import { TitleBar } from "~/component/title-bar"
 import MenuCard from "~/component/card/menu-card"
 import MenuCardPick from "~/component/card/menu-card-pickup"
 
@@ -27,13 +27,19 @@ export async function loader({ params, context }: Route.LoaderArgs) {
 	};
 }
 
+export type productKind = {
+	id: number
+	name: string
+	price: number
+}
+
 export default function HClass({ loaderData }: Route.ComponentProps) {
 	return (
         <div className={styles.body}>
 			<h1>{ loaderData.program.name }</h1>
-			{/*<TitleBarWithBack pagename="2組" themeColor="#000000"/>*/}
+			{/* <TitleBar pagename="2組" themeColor="#000000"/> */}
             <div className={styles.pr}>
-                {/* TODO：データベースから各クラス向けに引用してくる。ここは引数を取ってmapしたほうがいいかも。 */}
+                {/* TODO：データベースから各クラス向けに引用してくる。データベースにはテキストと画像パスは定義されていないので今はこれが限界 */}
                 <img />
                 <p>1階コミュニケーションコート鶴見川側にて焼き鳥を販売中！塩味とたれ味の二種類を取り扱っています。我々にはあるのだよ！美味しさへの確かな自信がな！それ故に、売り切れ御免！お早めにな！</p>
             </div>
@@ -48,7 +54,9 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
                     <h2>その他のメニュー</h2>
                     {/* TODO：ここにcomponentでカードを作って挿入する。通常サイズ。横2 ✕ 縦nで配置。 */}
 					<div className={styles.cards}>
-						<MenuCard />
+						{loaderData.products.map((product: productKind) => (
+							<MenuCard product={ loaderData.products } key={product.id} />
+						))}
 					</div>
 				</div>
             </div>
