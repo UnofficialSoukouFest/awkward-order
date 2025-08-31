@@ -1,4 +1,5 @@
 /* 各クラスの一般メニュー用カード */
+.allMenuCard,
 .menuCard{
     display: grid;
     grid-template-rows: 1fr 1fr;
@@ -25,12 +26,12 @@
 
 .pickMenuName,
 .menuName{
-    margin: 0 auto auto 0;
+    margin: 5px auto auto 5px;
 }
 
 .pickPrice,
 .price{
-    margin: auto 0 0 auto;
+    margin: auto 5px 5px auto;
 }
 
 /* 激推しメニュー用カード（nameとpriceは共通） */
@@ -55,4 +56,27 @@
     border-top: 1px solid;
     grid-template-rows: 1fr 1fr;
     font-size: 1.25rem;
+}
+
+/* 各クラスのメニュー一覧用 */
+.allMenuCard p:not(.menuName):not(.price){
+    grid-area: 1 / 1;
+    z-index: 10;
+    color: var(--semantic-color-accent);
+    font-weight: 700;
+    background-color: var(--semantic-background-white);
+    height: fit-content;
+    width: fit-content;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-left: 3px;
+    border-radius: var(--semantic-radius-small);
+    margin-top: 5px;
+}
+.allMenuCard img{
+    display: flex;
+    background-color: var(--semantic-color-accent);
+    color: var(--semantic-text-white);
+    grid-area: 1 / 1;
+    z-index: 9;
 }

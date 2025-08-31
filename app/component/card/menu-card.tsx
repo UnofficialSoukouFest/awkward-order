@@ -33,3 +33,16 @@ export function MenuCardPick(){
         </div>
     )
 }
+
+export function MenuCardAll(){
+    return(
+        <div className={styles.allMenuCard}>
+            <p>n組</p>
+            <img alt="商品の画像です。" />
+            <div className={styles.cardText}>
+                <p className={styles.menuName}>激推しメニュー名＊＊＊＊＊＊＊＊＊＊</p>
+                <p className={styles.price}>400円</p>
+            </div>
+        </div>
+    )
+}

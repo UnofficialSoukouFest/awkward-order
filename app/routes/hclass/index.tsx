@@ -5,7 +5,7 @@ import type { Route } from "./+types/index";
 import { Button } from "@latimeria/ganoine"
 import styles from "./programs.module.css"
 import { TitleBarWithBack } from "~/component/title-bar"
-import { MenuCard, MenuCardPick } from "~/component/card/menu-card"
+import { MenuCard, MenuCardPick, MenuCardAll } from "~/component/card/menu-card"
 
 export async function loader({ params, context }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
