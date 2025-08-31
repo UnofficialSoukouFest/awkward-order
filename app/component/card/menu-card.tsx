@@ -1,50 +1,49 @@
 import styles from "./menu-card.module.css";
 
-type productType = {
-	id: number;
-	name: string;
-	price: number;
-};
-
-type menuProps = {
-	product: productType;
-};
-
-export function MenuCard({ product }: menuProps) {
-	return (
-		<div className={styles.menuCard}>
-			<img alt="商品の画像です。" />
-			<div className={styles.cardText}>
-				<p className={styles.menuName}>{product.name}</p>
-				<p className={styles.price}>{product.price}</p>
-			</div>
-		</div>
-	);
+type ProductType = {
+    classId?: number
+    id: number
+    name: string
+    price: number
 }
 
-export function MenuCardPick() {
-	return (
-		<div className={styles.pickMenuCard}>
-			<img alt="商品の画像です。" />
-			<div className={styles.pickCardText}>
-				<p className={styles.pickMenuName}>
-					激推しメニュー名＊＊＊＊＊＊＊＊＊＊
-				</p>
-				<p className={styles.pickPrice}>400円</p>
-			</div>
-		</div>
-	);
+type MenuProps = {
+    product: ProductType
 }
 
-export function MenuCardAll() {
-	return (
-		<div className={styles.allMenuCard}>
-			<p>n組</p>
-			<img alt="商品の画像です。" />
-			<div className={styles.cardText}>
-				<p className={styles.menuName}>激推しメニュー名＊＊＊＊＊＊＊＊＊＊</p>
-				<p className={styles.price}>400円</p>
-			</div>
-		</div>
-	);
+export function MenuCard( { product } : MenuProps ){
+    return(
+        <div className={styles.menuCard}>
+            <img alt="商品の画像です。" />
+            <div className={styles.cardText}>
+                <p className={styles.menuName}>{product.name}</p>
+                <p className={styles.price}>{product.price}</p>
+            </div>
+        </div>
+    )
+}
+
+export function MenuCardPick( {product}: MenuProps ){
+    return(
+        <div className={styles.pickMenuCard}>
+            <img alt="商品の画像です。" />
+            <div className={styles.pickCardText}>
+                <p className={styles.pickMenuName}>{product.name}</p>
+                <p className={styles.pickPrice}>{product.price}</p>
+            </div>
+        </div>
+    )
+}
+
+export function MenuCardAll( {product}: MenuProps ){
+    return(
+        <div className={styles.allMenuCard}>
+            <p>{product.classId}</p>
+            <img alt="商品の画像です。" />
+            <div className={styles.cardText}>
+                <p className={styles.menuName}>{product.name}</p>
+                <p className={styles.price}>{product.price}</p>
+            </div>
+        </div>
+    )
 }
