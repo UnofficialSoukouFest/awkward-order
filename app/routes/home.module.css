@@ -116,3 +116,7 @@
 	border: none;
 	border-radius: var(--semantic-radius-medium);
 }
+
+.YSFmap {
+	margin: 5vw;
+}
