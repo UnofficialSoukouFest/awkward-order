@@ -37,7 +37,7 @@ export type productKind = {
 export default function HClass({ loaderData }: Route.ComponentProps) {
 	return (
         <div className={styles.body}>
-			{/*<TitleBarWithBack pagename={loaderData.program.name} themeColor="#0066cc" textColor="#FFFCFC" /> */}
+			{/*<TitleBarWithBack pagename={loaderData.program.name} themeColor="#0066cc" textColor="#FFFCFC" />*/}
             <div className={styles.pr}>
                 {/* TODO：データベースから各クラス向けに引用してくる。データベースにはテキストと画像パスは定義されていないので今はこれが限界 */}
                 <img />
@@ -58,9 +58,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 					</div>
 				</div>
             </div>
-			{/*<Button>
-				<p>商品を選択する</p>
-			</Button> */}
+			{/*<Button onPress={()=> alert("clicked!")}><p>商品を選択する</p></Button>*/}
 			<div className={styles.place}>
 				<h1>販売場所</h1>
 			</div>
