@@ -6,7 +6,6 @@ import type { Route } from "./+types/index";
 import styles from "./programs.module.css"
 // import { TitleBarWithBack } from "~/component/title-bar"
 import { MenuCard, MenuCardPick } from "~/component/card/menu-card"
-import { SelectCard } from "~/component/card/select-card";
 
 export async function loader({ params, context }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -59,10 +58,6 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 					</div>
 				</div>
             </div>
-			<div className={styles.direction}>
-				<h2>商品選択欄</h2>
-				<SelectCard />
-			</div>
 			{/*<Button>
 				<p>商品を選択する</p>
 			</Button> */}

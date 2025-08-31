@@ -68,7 +68,3 @@
     margin-right: auto;
     width: min(20vw,40rem);
 }
-.direction{
-    display: flex;
-    flex-direction: column;
-}

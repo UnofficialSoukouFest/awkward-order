@@ -14,6 +14,23 @@
     z-index: 994;
 }
 
+.picture{
+    display: flex;
+    position: relative;
+}
+
+.express{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    rotate: -30deg;
+    border-radius: var(--semantic-radius-medium);
+    background-color: var(--semantic-color-accent);
+    color: var(--semantic-text-white);
+    font-size: 1.25rem;
+    z-index: 1000;
+}
+
 .menuPrice{
     display: flex;
     flex-direction: column;
