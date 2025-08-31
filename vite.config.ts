@@ -16,5 +16,13 @@ export default defineConfig({
 	],
     optimizeDeps: {
         exclude: ["react-aria-components"]
-    }
+    },
+	resolve: {
+		alias: [
+			{
+				find: "use-sync-external-store/shim/index.js",
+				replacement: "react",
+			},
+		],
+	},
 });
