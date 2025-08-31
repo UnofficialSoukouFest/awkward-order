@@ -22,3 +22,6 @@ latimeria.config.jsonc
 /public/
 !/public/.gitkkep
 
+# Generated
+/app/generated/
+

@@ -1,84 +1,84 @@
-.card{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    background-color: var(--semantic-background-white);
-    width: min(36rem, 90vw);
-    margin-left: auto;
-    margin-right: auto;
+.card {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid black;
+	background-color: var(--semantic-background-white);
+	width: min(36rem, 90vw);
+	margin-left: auto;
+	margin-right: auto;
 }
-.main{
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    z-index: 994;
-}
-
-.picture{
-    display: flex;
-    position: relative;
+.main {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	z-index: 994;
 }
 
-.express{
-    position: absolute;
-    left: 5px;
-    top: 5px;
-    rotate: -30deg;
-    border-radius: var(--semantic-radius-medium);
-    background-color: var(--semantic-color-accent);
-    color: var(--semantic-text-white);
-    font-size: 1.25rem;
-    z-index: 1000;
+.picture {
+	display: flex;
+	position: relative;
 }
 
-.menuPrice{
-    display: flex;
-    flex-direction: column;
-    font-size: 1.25rem;
+.express {
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	rotate: -30deg;
+	border-radius: var(--semantic-radius-medium);
+	background-color: var(--semantic-color-accent);
+	color: var(--semantic-text-white);
+	font-size: 1.25rem;
+	z-index: 1000;
 }
 
-.menu{
-    margin-top: 5px;
-}
-.price{
-    margin-top: auto;
-    margin-bottom: 5px;
+.menuPrice {
+	display: flex;
+	flex-direction: column;
+	font-size: 1.25rem;
 }
 
-.card button{
-    display: flex;
-    justify-content: center;
-    border: none;
-    margin-left: auto;
-    margin-right: 5px;
-    margin-bottom: 3px;
-    width: fit-content;
-    padding-left: 5px;
-    padding-right: 5px;
-    background-color: var(--semantic-background-white);
-    position: relative;
-    z-index: 1000;
+.menu {
+	margin-top: 5px;
+}
+.price {
+	margin-top: auto;
+	margin-bottom: 5px;
 }
 
-.card button:hover{
-    cursor: pointer;
+.card button {
+	display: flex;
+	justify-content: center;
+	border: none;
+	margin-left: auto;
+	margin-right: 5px;
+	margin-bottom: 3px;
+	width: fit-content;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: var(--semantic-background-white);
+	position: relative;
+	z-index: 1000;
 }
 
-.ingredients{
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid black;
-    width: 98%;
-    margin-left: auto;
-    margin-right: auto;
+.card button:hover {
+	cursor: pointer;
 }
 
-.allergen{
-    display: flex;
-    flex-direction: column;
+.ingredients {
+	display: flex;
+	flex-direction: column;
+	border-top: 1px solid black;
+	width: 98%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.otherIngredients{
-    display: flex;
-    flex-direction: column;
+.allergen {
+	display: flex;
+	flex-direction: column;
+}
+
+.otherIngredients {
+	display: flex;
+	flex-direction: column;
 }

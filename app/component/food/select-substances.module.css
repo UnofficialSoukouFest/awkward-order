@@ -1,0 +1,80 @@
+.allergiesSelectingTab {
+	border: 2px hsla(200, 100%, 60%, 0.8) solid;
+	border-radius: 5px;
+	width: fit-content;
+	margin: 1em;
+	padding: 0.5em;
+}
+
+.popupProvider {
+	padding-left: 1em;
+}
+
+.reactAriaHeader {
+	font-size: 1.143rem;
+	font-weight: bold;
+	padding: 0 0.714rem;
+}
+
+.reactAriaListBoxSection {
+	/** :not(:first-child) { */
+	margin-top: 12px;
+	border-left: #000000 1px solid;
+}
+
+/** +20品目のところとか2,3列横に伸ばしたかったけどやり方がよくわからない */
+.dialogBox {
+	overflow-y: auto;
+	height: 100%;
+}
+
+@media (min-width: 582px) {
+	/** 194px * 3 */
+	.listBox {
+		background-color: #ffffff;
+		border: #000000 1px solid;
+		padding: 0.5em;
+		scrollbar-gutter: auto;
+		overflow-y: auto;
+		height: max(calc(100% - 13rem), 300px);
+		width: calc(100%);
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+@media (max-width: 581px) {
+	/** (max-width: 387px) { */
+	.listBox {
+		background-color: #ffffff;
+		border: #000000 1px solid;
+		padding: 0.5em;
+		scrollbar-gutter: auto;
+		overflow-y: auto;
+		height: 300px;
+		width: calc(100%);
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+}
+
+.itemCollection {
+	display: grid;
+}
+
+.items {
+	margin: 0.15em;
+	padding: 0.35em;
+	padding-left: 0.7em;
+	border-radius: 5px;
+
+	&[data-focus-visible] {
+		outline: none;
+	}
+
+	&[data-selected] {
+		font-weight: 600;
+		background: #228b22;
+		color: #ffffff;
+	}
+}

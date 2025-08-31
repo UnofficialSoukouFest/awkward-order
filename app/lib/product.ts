@@ -1,6 +1,7 @@
 import type { Product, Products } from "@latimeria/shared";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { createInsertSchema, createUpdateSchema } from "drizzle-valibot";
+import { flattenDeep } from "es-toolkit";
 import { safeParse } from "valibot";
 import { productTable } from "../schema";
 import { type DBClient, Err, Ok, type Result } from ".";
@@ -73,11 +74,39 @@ export async function matchProducts(
 	db: DBClient,
 	query: PartialProducts,
 ): Promise<Result<Products>> {
+	const condictions = query.map((q) => {
+		const childCondictions = [];
+		if (q.id) {
+			childCondictions.push(eq(productTable.id, q.id));
+		}
+		if (q.name) {
+			childCondictions.push(eq(productTable.name, q.name));
+		}
+		if (q.classId) {
+			childCondictions.push(eq(productTable.classId, q.classId));
+		}
+		if (q.price) {
+			childCondictions.push(eq(productTable.price, q.price));
+		}
+		if (q.allergens) {
+			childCondictions.push(eq(productTable.allergen, q.allergens));
+		}
+		if (q.rootIngredients) {
+			childCondictions.push(
+				eq(productTable.rootIngredients, q.rootIngredients),
+			);
+		}
+		if (q.compositeIngredients) {
+			childCondictions.push(
+				eq(productTable.compositeIngredients, q.compositeIngredients),
+			);
+		}
+		return childCondictions;
+	});
+	const whereBuilder = and(...flattenDeep(condictions));
 	const queryBuilder = db.query.productTable.findMany({
 		with: { productStock: true },
-		where(fields, { or, eq }) {
-			return or(...query.map((v) => eq(fields.id, Number(v.id))));
-		},
+		where: whereBuilder,
 	});
 	const matched = await queryBuilder;
 	if (!matched) {

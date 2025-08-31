@@ -26,7 +26,12 @@ export type PageNameProps = {
 export function TitleBar({ pagename, themeColor, textColor }: TitleProps) {
 	return (
 		<header className={styles["title-bar"]}>
-			<Title pagename={pagename} themeColor={themeColor} textColor={textColor} isBack={false} />
+			<Title
+				pagename={pagename}
+				themeColor={themeColor}
+				textColor={textColor}
+				isBack={false}
+			/>
 		</header>
 	);
 }
@@ -37,11 +42,20 @@ export function TitleBar({ pagename, themeColor, textColor }: TitleProps) {
  * @param themeColor - テーマカラー
  * @param textColor - 文字色
  */
-export function TitleBarWithBack({ pagename, themeColor, textColor }: TitleProps) {
+export function TitleBarWithBack({
+	pagename,
+	themeColor,
+	textColor,
+}: TitleProps) {
 	return (
 		<header className={styles["title-bar-b"]}>
 			<BackButton arrowColor={textColor} />
-			<Title pagename={pagename} themeColor={themeColor} textColor={textColor} isBack={true} />
+			<Title
+				pagename={pagename}
+				themeColor={themeColor}
+				textColor={textColor}
+				isBack={true}
+			/>
 		</header>
 	);
 }
