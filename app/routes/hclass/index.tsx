@@ -4,9 +4,8 @@ import { matchProgram } from "~/lib/program";
 import type { Route } from "./+types/index";
 import { Button } from "@latimeria/ganoine"
 import styles from "./programs.module.css"
-import { TitleBar } from "~/component/title-bar"
-import MenuCard from "~/component/card/menu-card"
-import MenuCardPick from "~/component/card/menu-card-pickup"
+import { TitleBarWithBack } from "~/component/title-bar"
+import { MenuCard, MenuCardPick } from "~/component/card/menu-card"
 
 export async function loader({ params, context }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -38,8 +37,7 @@ export type productKind = {
 export default function HClass({ loaderData }: Route.ComponentProps) {
 	return (
         <div className={styles.body}>
-			<h1>{ loaderData.program.name }</h1>
-			<TitleBar pagename={loaderData.program.name} themeColor="#1ACACA"/>
+			<TitleBarWithBack pagename={loaderData.program.name} themeColor="#0066cc" textColor="#FFFCFC" />
             <div className={styles.pr}>
                 {/* TODO：データベースから各クラス向けに引用してくる。データベースにはテキストと画像パスは定義されていないので今はこれが限界 */}
                 <img />

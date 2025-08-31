@@ -7,17 +7,26 @@ import styles from "./title-bar.module.css";
 export type TitleProps = {
 	pagename: string;
 	themeColor: string;
+	textColor: string;
+};
+
+export type PageNameProps = {
+	pagename: string;
+	themeColor: string;
+	textColor: string;
+	isBack: boolean;
 };
 
 /**
  * 上部のページ名
  * @param pagename - ページ名
  * @param themeColor - テーマカラー
+ * @param textColor - 文字色
  */
-export function TitleBar({ pagename, themeColor }: TitleProps) {
+export function TitleBar({ pagename, themeColor, textColor }: TitleProps) {
 	return (
 		<header className={styles["title-bar"]}>
-			<Title pagename={pagename} themeColor={themeColor} />
+			<Title pagename={pagename} themeColor={themeColor} textColor={textColor} isBack={false} />
 		</header>
 	);
 }
@@ -26,12 +35,13 @@ export function TitleBar({ pagename, themeColor }: TitleProps) {
  * 上部の戻るボタン＋ページ名
  * @param pagename - ページ名
  * @param themeColor - テーマカラー
+ * @param textColor - 文字色
  */
-export function TitleBarWithBack({ pagename, themeColor }: TitleProps) {
+export function TitleBarWithBack({ pagename, themeColor, textColor }: TitleProps) {
 	return (
 		<header className={styles["title-bar-b"]}>
-			<BackButton arrowColor={themeColor} />
-			<Title pagename={pagename} themeColor={themeColor} />
+			<BackButton arrowColor={textColor} />
+			<Title pagename={pagename} themeColor={themeColor} textColor={textColor} isBack={true} />
 		</header>
 	);
 }
@@ -40,14 +50,19 @@ export function TitleBarWithBack({ pagename, themeColor }: TitleProps) {
  * ページ名
  * @param pagename - ページ名
  * @param themeColor - テーマカラー
+ * @param textColor - 文字色
+ * @param isBack - バックボタンつきかどうか
  */
-function Title({ pagename, themeColor }: TitleProps) {
+function Title({ pagename, themeColor, textColor, isBack }: PageNameProps) {
+	const blank: number = isBack ? 36 : 0;
 	return (
 		<div
 			className={styles["page-title"]}
 			style={{
-				color: themeColor,
+				color: textColor,
+				backgroundColor: themeColor,
 				fontSize: Math.min(Math.max(24, 320 / pagename.length), 32),
+				paddingRight: blank,
 			}}
 		>
 			<span>{pagename}</span>

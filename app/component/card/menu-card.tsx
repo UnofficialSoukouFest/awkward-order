@@ -10,13 +10,25 @@ type menuProps = {
     product: productType
 }
 
-export default function MenuCard( { product } : menuProps ){
+export function MenuCard( { product } : menuProps ){
     return(
         <div className={styles.menuCard}>
             <img alt="商品の画像です。" />
             <div className={styles.cardText}>
                 <p className={styles.menuName}>{product.name}</p>
                 <p className={styles.price}>{product.price}</p>
+            </div>
+        </div>
+    )
+}
+
+export function MenuCardPick(){
+    return(
+        <div className={styles.pickMenuCard}>
+            <img alt="商品の画像です。" />
+            <div className={styles.pickCardText}>
+                <p className={styles.pickMenuName}>激推しメニュー名＊＊＊＊＊＊＊＊＊＊</p>
+                <p className={styles.pickPrice}>400円</p>
             </div>
         </div>
     )
