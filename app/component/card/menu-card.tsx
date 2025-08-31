@@ -1,16 +1,17 @@
 import styles from "./menu-card.module.css"
 
-type productType = {
+type ProductType = {
+    classId?: number
     id: number
     name: string
     price: number
 }
 
-type menuProps = {
-    product: productType
+type MenuProps = {
+    product: ProductType
 }
 
-export function MenuCard( { product } : menuProps ){
+export function MenuCard( { product } : MenuProps ){
     return(
         <div className={styles.menuCard}>
             <img alt="商品の画像です。" />
@@ -22,26 +23,26 @@ export function MenuCard( { product } : menuProps ){
     )
 }
 
-export function MenuCardPick(){
+export function MenuCardPick( {product}: MenuProps ){
     return(
         <div className={styles.pickMenuCard}>
             <img alt="商品の画像です。" />
             <div className={styles.pickCardText}>
-                <p className={styles.pickMenuName}>激推しメニュー名＊＊＊＊＊＊＊＊＊＊</p>
-                <p className={styles.pickPrice}>400円</p>
+                <p className={styles.pickMenuName}>{product.name}</p>
+                <p className={styles.pickPrice}>{product.price}</p>
             </div>
         </div>
     )
 }
 
-export function MenuCardAll(){
+export function MenuCardAll( {product}: MenuProps ){
     return(
         <div className={styles.allMenuCard}>
-            <p>n組</p>
+            <p>{product.classId}</p>
             <img alt="商品の画像です。" />
             <div className={styles.cardText}>
-                <p className={styles.menuName}>激推しメニュー名＊＊＊＊＊＊＊＊＊＊</p>
-                <p className={styles.price}>400円</p>
+                <p className={styles.menuName}>{product.name}</p>
+                <p className={styles.price}>{product.price}</p>
             </div>
         </div>
     )

@@ -1,15 +1,26 @@
 import { useState } from "react"
 import styles from "./select-card.module.css"
 
-export function SelectCard(){
+export type DisplayType = {
+    name: string;
+    price: number;
+    classId: number;
+    allergen: string[];
+}
+
+export type SelectType = {
+    product: DisplayType;
+}
+
+export function SelectCard( {product}: SelectType){
     const [ isOpen, setIsOpen ] = useState(false)
     return(
         <div className={styles.card}>
             <div className={styles.main}>
                 <img alt="商品の画像です" />
                 <div className={styles.menuPrice}>
-                    <p className={styles.menu}>商品名＊＊＊＊</p>
-                    <p className={styles.price}>¥100</p>
+                    <p className={styles.menu}>{product.name}</p>
+                    <p className={styles.price}>{product.price}</p>
                 </div>
             </div>
             {isOpen ? (
@@ -18,7 +29,7 @@ export function SelectCard(){
                     <div className={styles.ingredients}>
                         <div className={styles.allergen}>
                             <h3>特定原材料28品目</h3>
-                            <p>特定原材料＊＊＊＊＊＊</p>
+                            <p>{product.allergen}</p>
                         </div>
                         <div className={styles.otherIngredients}>
                             <h3>原材料</h3>
@@ -35,7 +46,7 @@ export function SelectCard(){
     )
 }
 
-export function SelectCardPick(){
+export function SelectCardPick( {product} : SelectType ){
     const [ isOpen, setIsOpen ] = useState(false)
     return(
         <div className={styles.card}>
@@ -45,8 +56,8 @@ export function SelectCardPick(){
                     <img alt="商品の画像です" />
                 </div>
                 <div className={styles.menuPrice}>
-                    <p className={styles.menu}>商品名＊＊＊＊</p>
-                    <p className={styles.price}>¥100</p>
+                    <p className={styles.menu}>{product.name}</p>
+                    <p className={styles.price}>{product.price}</p>
                 </div>
             </div>
             {isOpen ? (
@@ -55,7 +66,7 @@ export function SelectCardPick(){
                     <div className={styles.ingredients}>
                         <div className={styles.allergen}>
                             <h3>特定原材料28品目</h3>
-                            <p>特定原材料＊＊＊＊＊＊</p>
+                            <p>{product.allergen}</p>
                         </div>
                         <div className={styles.otherIngredients}>
                             <h3>原材料</h3>

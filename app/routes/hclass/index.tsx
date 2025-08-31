@@ -2,10 +2,11 @@ import { data } from "react-router";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
 import type { Route } from "./+types/index";
-// import { Button } from "@latimeria/ganoine"
+import { Button } from "@latimeria/ganoine"
 import styles from "./programs.module.css"
-// import { TitleBarWithBack } from "~/component/title-bar"
+import { TitleBarWithBack } from "~/component/title-bar"
 import { MenuCard, MenuCardPick } from "~/component/card/menu-card"
+import { OrderCard } from "~/component/card/order-card";
 
 export async function loader({ params, context }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -29,6 +30,7 @@ export async function loader({ params, context }: Route.LoaderArgs) {
 }
 
 export type productKind = {
+	classId?: number
 	id: number
 	name: string
 	price: number
@@ -37,7 +39,7 @@ export type productKind = {
 export default function HClass({ loaderData }: Route.ComponentProps) {
 	return (
         <div className={styles.body}>
-			{/*<TitleBarWithBack pagename={loaderData.program.name} themeColor="#0066cc" textColor="#FFFCFC" />*/}
+			<TitleBarWithBack pagename={loaderData.program.name} themeColor="#0066cc" textColor="#FFFCFC" />
             <div className={styles.pr}>
                 {/* TODO：データベースから各クラス向けに引用してくる。データベースにはテキストと画像パスは定義されていないので今はこれが限界 */}
                 <img />
@@ -47,18 +49,22 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
                 <h1>メニュー</h1>
                 <div className={styles.topMenu}>
                     <h2>激推しメニュー</h2>
-					<MenuCardPick />
+					{loaderData.products.map((product: productKind) => (
+						<MenuCardPick product={ product } key={ product.id } />
+					))}
                 </div>
                 <div className={styles.otherMenu}>
                     <h2>その他のメニュー</h2>
 					<div className={styles.cards}>
 						{loaderData.products.map((product: productKind) => (
-							<MenuCard product={ loaderData.products } key={product.id} />
+							<MenuCard product={ product } key={ product.id } />
 						))}
 					</div>
 				</div>
             </div>
-			{/*<Button onPress={()=> alert("clicked!")}><p>商品を選択する</p></Button>*/}
+			<Button onPress={()=> alert("まだ繋がっていません！")}>
+				<p>商品を選択する</p>
+			</Button>
 			<div className={styles.place}>
 				<h1>販売場所</h1>
 			</div>
