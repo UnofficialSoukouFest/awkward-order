@@ -13,7 +13,15 @@ export async function addOrder(
 	db: DBClient,
 	order: Omit<OrderData, "id">,
 ): Promise<Result<OrderData>> {
-	const { success, issues, output } = safeParse(orderInsertSchema, order);
+	const orderDataConverted = {
+		classId: order.classId,
+		timestamp: order.date,
+		purchases: order.purchases.map((v) => v.id),
+	};
+	const { success, issues, output } = safeParse(
+		orderInsertSchema,
+		orderDataConverted,
+	);
 	if (success) {
 		const returns = await db.insert(orderDataTable).values(output).returning();
 		const first = returns[0];

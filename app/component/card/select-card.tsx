@@ -1,5 +1,5 @@
-import { useState } from "react"
-import styles from "./select-card.module.css"
+import { useState } from "react";
+import styles from "./select-card.module.css";
 
 export type DisplayType = {
     name: string;

@@ -1,4 +1,7 @@
+import { Button } from "@latimeria/ganoine";
 import { data } from "react-router";
+import { MenuCard, MenuCardPick } from "~/component/card/menu-card";
+import { TitleBarWithBack } from "~/component/title-bar";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
 import type { Route } from "./+types/index";
@@ -42,7 +45,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 			<TitleBarWithBack pagename={loaderData.program.name} themeColor="#0066cc" textColor="#FFFCFC" />
             <div className={styles.pr}>
                 {/* TODO：データベースから各クラス向けに引用してくる。データベースにはテキストと画像パスは定義されていないので今はこれが限界 */}
-                <img />
+                <img alt="クラスのPR画像"/>
                 <p>1階コミュニケーションコート鶴見川側にて焼き鳥を販売中！塩味とたれ味の二種類を取り扱っています。我々にはあるのだよ！美味しさへの確かな自信がな！それ故に、売り切れ御免！お早めにな！</p>
             </div>
             <div className={styles.menu}>
@@ -69,6 +72,6 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 				<h1>販売場所</h1>
 			</div>
 			<div className={styles.crowded}></div>
-        </div>
-);
+		</div>
+	);
 }

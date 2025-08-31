@@ -1,7 +1,7 @@
 import DetailsCard from "~/component/card/details-card";
 import MinimalCard from "~/component/card/minimal-card";
+import { YMap } from "~/component/map/load-map";
 import styles from "./home.module.css";
-import { Map } from "~/component/map/load-map"
 
 export function meta() {
 	return [
@@ -65,7 +65,7 @@ export default function Home() {
 			<div className={styles.mapContainer}>
 				<h2 className={styles.mainHeading}>販売場所</h2>
 				<div className={styles.YSFmap}>
-					<Map height={300} />
+					<YMap height={300} width={null} />
 				</div>
 			</div>
 		</>

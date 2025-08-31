@@ -1,4 +1,4 @@
-import styles from "./menu-card.module.css"
+import styles from "./menu-card.module.css";
 
 type ProductType = {
     classId?: number

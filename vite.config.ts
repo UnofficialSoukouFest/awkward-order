@@ -14,9 +14,9 @@ export default defineConfig({
 		}),
 		tsconfigPaths(),
 	],
-    optimizeDeps: {
-        exclude: ["react-aria-components"]
-    },
+	optimizeDeps: {
+		exclude: ["react-aria-components", "@latimeria/ganoine"],
+	},
 	resolve: {
 		alias: [
 			{
