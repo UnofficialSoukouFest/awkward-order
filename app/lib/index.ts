@@ -1,4 +1,3 @@
-import type { Product } from "@latimeria/shared";
 import type { DrizzleD1Database } from "drizzle-orm/d1";
 import type * as schema from "~/schema";
 
@@ -49,7 +48,3 @@ export function unwrap<T>(result: Result<T>): T {
 
 export const isErr = <T>(result: Result<T>): boolean => result.type === "error";
 export const isOk = <T>(result: Result<T>): boolean => result.type === "ok";
-
-export function sumProductsPrices(products: Product[]) {
-	return products.reduce((acc, cur) => acc + cur.price, 0);
-}
