@@ -7,10 +7,6 @@
 	/* @/app/global.cssから拝借 */
 }
 
-.title-bar-b {
-	padding-right: 36px;
-}
-
 .page-title {
 	text-align: center;
 	color: #008;
@@ -25,4 +21,10 @@
 .back-button {
 	color: #008;
 	cursor: pointer;
+	background-color: #0066cc;
+}
+
+.page-title,
+.back-button{
+	height: 80%;
 }
