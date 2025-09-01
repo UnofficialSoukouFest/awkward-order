@@ -12,7 +12,6 @@
 .pr img {
 	width: 100vw;
 	aspect-ratio: 1 / 1;
-	background-color: var(--semantic-color-primary);
 }
 
 .pr p {
