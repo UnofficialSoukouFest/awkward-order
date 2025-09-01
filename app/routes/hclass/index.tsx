@@ -40,8 +40,8 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 		<div className={styles.body}>
 			<TitleBarWithBack
 				pagename={loaderData.program.name}
-				themeColor="#0066cc"
-				textColor="#FFFCFC"
+				themeColor="var(--themecolor-main)"
+				textColor="var(--semantic-text-dark)"
 			/>
 			<div className={styles.pr}>
 				{/* TODO：データベースから各クラス向けに引用してくる。データベースにはテキストと画像パスは定義されていないので今はこれが限界 */}
@@ -54,20 +54,30 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 				<h1>メニュー</h1>
 				<div className={styles.topMenu}>
 					<h2>激推しメニュー</h2>
-					{loaderData.products.map((product: productKind) => (
-						<MenuCardPick product={product} key={product.id} />
-					))}
+					<div className={styles.topCards}>
+						<div className={styles.topBack} style={{ backgroundColor: "var(--themecolor-main)", }}>
+							<div className={styles.topCenter}>
+								<MenuCardPick />
+							</div>
+						</div>
+					</div>
 				</div>
 				<div className={styles.otherMenu}>
 					<h2>その他のメニュー</h2>
-					<div className={styles.cards}>
-						{loaderData.products.map((product: productKind) => (
-							<MenuCard product={product} key={product.id} />
-						))}
+					<div className={styles.cardback} style={{ backgroundColor: "var(--themecolor-main)", }} >
+						<div className={styles.cards}>
+							<MenuCard />
+						</div>
 					</div>
 				</div>
 			</div>
-			<Button onPress={() => alert("まだ繋がっていません！")}>
+			<Button 
+			onPress={() => alert("まだ繋がっていません！")} 
+			style={{ backgroundColor: "var(--themecolor-main)",
+				border: "none",
+				boxShadow: "0px 0px 3px 3px var(--semantic-shadow-default)"
+			 }}
+			>
 				<p>商品を選択する</p>
 			</Button>
 			<div className={styles.place}>
