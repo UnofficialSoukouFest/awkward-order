@@ -7,6 +7,9 @@ export const programTable = sqliteTable("program", {
 	id: int().primaryKey({ autoIncrement: true }),
 	name: text().notNull(),
 	class: int().notNull().unique(),
+	description: text(),
+	assets: text({ mode: "json" }).$type<Record<string, string>>(),
+	color: text().notNull(),
 });
 
 export const productTable = sqliteTable("product", {
@@ -17,11 +20,13 @@ export const productTable = sqliteTable("product", {
 		.notNull(),
 	description: text(),
 	price: int().notNull(),
+	isFavorite: int({ mode: "boolean" }),
 	topping: text({ mode: "json" }).$type<string[]>(),
 	allergen: text({ mode: "json" }).$type<string[]>(),
 	assets: text({ mode: "json" }).$type<Record<string, string>>(),
 	rootIngredients: text({ mode: "json" }).$type<string[]>(),
 	compositeIngredients: text({ mode: "json" }).$type<CompositeIngredients[]>(),
+	mayContains: text({ mode: "json" }).$type<string[]>(),
 });
 
 export const productRelations = relations(productTable, ({ one }) => ({
