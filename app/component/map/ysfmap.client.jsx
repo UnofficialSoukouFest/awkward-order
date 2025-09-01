@@ -6,8 +6,7 @@ import SVGRaw from "../../data/map/programs.svg?raw";
 
 import "leaflet/dist/leaflet.css"; // リーフレットの本体のCSSの読み込み(これしないと地図が崩れる)
 import "./leaflet-override.css"; // leaflet標準cssをオーバーライド
-import { FloorLayer, gcenter } from "./layer";
-
+import { FloorLayer, gcenter } from "./layer.client";
 import {
 	Path2Polygon,
 	SVGController,
@@ -27,12 +26,7 @@ import styles from "./ysfmap.module.css";
  * 指定しなかった場合デフォルトのポップアップが表示される。
  * @returns {React.ReactNode}
  */
-export default function YSFMap({
-	picHeight,
-	picWidth,
-	id,
-	onRoomClick,
-}) {
+export default function YSFMap({ picHeight, picWidth, id, onRoomClick }) {
 	if (!picHeight) {
 		picHeight = window.innerHeight - 64;
 	}
