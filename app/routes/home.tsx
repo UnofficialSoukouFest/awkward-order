@@ -65,7 +65,7 @@ export default function Home() {
 			<div className={styles.mapContainer}>
 				<h2 className={styles.mainHeading}>販売場所</h2>
 				<div className={styles.YSFmap}>
-					<YMap height={300} width={null} />
+					<YMap height={300} />
 				</div>
 			</div>
 		</>

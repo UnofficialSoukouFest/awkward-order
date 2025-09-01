@@ -1,4 +1,5 @@
-import YSFMap from "./ysfmap";
+import { lazy, Suspense } from "react";
+import YSFMap from "./ysfmap.client";
 
 /**
  * どこでも使えるマップ
@@ -7,7 +8,12 @@ import YSFMap from "./ysfmap";
  * @param {number?} prop.height
  */
 export function YMap({ width, height }) {
-	return <YSFMap picWidth={width} picHeight={height} />;
+	const LazyMap = lazy(() => import("./ysfmap.client"));
+	return (
+		<Suspense fallback={<p>Loading...</p>}>
+			<LazyMap picWidth={width} picHeight={height} />
+		</Suspense>
+	);
 }
 
 /**
