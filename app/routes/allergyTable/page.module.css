@@ -1,0 +1,46 @@
+.howToSee {
+  margin-bottom: 2em;
+}
+
+.divtable {
+  overflow-y: auto
+}
+
+.tableHead {
+  text-align: center;
+  border-bottom: solid 1px;
+  border-right: solid 1px;
+}
+
+.allergenName {
+  padding: 0.5em;
+  writing-mode: vertical-rl;
+  text-align: center;
+  border-bottom: solid 1px;
+  border-right: solid 1px;
+}
+
+.containSign {
+  padding: 1em;
+  text-align: center;
+  border-bottom: solid 1px;
+  border-right: solid 1px;
+}
+
+.foodName {
+  white-space: nowrap;
+  width: min-content;
+  padding: 0.5em;
+  border-right: double;
+  border-bottom: solid 1px;
+}
+
+.className {
+  border-top: solid 1px;
+  border-bottom: solid 2px;
+}
+
+.table {
+  border: 1px solid;
+  border-spacing: 0px;
+}
