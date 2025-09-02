@@ -1,7 +1,7 @@
 name: Preview Deploy to Cloudflare Workers
 
 on:
-    pull_request:
+    push:
         branches:
             - main
             - master
