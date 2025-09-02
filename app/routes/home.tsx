@@ -1,5 +1,6 @@
 import DetailsCard from "~/component/card/details-card";
 import MinimalCard from "~/component/card/minimal-card";
+import Image from "~/component/image";
 import { YMap } from "~/component/map/load-map";
 import styles from "./home.module.css";
 

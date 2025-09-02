@@ -1,37 +1,29 @@
-import type { ComponentPropsWithRef } from "react";
+import { Image } from "@unpic/react";
+import type { ComponentPropsWithoutRef } from "react";
 
 const IMAGE_HOST_URL = import.meta.env.DEV
-	? "http://localhost:3000"
-	: "https://assets-proxy.kanium.workers.dev";
+	? "http://localhost:5173"
+	: "https://assets-proxy.kanium.workers.dev/image";
 
-function buildImageUrl(
-	src: string,
-	width: number,
-	quality?: number,
-	format?: string,
-) {
-	const params = new URLSearchParams();
-	params.set("width", String(width));
-	params.set("quality", String(quality ?? 75));
-	params.set("format", format ?? "auto");
-
-	return `${IMAGE_HOST_URL}/${src}?${params.toString()}`;
-}
-
-export type ImageProps = {
-	src: string;
-	width: number;
+export type AImageProps = {
+	src?: string;
+	width?: number;
+	height?: number;
 	quality?: number;
 	format?: string;
 	alt: string;
-} & Omit<ComponentPropsWithRef<"img">, "src">;
+} & Omit<ComponentPropsWithoutRef<"img">, "src">;
 
-export default function Image(props: ImageProps) {
+export default function AImage(props: AImageProps) {
+	const imageURL = `${IMAGE_HOST_URL}${props.src}`;
 	return (
-		<img
+		<Image
 			{...props}
-			src={buildImageUrl(props.src, props.width, props.quality, props.format)}
+			src={imageURL}
+			width={props.width ?? 0}
+			height={props.height ?? 0}
 			alt={props.alt}
+			layout="constrained"
 		/>
 	);
 }
