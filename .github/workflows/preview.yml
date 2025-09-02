@@ -35,7 +35,13 @@ jobs:
 
             - name: Publish to Cloudflare Workers (Preview)
               uses: cloudflare/wrangler-action@v3
+              id: deploy
               with:
                 apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                 accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
                 command: versions upload --preview-alias staging
+
+            - name: Show deployed URL
+              env:
+                DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
+              run: echo $DEPLOYMENT_URL >> $GITHUB_STEP_SUMMARY
