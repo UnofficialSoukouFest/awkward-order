@@ -21,7 +21,8 @@
 		"typecheck": "tsc --noEmit",
 		"syncPublic": "latimeria gdrive",
 		"syncAssets": "latimeria assets",
-		"db:sync": "drizzle-kit generate && drizzle-kit push"
+		"db:sync": "drizzle-kit generate --config=drizzle.dev.config.ts && drizzle-kit push --config=drizzle.dev.config.ts",
+		"db:prodSync": "drizzle-kit generate --config=drizzle.prod.config.ts && drizzle-kit push --config=drizzle.prod.config.ts"
 	},
 	"dependencies": {
 		"@hono/valibot-validator": "catalog:",
@@ -32,6 +33,7 @@
 		"@praha/drizzle-factory": "^1.2.1",
 		"@react-router/node": "^7.8.1",
 		"@react-router/serve": "^7.8.1",
+		"@unpic/react": "^1.0.1",
 		"@valibot/to-json-schema": "catalog:",
 		"clsx": "^2.1.1",
 		"drizzle-orm": "^0.44.4",

@@ -1,6 +1,6 @@
 {
 	"extends": "./tsconfig.json",
-	"include": ["vite.config.ts", "react-router.config.ts", "drizzle.config.ts"],
+	"include": ["vite.config.ts", "react-router.config.ts", "drizzle.dev.config.ts", "drizzle.prod.config.ts"],
 	"compilerOptions": {
 		"composite": true,
 		"strict": true,
