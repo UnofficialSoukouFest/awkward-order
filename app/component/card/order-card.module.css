@@ -1,41 +1,86 @@
-.body{
-    display: flex;
-    flex-direction: row;
-    width: min(30rem,90vw);
-    border-top: 1px solid var(--semantic-text-dark);
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 5px;
+.body {
+	display: flex;
+	flex-direction: row;
+	width: min(30rem, 90vw);
+	border-top: 1px solid var(--semantic-text-dark);
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
-.body img{
-    display: flex;
-    background-color: var(--semantic-color-accent);
-    color: var(--semantic-text-white);
-    margin-right: 10px;
-    margin-left: 10px;
+
+.productImage {
+	position: relative;
+	height: 100%;
+	margin-left: 10px;
+	margin-right: 10px;
 }
-.texts{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+
+.productImage > img {
+	height: 100%;
+	display: flex;
+	object-fit: cover;
+	background-color: var(--semantic-color-accent);
+	color: var(--semantic-text-white);
 }
-.name{
-    display: flex;
-    margin-top: 5px;
+
+.productImage > p {
+	position: absolute;
+	top: 0;
+	left: 5px;
+	margin-top: 0;
+	z-index: 1;
+	font-weight: bolder;
 }
-.values{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    padding-bottom: 5px;
+
+.decoration_ul {
+	position: absolute;
+	width: 65.5px;
+	top: 0;
+	left: 0;
 }
-.number{
-    display: flex;
-    margin-left: 5px;
-    margin-right: auto;
+
+.decoration_dr {
+	position: absolute;
+	width: 39px;
+	right: 0;
+	bottom: 0;
 }
-.price{
-    display: flex;
-    margin-left: auto;
-    margin-right: 5px;
+
+.texts {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	font-weight: bolder;
+	font-size: 1.25rem;
+}
+
+.name {
+	display: flex;
+	margin-top: 5px;
+}
+
+.values {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	padding-bottom: 5px;
+}
+
+.number {
+	display: flex;
+	margin-left: 5px;
+	margin-right: auto;
+	font-weight: bolder;
+}
+
+.price {
+	display: flex;
+	margin-left: auto;
+	margin-right: 5px;
+	font-weight: bolder;
+}
+
+.priceUnit {
+	font-size: 0.67em;
 }

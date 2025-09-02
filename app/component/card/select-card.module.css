@@ -2,11 +2,15 @@
 	display: flex;
 	flex-direction: column;
 	border: 1px solid black;
+	border-radius: var(--semantic-radius-small);
 	background-color: var(--semantic-background-white);
 	width: min(36rem, 90vw);
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
+
 .main {
 	display: flex;
 	flex-direction: row;
@@ -14,27 +18,62 @@
 	z-index: 994;
 }
 
-.picture {
-	display: flex;
+.productImage {
 	position: relative;
+	height: 100%;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.productImage > img {
+	height: 100%;
+	display: flex;
+	object-fit: cover;
+	background-color: var(--semantic-color-accent);
+	color: var(--semantic-text-white);
+}
+
+.productImage > p {
+	position: absolute;
+	top: 0;
+	left: 5px;
+	margin-top: 0;
+	z-index: 1;
+	font-weight: bolder;
+}
+
+.decoration_ul {
+	position: absolute;
+	width: 65.5px;
+	top: 0;
+	left: 0;
+}
+
+.decoration_dr {
+	position: absolute;
+	width: 39px;
+	right: 0;
+	bottom: 0;
 }
 
 .express {
 	position: absolute;
-	left: 5px;
-	top: 5px;
-	rotate: -30deg;
+	left: 0px;
+	top: 0px;
+	rotate: -20deg;
 	border-radius: var(--semantic-radius-medium);
 	background-color: var(--semantic-color-accent);
 	color: var(--semantic-text-white);
-	font-size: 1.25rem;
-	z-index: 1000;
+	font-size: 1rem;
+	z-index: 2;
 }
 
 .menuPrice {
 	display: flex;
 	flex-direction: column;
 	font-size: 1.25rem;
+	font-weight: bolder;
 }
 
 .menu {
@@ -45,6 +84,10 @@
 	margin-bottom: 5px;
 }
 
+.priceUnit {
+	font-size: 0.67em;
+}
+
 .card button {
 	display: flex;
 	justify-content: center;
@@ -52,10 +95,12 @@
 	margin-left: auto;
 	margin-right: 5px;
 	margin-bottom: 3px;
+	margin-top: 5px;
 	width: fit-content;
 	padding-left: 5px;
 	padding-right: 5px;
 	background-color: var(--semantic-background-white);
+	color: var(--semantic-text-dark);
 	position: relative;
 	z-index: 1000;
 }
@@ -81,4 +126,5 @@
 .otherIngredients {
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 10px;
 }

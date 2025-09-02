@@ -82,7 +82,7 @@
 	flex-direction: column;
 }
 
-.place>h1 {
+.place > h1 {
 	position: relative;
 	width: 100%;
 }

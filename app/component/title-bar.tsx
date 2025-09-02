@@ -52,7 +52,8 @@ export function TitleBarWithBack({
 			className={styles["title-bar-b"]}
 			style={{
 				backgroundColor: themeColor,
-			}}>
+			}}
+		>
 			<BackButton arrowColor={textColor} backColor={themeColor} />
 			<Title
 				pagename={pagename}
@@ -91,7 +92,13 @@ function Title({ pagename, themeColor, textColor, isBack }: PageNameProps) {
  * 左上の矢印戻るボタン
  * @param arrowColor - 矢印の色
  */
-function BackButton({ arrowColor, backColor }: { arrowColor: string, backColor: string }) {
+function BackButton({
+	arrowColor,
+	backColor,
+}: {
+	arrowColor: string;
+	backColor: string;
+}) {
 	const router = useNavigate();
 	return (
 		<Link onPress={() => router(-1)} className={styles["back-button"]}>

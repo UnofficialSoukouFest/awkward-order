@@ -48,7 +48,7 @@
 	height: 100%;
 }
 
-.productImage>img {
+.productImage > img {
 	height: 100%;
 	display: flex;
 	object-fit: cover;
@@ -56,12 +56,12 @@
 	color: var(--semantic-text-white);
 }
 
-.productImage>p {
+.productImage > p {
 	position: absolute;
 	top: 0;
 	left: 5px;
 	margin-top: 0;
-	z-index: 1000;
+	z-index: 1;
 	font-weight: bolder;
 }
 
@@ -101,28 +101,4 @@
 	width: 100%;
 	height: 100%;
 	font-size: 1rem;
-}
-
-/* 各クラスのメニュー一覧用 */
-.allMenuCard p:not(.menuName):not(.price) {
-	grid-area: 1 / 1;
-	z-index: 10;
-	color: var(--semantic-color-accent);
-	font-weight: 700;
-	background-color: var(--semantic-background-white);
-	height: fit-content;
-	width: fit-content;
-	padding-right: 5px;
-	padding-left: 5px;
-	margin-left: 3px;
-	border-radius: var(--semantic-radius-small);
-	margin-top: 5px;
-}
-
-.allMenuCard img {
-	display: flex;
-	background-color: var(--semantic-color-accent);
-	color: var(--semantic-text-white);
-	grid-area: 1 / 1;
-	z-index: 9;
 }
