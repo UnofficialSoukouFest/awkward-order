@@ -24,7 +24,7 @@
 
 /** +20品目のところとか2,3列横に伸ばしたかったけどやり方がよくわからない */
 .dialogBox {
-	overflow-y: auto;
+	/* overflow-y: auto; */
 	height: 100%;
 }
 

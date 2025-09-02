@@ -70,9 +70,11 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				<PopupProvider>
 					<PopupToggleButton>アレルギーでフィルター</PopupToggleButton>
 					<Popup>
-						<SelectSubstance selected={selected} setSelected={setSelected} />
-						<div className={styles.PopUpCloseButtonDiv}>
-							<PopupCloseButton>完了</PopupCloseButton>
+						<div className={styles.dialogBox}>
+							<SelectSubstance selected={selected} setSelected={setSelected} />
+							<div className={styles.PopUpCloseButtonDiv}>
+								<PopupCloseButton>完了</PopupCloseButton>
+							</div>
 						</div>
 					</Popup>
 				</PopupProvider>
