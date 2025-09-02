@@ -48,7 +48,11 @@ export function TitleBarWithBack({
 	textColor,
 }: TitleProps) {
 	return (
-		<header className={styles["title-bar-b"]}>
+		<header
+			className={styles["title-bar-b"]}
+			style={{
+				backgroundColor: themeColor,
+			}}>
 			<BackButton arrowColor={textColor} backColor={themeColor} />
 			<Title
 				pagename={pagename}
@@ -74,7 +78,6 @@ function Title({ pagename, themeColor, textColor, isBack }: PageNameProps) {
 			className={styles["page-title"]}
 			style={{
 				color: textColor,
-				backgroundColor: themeColor,
 				fontSize: Math.min(Math.max(24, 320 / pagename.length), 32),
 				paddingRight: blank,
 			}}
@@ -91,7 +94,7 @@ function Title({ pagename, themeColor, textColor, isBack }: PageNameProps) {
 function BackButton({ arrowColor, backColor }: { arrowColor: string, backColor: string }) {
 	const router = useNavigate();
 	return (
-		<Link onPress={() => router(-1)} className={styles["back-button"]} style={{ backgroundColor: `${backColor}` }}>
+		<Link onPress={() => router(-1)} className={styles["back-button"]}>
 			<MdiArrowBack fontSize={44} color={arrowColor} />
 		</Link>
 	);

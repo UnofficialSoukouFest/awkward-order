@@ -53,6 +53,12 @@ body {
 	margin: 0;
 }
 
-main > * {
+main>* {
 	grid-column: 1 / -1;
+}
+
+h1 {
+	font-size: 2.5rem;
+	color: var(--semantic-text-dark);
+	margin-left: var(--semantic-space-medium);
 }

@@ -1,10 +1,15 @@
 .title-bar,
 .title-bar-b {
+	z-index: 1000;
+	position: sticky;
+	top:0;
+	width: 100%;
+	height: max-content;
 	display: flex;
 	align-items: center;
-	margin-block: 0.5em;
-	border-bottom: solid 2px hwb(200 20% 0% / 0.8);
+	border-bottom: solid 1px hwb(200 20% 0% / 0.8);
 	/* @/app/global.cssから拝借 */
+	box-shadow: 0px 4px 8px var(--semantic-shadow-default);
 }
 
 .page-title {

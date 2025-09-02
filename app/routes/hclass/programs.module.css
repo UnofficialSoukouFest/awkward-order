@@ -15,7 +15,8 @@
 }
 
 .pr p {
-	max-width: min(40rem, 95vw);
+	margin: var(--semantic-space-medium);
+	max-width: 40rem;
 	font-size: 1rem;
 	font-family: var(--font-noto-sans-jp), sans-serif;
 }
@@ -25,19 +26,14 @@
 	flex-direction: column;
 }
 
-.menu h1 {
-	margin-right: auto;
-	color: var(--semantic-text-dark);
-}
-
 .topMenu {
 	display: flex;
 	flex-direction: column;
 }
 
 .topMenu h2 {
-	margin-left: auto;
-	margin-right: auto;
+	text-align: center;
+	margin: var(--semantic-space-large) 0;
 	color: var(--semantic-color-accent);
 	font-size: 2rem;
 }
@@ -48,7 +44,7 @@
 	background-color: var(--themecolor-main);
 }
 
-.topCenter{
+.topCenter {
 	width: fit-content;
 	margin: 0 auto;
 }
@@ -61,12 +57,13 @@
 }
 
 .otherMenu h2 {
-	margin-left: auto;
-	margin-right: auto;
+	text-align: center;
+	margin: var(--semantic-space-large) 0;
+	margin-top: 64px;
 	color: var(--semantic-color-accent);
 }
 
-.cardback{
+.cardback {
 	width: 100vw;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -85,13 +82,15 @@
 	flex-direction: column;
 }
 
-.place h1 {
-	color: var(--semantic-color-primary);
+.place>h1 {
+	position: relative;
+	width: 100%;
 }
 
 .body Button {
 	display: flex;
-	margin-left: auto;
-	margin-right: auto;
-	width: min(20vw, 40rem);
+	margin: var(--semantic-space-large) auto;
+	width: min(70vw, 40rem);
+	color: var(--semantic-text-white);
+	box-shadow: 0px 4px 4px var(--semantic-shadow-default) !important;
 }
