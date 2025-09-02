@@ -48,7 +48,6 @@
 	height: 100%;
 }
 
-
 .productImage>img {
 	height: 100%;
 	display: flex;
@@ -57,12 +56,20 @@
 	color: var(--semantic-text-white);
 }
 
+.productImage>p {
+	position: absolute;
+	top: 0;
+	left: 5px;
+	margin-top: 0;
+	z-index: 1000;
+	font-weight: bolder;
+}
+
 .decoration_ul {
 	position: absolute;
 	width: 65.5px;
 	top: 0;
 	left: 0;
-	fill: aqua;
 }
 
 .decoration_dr {
@@ -70,7 +77,6 @@
 	width: 39px;
 	right: 0;
 	bottom: 0;
-	fill: aqua;
 }
 
 /* 激推しメニュー用カード（nameとpriceは共通） */
