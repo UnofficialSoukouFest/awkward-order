@@ -35,20 +35,13 @@
 	--font-zen-maru-gothic:
 		"Zen Maru Gothic", ui-sans-serif, system-ui, sans-serif;
 	color-scheme: only light;
-	--themecolor-main-class-one: #24b23b;
-	--themecolor--main-class-two: #23cccc;
-	--themecolor-main-class-three: #a68f74;
-	--themecolor-main-class-four: #f252c5;
-	--themecolor-main-class-five: #6c1400;
-	--themecolor-main-class-six: #d6a766;
-	--themecolor-main-whole: #ffad19;
-	--thmecolor-sub-whole: #f2d8aa;
-	--thmecolor-sub-class-one: #aaf2b5;
-	--thmecolor-sub-class-two: #aaf2f2;
-	--thmecolor-sub-class-three: #f2d2aa;
-	--themecolor-sub-class-four: #f2aade;
-	--themecolor-sub-class-five: #f2b7aa;
-	--thmecolor-sub-class-six: #f2d4aa;
+	--themecolor-class-one: #a9f2b5;
+	--themecolor-class-two: #a9f2f2;
+	--themecolor-class-three: #f2d1a9;
+	--themecolor-class-four: #f2cfa9;
+	--themecolor-class-five: #f2b6a9;
+	--themecolor-class-six: #f2d3a9;
+	--themecolor-main: #f2d7a9;
 }
 
 html,
