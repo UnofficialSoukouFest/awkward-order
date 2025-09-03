@@ -17,7 +17,7 @@ import { commitSession, getSession } from "~/sessions.server";
 import MdiPencilOutline from "~icons/mdi/pencil-outline";
 import type { Route } from "./+types";
 import styles from "./index.module.css";
-import allergySelectAtom from "./atom";
+import { allergySelectAtom } from "./atom";
 import { useAtom } from "jotai";
 
 export async function loader({ params, context, request }: Route.LoaderArgs) {
@@ -74,7 +74,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 					<PopupToggleButton>アレルギーでフィルター</PopupToggleButton>
 					<Popup>
 						<div className={styles.dialogBox}>
-							<SelectSubstance />{" "}
+							<SelectSubstance />
 							{/* selected={selected} setSelected={setSelected} /> */}
 							<div className={styles.PopUpCloseButtonDiv}>
 								<PopupCloseButton>完了</PopupCloseButton>
