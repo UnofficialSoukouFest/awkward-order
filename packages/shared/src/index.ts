@@ -35,10 +35,12 @@ export type Product = {
 	classId: ClassID;
 	name: string;
 	price: number;
+	isFavorite: boolean;
 	assets?: Assets;
 	allergens: string[]; // 28品目
 	rootIngredients: string[]; // 原材料
 	compositeIngredients: CompositeIngredients[];
+	mayContains: string[];
 	stock?: ProductStock;
 };
 

@@ -27,18 +27,7 @@ export default defineConfig({
 	schema: "./app/schema.ts",
 	out: "./drizzle",
 	dialect: "sqlite",
-	...(process.env.NODE_ENV === "production"
-		? {
-				driver: "d1-http",
-				dbCredentials: {
-					accountId: process.env.CLOUDFLARE_ACCOUNT_ID ?? "",
-					databaseId: process.env.CLOUDFLARE_DATABASE_ID ?? "",
-					token: process.env.CLOUDFLARE_D1_TOKEN ?? "",
-				},
-			}
-		: {
-				dbCredentials: {
-					url: getLocalD1DB(),
-				},
-			}),
+	dbCredentials: {
+		url: getLocalD1DB() ?? "",
+	},
 });

@@ -9,7 +9,6 @@
 		"build:shared": "pnpm --filter @latimeria/shared run build",
 		"dev": "pnpm run '/^dev:.*/'",
 		"dev:app": "react-router dev",
-		"dev:assets-proxy": "pnpm --filter assets-proxy run dev",
 		"dev:scripts": "pnpm --filter @latimeria/latimeria-cli run dev",
 		"dev:shared": "pnpm --filter @latimeria/shared run dev",
 		"start": "react-router-serve ./build/server/index.js",
@@ -21,7 +20,9 @@
 		"generate:css-type": "hcm 'app/**/*.module.css' -o 'app/generated'",
 		"typecheck": "tsc --noEmit",
 		"syncPublic": "latimeria gdrive",
-		"db:sync": "drizzle-kit generate && drizzle-kit push"
+		"syncAssets": "latimeria assets",
+		"db:sync": "drizzle-kit generate --config=drizzle.dev.config.ts && drizzle-kit push --config=drizzle.dev.config.ts",
+		"db:prodSync": "drizzle-kit generate --config=drizzle.prod.config.ts && drizzle-kit push --config=drizzle.prod.config.ts"
 	},
 	"dependencies": {
 		"@hono/valibot-validator": "catalog:",
@@ -32,6 +33,7 @@
 		"@praha/drizzle-factory": "^1.2.1",
 		"@react-router/node": "^7.8.1",
 		"@react-router/serve": "^7.8.1",
+		"@unpic/react": "^1.0.1",
 		"@valibot/to-json-schema": "catalog:",
 		"clsx": "^2.1.1",
 		"drizzle-orm": "^0.44.4",
