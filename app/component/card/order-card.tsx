@@ -1,3 +1,4 @@
+import Image from "~/component/image";
 import styles from "./order-card.module.css";
 
 export function OrderCard() {

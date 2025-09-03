@@ -1,36 +1,28 @@
-import type { ComponentPropsWithRef } from "react";
+import type { ComponentPropsWithoutRef } from "react";
 
-const IMAGE_HOST_URL = import.meta.env.DEV
-	? "http://localhost:3000"
-	: "https://assets-proxy.kanium.workers.dev";
-
-function buildImageUrl(
-	src: string,
-	width: number,
-	quality?: number,
-	format?: string,
-) {
-	const params = new URLSearchParams();
-	params.set("width", String(width));
-	params.set("quality", String(quality ?? 75));
-	params.set("format", format ?? "auto");
-
-	return `${IMAGE_HOST_URL}/${src}?${params.toString()}`;
-}
+const IMAGE_HOST_URL = "https://assets-proxy.kanium.me/image";
 
 export type ImageProps = {
-	src: string;
-	width: number;
+	src?: string;
+	width?: number;
+	height?: number;
 	quality?: number;
 	format?: string;
 	alt: string;
-} & Omit<ComponentPropsWithRef<"img">, "src">;
+	unoptimized?: boolean
+} & Omit<ComponentPropsWithoutRef<"img">, "src">;
 
 export default function Image(props: ImageProps) {
+    let imageURL = `${IMAGE_HOST_URL}${props.src}${props.format ? `?format=${props.format}` : "?format=auto"}`;
+	if (!props.unoptimized || props.unoptimized === undefined) {
+		imageURL = imageURL.concat(`${props.width ? `&width=${props.width}` : ""}${props.quality ? `&quality=${props.quality}` : "&quality=75"}`)
+	}
 	return (
 		<img
 			{...props}
-			src={buildImageUrl(props.src, props.width, props.quality, props.format)}
+			src={imageURL}
+			width={props.width ?? 0}
+			height={props.height ?? 0}
 			alt={props.alt}
 		/>
 	);

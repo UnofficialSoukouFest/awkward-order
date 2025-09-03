@@ -1,6 +1,7 @@
 import { Button } from "@latimeria/ganoine";
 import { data } from "react-router";
 import { MenuCard, MenuCardPick } from "~/component/card/menu-card";
+import Image from "~/component/image";
 import { TitleBarWithBack } from "~/component/title-bar";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
