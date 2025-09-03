@@ -21,9 +21,6 @@ export const programFactory = defineFactory({
 		id: sequence,
 		name: `name-${sequence}`,
 		class: sequence,
-		assets: {},
-		color: "#ff5454",
-		description: `name-${sequence}はそばを提供します`,
 	}),
 });
 
@@ -44,8 +41,6 @@ export const productFactory = defineFactory({
 		assets: {},
 		rootIngredients: ["果糖", "ビタミンC"],
 		compositeIngredients: [{ name: "食塩" }],
-		isFavorite: false,
-		mayContains: [],
 	}),
 });
 
@@ -72,6 +67,6 @@ export const orderFactory = defineFactory({
 				.create()
 				.then((program) => program.id),
 		timestamp: new Date(),
-		purchases: [sequence],
+		purchases: [`name-${sequence}`],
 	}),
 });

@@ -11,7 +11,7 @@
 			"backend": "WebStorm"
 		},
 		"vscode": {
-			"extensions": ["biomejs.biome"],
+			"extensions": ["dbaeumer.vscode-eslint"],
 			"settings": {
 				"editor.formatOnSave": true
 			}

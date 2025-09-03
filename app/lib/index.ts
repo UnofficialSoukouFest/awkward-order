@@ -6,8 +6,7 @@ export type DBClient = DrizzleD1Database<typeof schema> & {
 };
 
 /**
- * Rust-likeなResult型
- * 例外が投げられる可能性のあることを表現する型です
+ * Rust-likeな例外が投げられる可能性のあることを表現する型です
  */
 export type Result<T = unknown> = Ok<T> | Err;
 
@@ -25,13 +24,6 @@ export const Ok = <T>(payload: T): Ok<T> => {
 	return {
 		type: "ok",
 		payload: payload,
-	};
-};
-
-export const OkAsVoid = (): Ok<void> => {
-	return {
-		type: "ok",
-		payload: void 0,
 	};
 };
 

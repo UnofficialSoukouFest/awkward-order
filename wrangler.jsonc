@@ -12,7 +12,7 @@
 		{
 			"binding": "DB",
 			"database_name": "awkward-db-prod",
-			"database_id": "97c81488-f7ad-4ad5-982e-a1220965cd22",
+			"database_id": "5d5149b0-d74a-481e-a016-86301daa371f",
 			"migrations_dir": "drizzle"
 		}
 	]
