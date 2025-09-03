@@ -19,9 +19,9 @@ export default function Home() {
 		<>
 			<div className={`${styles.topVisualContainer} overlayContent`}>
 				<div id="top_visual" className={styles.topVisual}>
-					<img
+					<Image
 						className={styles.topImage}
-						src="/unanimated_topvisual.png"
+						src="/unanimating_topvisual.png"
 						alt=""
 						width={750}
 						height={1334}
