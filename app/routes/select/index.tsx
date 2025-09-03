@@ -17,6 +17,8 @@ import { commitSession, getSession } from "~/sessions.server";
 import MdiPencilOutline from "~icons/mdi/pencil-outline";
 import type { Route } from "./+types";
 import styles from "./index.module.css";
+import allergySelectAtom from "./atom";
+import { useAtom } from "jotai";
 
 export async function loader({ params, context, request }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -58,7 +60,8 @@ export async function loader({ params, context, request }: Route.LoaderArgs) {
 }
 
 export default function Select({ loaderData }: Route.ComponentProps) {
-	const [selected, setSelected] = useState(new Set([0]));
+	// const [selected, setSelected] = useState(new Set([0]));
+	const [selected, setSelected] = useAtom(allergySelectAtom);
 	return (
 		<>
 			<TitleBarWithBack
@@ -71,7 +74,8 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 					<PopupToggleButton>アレルギーでフィルター</PopupToggleButton>
 					<Popup>
 						<div className={styles.dialogBox}>
-							<SelectSubstance selected={selected} setSelected={setSelected} />
+							<SelectSubstance />{" "}
+							{/* selected={selected} setSelected={setSelected} /> */}
 							<div className={styles.PopUpCloseButtonDiv}>
 								<PopupCloseButton>完了</PopupCloseButton>
 							</div>
@@ -80,8 +84,10 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				</PopupProvider>
 				<Link href={""}>アレルギー表はこちらから</Link>
 			</div>
+			<p></p>
 			<div className={styles.selectProducts}>
 				{loaderData.products.map((product) => {
+					console.log(selected);
 					return (
 						<div key={product.id}>
 							<p>{product.name}</p>

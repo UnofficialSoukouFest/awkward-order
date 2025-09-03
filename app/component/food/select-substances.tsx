@@ -8,17 +8,21 @@ import {
 } from "react-aria-components";
 import { type SpecificSubstance, specificSubstanceList } from "~/lib/allergen";
 import styles from "./select-substances.module.css";
+import { useAtom } from "jotai";
+import { allergySelectAtom } from "../../routes/select/atom";
 
 /**
  * アレルゲン選択コンポーネント。
  */
-export function SelectSubstance({
+export function SelectSubstance(
+	/*{
 	selected,
 	setSelected,
 }: {
 	selected: Set<number>;
-	setSelected: Dispatch<SetStateAction<Set<number>>>;
-}) {
+	setSelected: ; //: Dispatch<SetStateAction<Set<number>>>;
+} */
+) {
 	const specificSubstanceTable = [
 		{ name: "アレルゲンを選択", children: [] as SpecificSubstance[] },
 		{ name: "特定原材料8品目", children: [] as SpecificSubstance[] },
@@ -47,12 +51,17 @@ export function SelectSubstance({
 		}
 	}
 
-	if ([...selected].length > 1 && [...selected][[...selected].length - 1] == 0)// 複数選択されていて、かつ、「選択しない」が選択されたとき、それ以外の選択を外す
-    	setSelected(new Set([0]))
-  	else if ([...selected].length === 0)// 何も選択されていなかったら「選択しない」を選択する
-    	setSelected(new Set([0]))
-  	if ([...selected].length > 1 && [...selected][0] == 0)// 「選択しない」以外が選択されたら「選択しない」から選択を外す
-    	setSelected(new Set([...selected].filter(item => item != 0)))
+	const [selected, setSelected] = useAtom(allergySelectAtom);
+
+	if ([...selected].length > 1 && [...selected][[...selected].length - 1] == 0)
+		// 複数選択されていて、かつ、「選択しない」が選択されたとき、それ以外の選択を外す
+		setSelected(new Set([0]));
+	else if ([...selected].length === 0)
+		// 何も選択されていなかったら「選択しない」を選択する
+		setSelected(new Set([0]));
+	if ([...selected].length > 1 && [...selected][0] == 0)
+		// 「選択しない」以外が選択されたら「選択しない」から選択を外す
+		setSelected(new Set([...selected].filter((item) => item != 0)));
 
 	return (
 		<div className={styles.dialogBox}>
