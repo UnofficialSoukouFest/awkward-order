@@ -4,11 +4,12 @@
 	border: 1px solid black;
 	border-radius: var(--semantic-radius-small);
 	background-color: var(--semantic-background-white);
-	width: min(36rem, 90vw);
+	width: min(35rem, 80vw);
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 5px;
 	margin-bottom: 5px;
+	padding-bottom: 10px;
 }
 
 .main {
@@ -26,7 +27,7 @@
 	margin-right: 5px;
 }
 
-.productImage > img {
+.productImage>img {
 	height: 100%;
 	display: flex;
 	object-fit: cover;
@@ -34,7 +35,7 @@
 	color: var(--semantic-text-white);
 }
 
-.productImage > p {
+.productImage>p {
 	position: absolute;
 	top: 0;
 	left: 5px;
@@ -74,21 +75,21 @@
 	flex-direction: column;
 	font-size: 1.25rem;
 	font-weight: bolder;
+	width: 100%;
 }
 
 .menu {
 	margin-top: 5px;
 }
-.price {
-	margin-top: auto;
-	margin-bottom: 5px;
+
+.bottom {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
 }
 
-.priceUnit {
-	font-size: 0.67em;
-}
-
-.card button {
+.bottom>button {
+	font-size: 1rem;
 	display: flex;
 	justify-content: center;
 	border: none;
@@ -103,6 +104,15 @@
 	color: var(--semantic-text-dark);
 	position: relative;
 	z-index: 1000;
+}
+
+.price {
+	margin-top: auto;
+	margin-bottom: 5px;
+}
+
+.priceUnit {
+	font-size: 0.67em;
 }
 
 .card button:hover {

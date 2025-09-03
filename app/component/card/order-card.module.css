@@ -24,15 +24,6 @@
 	color: var(--semantic-text-white);
 }
 
-.productImage > p {
-	position: absolute;
-	top: 0;
-	left: 5px;
-	margin-top: 0;
-	z-index: 1;
-	font-weight: bolder;
-}
-
 .decoration_ul {
 	position: absolute;
 	width: 65.5px;
