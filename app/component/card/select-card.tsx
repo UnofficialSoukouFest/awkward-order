@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "~/component/image";
 import styles from "./select-card.module.css";
 
 export type DisplayType = {
@@ -17,7 +18,7 @@ export function SelectCard({ product }: SelectType) {
 	return (
 		<div className={styles.card}>
 			<div className={styles.main}>
-				<img alt="商品の画像です" />
+				<Image alt="商品の画像です" />
 				<div className={styles.menuPrice}>
 					<p className={styles.menu}>{product.name}</p>
 					<p className={styles.price}>{product.price}</p>
@@ -55,7 +56,7 @@ export function SelectCardPick({ product }: SelectType) {
 			<div className={styles.main}>
 				<div className={styles.picture}>
 					<p className={styles.express}>激推し</p>
-					<img alt="商品の画像です" />
+					<Image alt="商品の画像です" />
 				</div>
 				<div className={styles.menuPrice}>
 					<p className={styles.menu}>{product.name}</p>

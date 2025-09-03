@@ -1,3 +1,4 @@
+import Image from "~/component/image";
 import styles from "./menu-card.module.css";
 
 type ProductType = {
@@ -14,7 +15,7 @@ type MenuProps = {
 export function MenuCard({ product }: MenuProps) {
 	return (
 		<div className={styles.menuCard}>
-			<img alt="商品の画像です。" />
+			<Image alt="商品の画像です。" />
 			<div className={styles.cardText}>
 				<p className={styles.menuName}>{product.name}</p>
 				<p className={styles.price}>{product.price}</p>
@@ -26,7 +27,7 @@ export function MenuCard({ product }: MenuProps) {
 export function MenuCardPick({ product }: MenuProps) {
 	return (
 		<div className={styles.pickMenuCard}>
-			<img alt="商品の画像です。" />
+			<Image alt="商品の画像です。" />
 			<div className={styles.pickCardText}>
 				<p className={styles.pickMenuName}>{product.name}</p>
 				<p className={styles.pickPrice}>{product.price}</p>
@@ -39,7 +40,7 @@ export function MenuCardAll({ product }: MenuProps) {
 	return (
 		<div className={styles.allMenuCard}>
 			<p>{product.classId}</p>
-			<img alt="商品の画像です。" />
+			<Image alt="商品の画像です。" />
 			<div className={styles.cardText}>
 				<p className={styles.menuName}>{product.name}</p>
 				<p className={styles.price}>{product.price}</p>
