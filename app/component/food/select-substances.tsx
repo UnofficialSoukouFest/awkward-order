@@ -46,6 +46,14 @@ export function SelectSubstance({
 			}
 		}
 	}
+
+	if ([...selected].length > 1 && [...selected][[...selected].length - 1] == 0)// 複数選択されていて、かつ、「選択しない」が選択されたとき、それ以外の選択を外す
+    	setSelected(new Set([0]))
+  	else if ([...selected].length === 0)// 何も選択されていなかったら「選択しない」を選択する
+    	setSelected(new Set([0]))
+  	if ([...selected].length > 1 && [...selected][0] == 0)// 「選択しない」以外が選択されたら「選択しない」から選択を外す
+    	setSelected(new Set([...selected].filter(item => item != 0)))
+
 	return (
 		<div className={styles.dialogBox}>
 			<h1>アレルギーフィルター</h1>
