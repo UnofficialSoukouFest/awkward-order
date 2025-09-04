@@ -63,6 +63,16 @@ export default function Home() {
 					</DetailsCard>
 				</div>
 			</div>
+			<iframe
+			className={styles.slide}
+			src="https://docs.google.com/presentation/d/e/2PACX-1vRSvoPrrU09BtDllWGcO3DX-EMw352OwDCt9hkw02RBTGMx-iumWjVnqMANDBV99leJqEyKKtKIeyIi/pubembed?start=false&loop=false&delayms=5000"
+			width={320}
+			height={190}
+			allowFullScreen={true}
+			mozallowfullscreen="true"
+			webkitallowfullscreen="true"
+			>
+			</iframe>
 			<div className={styles.mapContainer}>
 				<h2 className={styles.mainHeading}>販売場所</h2>
 				<div className={styles.YSFmap}>
