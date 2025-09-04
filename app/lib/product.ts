@@ -72,37 +72,46 @@ export async function updateProduct(
 
 export async function matchProducts(
 	db: DBClient,
-	query: PartialProducts,
+	query: PartialProducts | undefined,
 ): Promise<Result<Products>> {
-	const condictions = query.map((q) => {
-		const childCondictions = [];
-		if (q.id) {
-			childCondictions.push(eq(productTable.id, q.id));
-		}
-		if (q.name) {
-			childCondictions.push(eq(productTable.name, q.name));
-		}
-		if (q.classId) {
-			childCondictions.push(eq(productTable.classId, q.classId));
-		}
-		if (q.price) {
-			childCondictions.push(eq(productTable.price, q.price));
-		}
-		if (q.allergens) {
-			childCondictions.push(eq(productTable.allergen, q.allergens));
-		}
-		if (q.rootIngredients) {
-			childCondictions.push(
-				eq(productTable.rootIngredients, q.rootIngredients),
-			);
-		}
-		if (q.compositeIngredients) {
-			childCondictions.push(
-				eq(productTable.compositeIngredients, q.compositeIngredients),
-			);
-		}
-		return childCondictions;
-	});
+	const condictions =
+		query == undefined
+			? () => {
+					const childCondictions = [];
+					for (let i = 0; i < 6; i++) {
+						childCondictions.push(eq(productTable.classId, `${i}`));
+					}
+					return childCondictions;
+				}
+			: query.map((q) => {
+					const childCondictions = [];
+					if (q.id) {
+						childCondictions.push(eq(productTable.id, q.id));
+					}
+					if (q.name) {
+						childCondictions.push(eq(productTable.name, q.name));
+					}
+					if (q.classId) {
+						childCondictions.push(eq(productTable.classId, q.classId));
+					}
+					if (q.price) {
+						childCondictions.push(eq(productTable.price, q.price));
+					}
+					if (q.allergens) {
+						childCondictions.push(eq(productTable.allergen, q.allergens));
+					}
+					if (q.rootIngredients) {
+						childCondictions.push(
+							eq(productTable.rootIngredients, q.rootIngredients),
+						);
+					}
+					if (q.compositeIngredients) {
+						childCondictions.push(
+							eq(productTable.compositeIngredients, q.compositeIngredients),
+						);
+					}
+					return childCondictions;
+				});
 	const whereBuilder = and(...flattenDeep(condictions));
 	const queryBuilder = db.query.productTable.findMany({
 		with: { productStock: true },
