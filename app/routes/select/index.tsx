@@ -62,6 +62,8 @@ export async function loader({ params, context, request }: Route.LoaderArgs) {
 export default function Select({ loaderData }: Route.ComponentProps) {
 	// const [selected, setSelected] = useState(new Set([0]));
 	const [selected, setSelected] = useAtom(allergySelectAtom);
+	// filteredproductsは、選択されたアレルギーを含まない商品のリスト
+	const filteredproducts = loaderData.products.filter((product) => product.allergens.every((allergen) => !selected.has(allergen)));
 	return (
 		<>
 			<TitleBarWithBack
@@ -87,7 +89,6 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 			<p></p>
 			<div className={styles.selectProducts}>
 				{loaderData.products.map((product) => {
-					console.log(selected);
 					return (
 						<div key={product.id}>
 							<p>{product.name}</p>
