@@ -10,8 +10,16 @@ import { data } from "react-router";
 import { Drawer } from "vaul";
 import { SelectSubstance } from "~/component/food/select-substances";
 import { TitleBarWithBack } from "~/component/title-bar";
-import { OrderCard, type OrderType, type OrderProps } from "~/component/card/order-card";
-import { SelectCard, type SelectType, type DisplayType } from "~/component/card/select-card";
+import {
+	OrderCard,
+	type OrderType,
+	type OrderProps,
+} from "~/component/card/order-card";
+import {
+	SelectCard,
+	type SelectType,
+	type DisplayType,
+} from "~/component/card/select-card";
 import { addOrder, matchOrder } from "~/lib/order";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
@@ -67,7 +75,15 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 	const [selected, setSelected] = useAtom(allergySelectAtom);
 	// filteredproductsは、選択されたアレルギーを含まない商品のリスト
 	let filteredproducts = [];
-	filteredproducts = loaderData.products.filter((product) => product.allergens.every((allergen) => !(specificSubstanceList.filter(item => selected.has(item.id)).map(item => item.name).includes(allergen))));
+	filteredproducts = loaderData.products.filter((product) =>
+		product.allergens.every(
+			(allergen) =>
+				!specificSubstanceList
+					.filter((item) => selected.has(item.id))
+					.map((item) => item.name)
+					.includes(allergen),
+		),
+	);
 	return (
 		<>
 			<TitleBarWithBack
@@ -90,7 +106,17 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				</PopupProvider>
 				<Link href={""}>アレルギー表はこちらから</Link>
 			</div>
-			{ !selected.has(0) ? <p>{specificSubstanceList.filter(item => selected.has(item.id)).map(item => item.name).join('、')}を含まない：</p> : "" }
+			{!selected.has(0) ? (
+				<p>
+					{specificSubstanceList
+						.filter((item) => selected.has(item.id))
+						.map((item) => item.name)
+						.join("、")}
+					を含まない：
+				</p>
+			) : (
+				""
+			)}
 			<div className={styles.selectProducts}>
 				{loaderData.products.map((product) => {
 					const displayProduct: DisplayType = {
@@ -99,14 +125,12 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 						classId: product.classId,
 						allergens: product.allergens,
 						mayContainAllergens: product.mayContains,
-						Ingredients: product.rootIngredients.join('、'),// ここは暫定的にrootIngredientsを使用
-					}
+						Ingredients: product.rootIngredients.join("、"), // ここは暫定的にrootIngredientsを使用
+					};
 					const selectType: SelectType = {
-						product: displayProduct
-					}
-					return (
-						<SelectCard key={product.id} productData={selectType} />
-					);
+						product: displayProduct,
+					};
+					return <SelectCard key={product.id} productData={selectType} />;
 				})}
 			</div>
 			<div className={styles.selectButtom}>
@@ -117,19 +141,17 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 							data-testid="content"
 							className={styles.selectButtomContent}
 						>
-							{
-								loaderData.order.purchases.map(item => {
-									const product: OrderProps = {
-										name: item.name,
-										price: item.price,
-										number: 1,
-									}
-									const orderType: OrderType = {
-										product: product
-									}
-									return <OrderCard key={item.id} productData={orderType} />
-								})
-							}
+							{loaderData.order.purchases.map((item) => {
+								const product: OrderProps = {
+									name: item.name,
+									price: item.price,
+									number: 1,
+								};
+								const orderType: OrderType = {
+									product: product,
+								};
+								return <OrderCard key={item.id} productData={orderType} />;
+							})}
 							<p>
 								<MdiPencilOutline /> 合計金額:
 							</p>

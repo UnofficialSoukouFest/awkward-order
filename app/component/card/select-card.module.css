@@ -27,7 +27,7 @@
 	margin-right: 5px;
 }
 
-.productImage>img {
+.productImage > img {
 	height: 100%;
 	display: flex;
 	object-fit: cover;
@@ -35,7 +35,7 @@
 	color: var(--semantic-text-white);
 }
 
-.productImage>p {
+.productImage > p {
 	position: absolute;
 	top: 0;
 	left: 5px;
@@ -88,7 +88,7 @@
 	height: 100%;
 }
 
-.bottom>button {
+.bottom > button {
 	font-size: 1rem;
 	display: flex;
 	justify-content: center;

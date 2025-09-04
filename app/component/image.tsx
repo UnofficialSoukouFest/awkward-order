@@ -9,13 +9,15 @@ export type ImageProps = {
 	quality?: number;
 	format?: string;
 	alt: string;
-	unoptimized?: boolean
+	unoptimized?: boolean;
 } & Omit<ComponentPropsWithoutRef<"img">, "src">;
 
 export default function Image(props: ImageProps) {
-    let imageURL = `${IMAGE_HOST_URL}${props.src}${props.format ? `?format=${props.format}` : "?format=auto"}`;
+	let imageURL = `${IMAGE_HOST_URL}${props.src}${props.format ? `?format=${props.format}` : "?format=auto"}`;
 	if (!props.unoptimized || props.unoptimized === undefined) {
-		imageURL = imageURL.concat(`${props.width ? `&width=${props.width}` : ""}${props.quality ? `&quality=${props.quality}` : "&quality=75"}`)
+		imageURL = imageURL.concat(
+			`${props.width ? `&width=${props.width}` : ""}${props.quality ? `&quality=${props.quality}` : "&quality=75"}`,
+		);
 	}
 	return (
 		<img
