@@ -1,13 +1,13 @@
 import Image from "~/component/image";
 import styles from "./order-card.module.css";
 
-type OrderProps = {
+export type OrderProps = {
 	name: string;
 	price: number;
 	number: number;
 };
 
-type OrderType = {
+export type OrderType = {
 	product: OrderProps;
 };
 
