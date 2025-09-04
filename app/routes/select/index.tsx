@@ -10,6 +10,7 @@ import { data } from "react-router";
 import { Drawer } from "vaul";
 import { SelectSubstance } from "~/component/food/select-substances";
 import { TitleBarWithBack } from "~/component/title-bar";
+import { OrderCard, type OrderType, type OrderProps } from "~/component/card/order-card";
 import { addOrder, matchOrder } from "~/lib/order";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
@@ -64,7 +65,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 	// const [selected, setSelected] = useState(new Set([0]));
 	const [selected, setSelected] = useAtom(allergySelectAtom);
 	// filteredproductsは、選択されたアレルギーを含まない商品のリスト
-	const filteredproducts = [];
+	let filteredproducts = [];
 	filteredproducts = loaderData.products.filter((product) => product.allergens.every((allergen) => !(specificSubstanceList.filter(item => selected.has(item.id)).map(item => item.name).includes(allergen))));
 	return (
 		<>
@@ -91,7 +92,6 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 			{ filteredproducts == undefined ? <p>`${filteredproducts.join('、')}を含まない：`</p> : <p></p> }
 			<div className={styles.selectProducts}>
 				{loaderData.products.map((product) => {
-	console.log(selected);
 					return (
 						<div key={product.id}>
 							<p>{product.name}</p>
@@ -107,6 +107,19 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 							data-testid="content"
 							className={styles.selectButtomContent}
 						>
+							{
+								loaderData.order.purchases.map(item => {
+									const product: OrderProps = {
+										name: item.name,
+										price: item.price,
+										number: 1,
+									}
+									const orderType: OrderType = {
+										product: product
+									}
+									return <OrderCard key={item.id} product={orderType} />
+								})
+							}
 							<p>
 								<MdiPencilOutline /> 合計金額:
 							</p>
