@@ -11,6 +11,7 @@ import { Drawer } from "vaul";
 import { SelectSubstance } from "~/component/food/select-substances";
 import { TitleBarWithBack } from "~/component/title-bar";
 import { OrderCard, type OrderType, type OrderProps } from "~/component/card/order-card";
+import { SelectCard, type SelectType, type DisplayType } from "~/component/card/select-card";
 import { addOrder, matchOrder } from "~/lib/order";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
@@ -89,13 +90,22 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				</PopupProvider>
 				<Link href={""}>アレルギー表はこちらから</Link>
 			</div>
-			{ filteredproducts == undefined ? <p>`${filteredproducts.join('、')}を含まない：`</p> : <p></p> }
+			{ filteredproducts == undefined ? <p>`${filteredproducts.join('、')}を含まない：`</p> : "" }
 			<div className={styles.selectProducts}>
 				{loaderData.products.map((product) => {
+					const displayProduct: DisplayType = {
+						name: product.name,
+						price: product.price,
+						classId: product.classId,
+						allergens: product.allergens,
+						mayContainAllergens: product.mayContains,
+						Ingredients: product.rootIngredients.join('、'),// ここは暫定的にrootIngredientsを使用
+					}
+					const selectType: SelectType = {
+						product: displayProduct
+					}
 					return (
-						<div key={product.id}>
-							<p>{product.name}</p>
-						</div>
+						<SelectCard key={product.id} productData={selectType} />
 					);
 				})}
 			</div>
@@ -117,7 +127,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 									const orderType: OrderType = {
 										product: product
 									}
-									return <OrderCard key={item.id} product={orderType} />
+									return <OrderCard key={item.id} productData={orderType} />
 								})
 							}
 							<p>
