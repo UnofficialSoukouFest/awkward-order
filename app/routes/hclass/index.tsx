@@ -9,6 +9,7 @@ import type { Route } from "./+types/index";
 import styles from "./programs.module.css";
 import { OrderCard } from "~/component/card/order-card";
 import { SelectCard, SelectCardPick } from "~/component/card/select-card";
+import { select, order } from "~/lib/hogeType";
 
 export async function loader({ params, context }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -83,10 +84,10 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 							</div>
 						</div>
 					</div>
-					<h2>試作品用欄</h2>
-					<OrderCard />
-					<SelectCard />
-					<SelectCardPick />
+					{/* <h2>試作品用欄</h2>
+					<OrderCard productData={order(loaderData)[0]}/>
+					<SelectCard productData={select(loaderData)[0]}/>
+					<SelectCardPick /> */}
 				</div>
 				<Button
 					onPress={() => alert("まだ繋がっていません！")}
