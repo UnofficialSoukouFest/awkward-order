@@ -48,7 +48,7 @@
 	height: 100%;
 }
 
-.productImage > img {
+.productImage > Image {
 	height: 100%;
 	display: flex;
 	object-fit: cover;
@@ -89,7 +89,7 @@
 	width: 11.3rem;
 }
 
-.pickMenuCard img {
+.pickMenuCard Image {
 	display: flex;
 	background-color: var(--semantic-color-accent);
 	color: var(--semantic-text-white);
