@@ -90,7 +90,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				</PopupProvider>
 				<Link href={""}>アレルギー表はこちらから</Link>
 			</div>
-			{ filteredproducts == undefined ? <p>`${filteredproducts.join('、')}を含まない：`</p> : "" }
+			{ !selected.has(0) ? <p>{specificSubstanceList.filter(item => selected.has(item.id)).map(item => item.name).join('、')}を含まない：</p> : "" }
 			<div className={styles.selectProducts}>
 				{loaderData.products.map((product) => {
 					const displayProduct: DisplayType = {
