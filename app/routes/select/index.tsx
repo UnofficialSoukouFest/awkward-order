@@ -19,6 +19,7 @@ import type { Route } from "./+types";
 import styles from "./index.module.css";
 import { allergySelectAtom } from "./atom";
 import { useAtom } from "jotai";
+import { specificSubstanceList } from "~/lib/allergen";
 
 export async function loader({ params, context, request }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -63,7 +64,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 	// const [selected, setSelected] = useState(new Set([0]));
 	const [selected, setSelected] = useAtom(allergySelectAtom);
 	// filteredproductsは、選択されたアレルギーを含まない商品のリスト
-	const filteredproducts = loaderData.products.filter((product) => product.allergens.every((allergen) => !selected.has(allergen)));
+	const filteredproducts = loaderData.products.filter((product) => product.allergens.every((allergen) => !(specificSubstanceList.filter(item => selected.has(item.id)).map(item => item.name).includes(allergen))));
 	return (
 		<>
 			<TitleBarWithBack
@@ -86,9 +87,10 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				</PopupProvider>
 				<Link href={""}>アレルギー表はこちらから</Link>
 			</div>
-			<p></p>
+			{ <p></p> }
 			<div className={styles.selectProducts}>
 				{loaderData.products.map((product) => {
+	console.log(selected);
 					return (
 						<div key={product.id}>
 							<p>{product.name}</p>
