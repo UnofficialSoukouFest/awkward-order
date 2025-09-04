@@ -43,10 +43,10 @@ export function OrderCard({ productData }: OrderType) {// product => productData
 			    </svg>
 			</div>
 			<div className={styles.texts}>
-				<p className={styles.name}>メニュー名＊＊＊＊＊＊＊＊＊＊</p>
+				<p className={styles.name}>{product.id}</p>
 				<div className={styles.values}>
 					<p className={styles.number}>A個</p>
-					<p className={styles.price}><span className={styles.priceUnit}>￥</span>ABC</p>
+					<p className={styles.price}><span className={styles.priceUnit}>￥</span>{product.price}</p>
 				</div>
 			</div>
 		</div>
