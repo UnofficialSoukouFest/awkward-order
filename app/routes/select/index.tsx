@@ -30,6 +30,7 @@ import styles from "./index.module.css";
 import { allergySelectAtom } from "./atom";
 import { useAtom } from "jotai";
 import { specificSubstanceList } from "~/lib/allergen";
+import { select, order } from "~/lib/hogeType";
 
 export async function loader({ params, context, request }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -118,20 +119,9 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				""
 			)}
 			<div className={styles.selectProducts}>
-				{loaderData.products.map((product) => {
-					const displayProduct: DisplayType = {
-						name: product.name,
-						price: product.price,
-						classId: product.classId,
-						allergens: product.allergens,
-						mayContainAllergens: product.mayContains,
-						Ingredients: product.rootIngredients.join("、"), // ここは暫定的にrootIngredientsを使用
-					};
-					const selectType: SelectType = {
-						product: displayProduct,
-					};
-					return <SelectCard key={product.id} productData={selectType} />;
-				})}
+				{select(loaderData).map((item) => (
+					<SelectCard key={item[1]} productData={item[0]} />
+				))}
 			</div>
 			<div className={styles.selectButtom}>
 				<Drawer.Root open={true}>
@@ -141,17 +131,9 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 							data-testid="content"
 							className={styles.selectButtomContent}
 						>
-							{loaderData.order.purchases.map((item) => {
-								const product: OrderProps = {
-									name: item.name,
-									price: item.price,
-									number: 1,
-								};
-								const orderType: OrderType = {
-									product: product,
-								};
-								return <OrderCard key={item.id} productData={orderType} />;
-							})}
+							{order(loaderData).map((item) => (
+								<OrderCard key={item[1]} productData={item[0]} />
+							))}
 							<p>
 								<MdiPencilOutline /> 合計金額:
 							</p>
