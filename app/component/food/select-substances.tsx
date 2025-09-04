@@ -1,3 +1,4 @@
+import { useAtom } from "jotai";
 import type { Dispatch, SetStateAction } from "react";
 import {
 	Collection,
@@ -7,9 +8,8 @@ import {
 	ListBoxSection,
 } from "react-aria-components";
 import { type SpecificSubstance, specificSubstanceList } from "~/lib/allergen";
-import styles from "./select-substances.module.css";
-import { useAtom } from "jotai";
 import { allergySelectAtom } from "../../routes/select/atom";
+import styles from "./select-substances.module.css";
 
 /**
  * アレルゲン選択コンポーネント。

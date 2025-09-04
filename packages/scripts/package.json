@@ -16,8 +16,8 @@
 		"typecheck": "tsc --noEmit",
 		"dev": "rslib build --watch",
 		"build": "rslib build",
-		"gen:assets-proxy": "openapi-typescript http://localhost:8787/openapi -o src/generated/assets-proxy.d.ts",
-		"gen:awkward-order": "openapi-typescript http://localhost:5173/api/openapi -o src/generated/awkward-order.d.ts"
+		"gen:assets-proxy": "openapi-typescript http://localhost:8787/openapi -o src/generated",
+		"gen:awkward-order": "openapi-typescript http://localhost:5173/api/openapi -o src/generated"
 	},
 	"repository": {
 		"type": "git",
@@ -34,8 +34,8 @@
 		"mime": "^4.0.7",
 		"openapi-fetch": "^0.14.0",
 		"openapi-typescript": "^7.9.1",
-		"pouchdb": "^9.0.0",
 		"pathe": "^2.0.3",
+		"pouchdb": "^9.0.0",
 		"uuid": "^11.1.0"
 	},
 	"devDependencies": {

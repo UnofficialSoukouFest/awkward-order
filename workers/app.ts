@@ -3,12 +3,6 @@ import { Hono } from "hono";
 import { createRequestHandler } from "react-router";
 import * as schema from "~/schema";
 import { app as apiApp } from "./api";
-import {
-	orderFactory,
-	productFactory,
-	productStockFactory,
-	programFactory,
-} from "./seed";
 
 declare module "react-router" {
 	export interface AppLoadContext {
@@ -40,11 +34,7 @@ app.get("/dev", async (c) => {
 	for (const table of Object.values(tables).reverse()) {
 		await db.delete(table);
 	}
-	await programFactory(db).create(3);
-	await productFactory(db).create();
-	await productStockFactory(db).create();
-	await orderFactory(db).create();
-	return c.json({ message: "data cleaned and generated!" });
+	return c.json({ message: "all data cleaned!" });
 });
 
 app.get("*", (c) => {

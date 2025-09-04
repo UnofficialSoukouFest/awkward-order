@@ -5,23 +5,31 @@ import {
 	PopupProvider,
 	PopupToggleButton,
 } from "@latimeria/ganoine";
+import { useAtom } from "jotai";
 import { useState } from "react";
 import { data } from "react-router";
 import { Drawer } from "vaul";
+import {
+	OrderCard,
+	type OrderProps,
+	type OrderType,
+} from "~/component/card/order-card";
+import {
+	type DisplayType,
+	SelectCard,
+	type SelectType,
+} from "~/component/card/select-card";
 import { SelectSubstance } from "~/component/food/select-substances";
 import { TitleBarWithBack } from "~/component/title-bar";
-import { OrderCard, type OrderType, type OrderProps } from "~/component/card/order-card";
-import { SelectCard, type SelectType, type DisplayType } from "~/component/card/select-card";
+import { specificSubstanceList } from "~/lib/allergen";
 import { addOrder, matchOrder } from "~/lib/order";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
 import { commitSession, getSession } from "~/sessions.server";
 import MdiPencilOutline from "~icons/mdi/pencil-outline";
 import type { Route } from "./+types";
-import styles from "./index.module.css";
 import { allergySelectAtom } from "./atom";
-import { useAtom } from "jotai";
-import { specificSubstanceList } from "~/lib/allergen";
+import styles from "./index.module.css";
 
 export async function loader({ params, context, request }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -67,7 +75,15 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 	const [selected, setSelected] = useAtom(allergySelectAtom);
 	// filteredproductsは、選択されたアレルギーを含まない商品のリスト
 	let filteredproducts = [];
-	filteredproducts = loaderData.products.filter((product) => product.allergens.every((allergen) => !(specificSubstanceList.filter(item => selected.has(item.id)).map(item => item.name).includes(allergen))));
+	filteredproducts = loaderData.products.filter((product) =>
+		product.allergens.every(
+			(allergen) =>
+				!specificSubstanceList
+					.filter((item) => selected.has(item.id))
+					.map((item) => item.name)
+					.includes(allergen),
+		),
+	);
 	return (
 		<>
 			<TitleBarWithBack
@@ -90,7 +106,17 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				</PopupProvider>
 				<Link href={""}>アレルギー表はこちらから</Link>
 			</div>
-			{ !selected.has(0) ? <p>{specificSubstanceList.filter(item => selected.has(item.id)).map(item => item.name).join('、')}を含まない：</p> : "" }
+			{!selected.has(0) ? (
+				<p>
+					{specificSubstanceList
+						.filter((item) => selected.has(item.id))
+						.map((item) => item.name)
+						.join("、")}
+					を含まない：
+				</p>
+			) : (
+				""
+			)}
 			<div className={styles.selectProducts}>
 				{loaderData.products.map((product) => {
 					const displayProduct: DisplayType = {
@@ -98,15 +124,13 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 						price: product.price,
 						classId: product.classId,
 						allergens: product.allergens,
-						mayContainAllergens: product.mayContains,
-						Ingredients: product.rootIngredients.join('、'),// ここは暫定的にrootIngredientsを使用
-					}
+						mayContainAllergens: product.mayContains ?? [],
+						Ingredients: product.rootIngredients.join("、"), // ここは暫定的にrootIngredientsを使用
+					};
 					const selectType: SelectType = {
-						product: displayProduct
-					}
-					return (
-						<SelectCard key={product.id} productData={selectType} />
-					);
+						product: displayProduct,
+					};
+					return <SelectCard key={product.id} product={selectType} />;
 				})}
 			</div>
 			<div className={styles.selectButtom}>
@@ -117,27 +141,27 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 							data-testid="content"
 							className={styles.selectButtomContent}
 						>
-							{
-								loaderData.order.purchases.map(item => {
-									const product: OrderProps = {
-										name: item.name,
-										price: item.price,
-										number: 1,
-									}
-									const orderType: OrderType = {
-										product: product
-									}
-									return <OrderCard key={item.id} productData={orderType} />
-								})
-							}
+							{loaderData.order.purchases.map((item) => {
+								const product: OrderProps = {
+									name: item.name,
+									price: item.price,
+									number: 1,
+								};
+								return <OrderCard key={item.id} product={product} />;
+							})}
 							<p>
-								<MdiPencilOutline /> 合計金額: {  loaderData.order.purchases.reduce((sum, item) => sum + item.price, 0) }円
+								<MdiPencilOutline /> 合計金額:{" "}
+								{loaderData.order.purchases.reduce(
+									(sum, item) => sum + item.price,
+									0,
+								)}
+								円
 							</p>
 						</Drawer.Content>
 					</Drawer.Portal>
 				</Drawer.Root>
 			</div>
-			<Link href={"../../order/" + loaderData.order.id}>拡大表示</Link>
+			<Link href={`order/${loaderData.order.id}`}>拡大表示</Link>
 		</>
 	);
 }
