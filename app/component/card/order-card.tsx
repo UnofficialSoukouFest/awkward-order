@@ -1,11 +1,17 @@
 import styles from "./order-card.module.css";
 
-/**
- * 
- * @param {Product} product
- * @returns 
- */
-export function OrderCard(product) {
+export type OrderProps = {
+	name: string;
+	price: number;
+	number: number;
+};
+
+export type OrderType = {
+	product: OrderProps;
+};
+
+export function OrderCard({ productData }: OrderType) {// product => productData
+	const product = productData.product;// 追加
 	return (
 		<div className={styles.body}>
 			<div className={styles.productImage}>
