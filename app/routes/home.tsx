@@ -1,5 +1,6 @@
 import DetailsCard from "~/component/card/details-card";
 import MinimalCard from "~/component/card/minimal-card";
+import Image from "~/component/image";
 import { YMap } from "~/component/map/load-map";
 import styles from "./home.module.css";
 
@@ -18,9 +19,9 @@ export default function Home() {
 		<>
 			<div className={`${styles.topVisualContainer} overlayContent`}>
 				<div id="top_visual" className={styles.topVisual}>
-					<img
+					<Image
 						className={styles.topImage}
-						src="/unanimated_topvisual.png"
+						src="/unanimating_topvisual.png"
 						alt=""
 						width={750}
 						height={1334}

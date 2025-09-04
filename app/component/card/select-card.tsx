@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "~/component/image";
 import styles from "./select-card.module.css";
 
 export function SelectCard() {

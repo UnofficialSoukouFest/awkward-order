@@ -29,6 +29,27 @@
 			"when": 1756519432098,
 			"tag": "0003_known_stepford_cuckoos",
 			"breakpoints": true
+		},
+		{
+			"idx": 4,
+			"version": "6",
+			"when": 1756730471396,
+			"tag": "0004_tidy_thena",
+			"breakpoints": true
+		},
+		{
+			"idx": 5,
+			"version": "6",
+			"when": 1756730640660,
+			"tag": "0005_good_the_captain",
+			"breakpoints": true
+		},
+		{
+			"idx": 6,
+			"version": "6",
+			"when": 1756730658996,
+			"tag": "0006_public_emma_frost",
+			"breakpoints": true
 		}
 	]
 }

@@ -1,3 +1,4 @@
+import Image from "~/component/image";
 import styles from "./menu-card.module.css";
 
 export function MenuCard() {
