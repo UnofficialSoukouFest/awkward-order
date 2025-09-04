@@ -6,8 +6,11 @@ export function formatIngredient(ingredient: string[], compositeIngredients: Com
 
     for (const part of ingredient) {
         let formattedPart = part;
-        formattedPart += compositeIngredients.filter(item => item.name == part).map(item => `${item}${compositeIngredientsConstructerFirst(compositeIngredients, part)}`).join("、")
+        formattedPart += compositeIngredients.filter(item => item.name == part).map(item => `${item}${compositeIngredientsConstructerFirst(compositeIngredients, part)}`).join("、");
+        constructedIngredient.push(formattedPart);
     }
+    result = constructedIngredient.join("、");
+    return result;
 }
 
 function compositeIngredientsConstructerFirst(compositeIngredients: CompositeIngredients[], root: string) {
