@@ -68,11 +68,11 @@ export function SelectCard({ productData }: SelectType) {
 					<div className={styles.ingredients}>
 						<div className={styles.allergen}>
 							<h3>特定原材料28品目</h3>
-							<p>{product.allergens}</p>
+							<p>{product.allergens.join("、")}</p>
 						</div>
 						<div className={styles.otherIngredients}>
 							<h3>原材料</h3>
-							<p>原材料＊＊＊＊＊＊＊＊</p>
+							<p>{product.Ingredients}</p>
 						</div>
 					</div>
 				</>
