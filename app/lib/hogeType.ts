@@ -11,7 +11,7 @@ import {
 } from "~/component/card/select-card";
 import { formatIngredient } from "~/lib/ingredients";
 
-export function select(loaderData: Route.ComponentProps): SelectType[] {
+export function select(loaderData: Route.ComponentProps): [SelectType, any][] {
 	return loaderData.products.map((product) => {
 		const displayProduct: DisplayType = {
 			name: product.name,
@@ -27,10 +27,10 @@ export function select(loaderData: Route.ComponentProps): SelectType[] {
 		const selectType: SelectType = {
 			product: displayProduct,
 		};
-		return selectType;
+		return [selectType, product.id];
 	});
 }
-export function order(loaderData: Route.ComponentProps): OrderType[] {
+export function order(loaderData: Route.ComponentProps): [OrderType, any][] {
 	return loaderData.order.purchases.map((item) => {
 		const product: OrderProps = {
 			name: item.name,
@@ -40,6 +40,6 @@ export function order(loaderData: Route.ComponentProps): OrderType[] {
 		const orderType: OrderType = {
 			product: product,
 		};
-		return orderType;
+		return [orderType, item.id];
 	});
 }
