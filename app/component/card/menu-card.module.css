@@ -1,82 +1,104 @@
 /* 各クラスの一般メニュー用カード */
 .allMenuCard,
 .menuCard {
+	position: relative;
 	display: grid;
-	grid-template-rows: 1fr 1fr;
-	border: 1px solid;
+	grid-template-rows: 5rem 5rem;
+	outline: 1px solid;
 	border-radius: var(--semantic-radius-small);
 	background-color: var(--semantic-background-white);
 	width: 10rem;
-	margin-left: 10px;
-	margin-right: 10px;
-}
-
-.menuCard img {
-	display: flex;
-	background-color: var(--semantic-color-accent);
-	color: var(--semantic-text-white);
+	height: 10rem;
+	margin: 10px;
+	overflow: hidden;
 }
 
 .cardText {
-	display: grid;
-	border-top: 1px solid;
+	position: relative;
+	width: 10rem;
 	grid-template-rows: 1fr 1fr;
-	font-size: 1rem;
+	font-size: var(--semantic-font-size-s);
 }
 
 .pickMenuName,
 .menuName {
-	margin: 5px auto auto 5px;
+	word-break: break-all;
+	margin: var(--semantic-space-small);
+	font-weight: bolder;
 }
 
 .pickPrice,
 .price {
-	margin: auto 5px 5px auto;
+	position: absolute;
+	display: inline-block;
+	right: 0;
+	bottom: 0;
+	font-weight: bolder;
+	font-size: var(--semantic-font-size-xl);
+	margin: var(--semantic-space-small);
+}
+
+.priceUnit {
+	font-size: 0.67em;
+}
+
+.productImage {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.productImage > img {
+	height: 100%;
+	display: flex;
+	object-fit: cover;
+	background-color: var(--semantic-color-accent);
+	color: var(--semantic-text-white);
+}
+
+.productImage > p {
+	position: absolute;
+	top: 0;
+	left: 5px;
+	margin-top: 0;
+	z-index: 1;
+	font-weight: bolder;
+}
+
+.decoration_ul {
+	position: absolute;
+	width: 65.5px;
+	top: 0;
+	left: 0;
+}
+
+.decoration_dr {
+	position: absolute;
+	width: 39px;
+	right: 0;
+	bottom: 0;
 }
 
 /* 激推しメニュー用カード（nameとpriceは共通） */
 .pickMenuCard {
 	display: grid;
-	grid-template-rows: 1fr 1fr;
+	grid-template-rows: 5.7rem 5.6rem;
 	border: 1px solid;
 	border-radius: var(--semantic-radius-small);
 	background-color: var(--semantic-background-white);
-	width: 15rem;
+	width: 11.3rem;
 }
 
 .pickMenuCard img {
 	display: flex;
 	background-color: var(--semantic-color-accent);
 	color: var(--semantic-text-white);
-	font-size: 1.5rem;
+	font-size: 1.13rem;
 }
 
 .pickCardText {
-	display: grid;
-	border-top: 1px solid;
-	grid-template-rows: 1fr 1fr;
-	font-size: 1.25rem;
-}
-
-/* 各クラスのメニュー一覧用 */
-.allMenuCard p:not(.menuName):not(.price) {
-	grid-area: 1 / 1;
-	z-index: 10;
-	color: var(--semantic-color-accent);
-	font-weight: 700;
-	background-color: var(--semantic-background-white);
-	height: fit-content;
-	width: fit-content;
-	padding-right: 5px;
-	padding-left: 5px;
-	margin-left: 3px;
-	border-radius: var(--semantic-radius-small);
-	margin-top: 5px;
-}
-.allMenuCard img {
-	display: flex;
-	background-color: var(--semantic-color-accent);
-	color: var(--semantic-text-white);
-	grid-area: 1 / 1;
-	z-index: 9;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	font-size: 1rem;
 }
