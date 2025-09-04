@@ -64,8 +64,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 	// const [selected, setSelected] = useState(new Set([0]));
 	const [selected, setSelected] = useAtom(allergySelectAtom);
 	// filteredproductsは、選択されたアレルギーを含まない商品のリスト
-	const filteredproducts = [];
-	filteredproducts = loaderData.products.filter((product) => product.allergens.every((allergen) => !(specificSubstanceList.filter(item => selected.has(item.id)).map(item => item.name).includes(allergen))));
+	const filteredproducts = loaderData.products.filter((product) => product.allergens.every((allergen) => !(specificSubstanceList.filter(item => selected.has(item.id)).map(item => item.name).includes(allergen))));
 	return (
 		<>
 			<TitleBarWithBack
@@ -114,6 +113,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 					</Drawer.Portal>
 				</Drawer.Root>
 			</div>
+			<Link href={"../../order/" + loaderData.order.id}>拡大表示</Link>
 		</>
 	);
 }

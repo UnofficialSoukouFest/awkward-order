@@ -1,6 +1,11 @@
 import styles from "./order-card.module.css";
 
-export function OrderCard() {
+/**
+ * 
+ * @param {Product} product
+ * @returns 
+ */
+export function OrderCard(product) {
 	return (
 		<div className={styles.body}>
 			<div className={styles.productImage}>
@@ -32,10 +37,10 @@ export function OrderCard() {
 			    </svg>
 			</div>
 			<div className={styles.texts}>
-				<p className={styles.name}>メニュー名＊＊＊＊＊＊＊＊＊＊</p>
+				<p className={styles.name}>{product.id}</p>
 				<div className={styles.values}>
 					<p className={styles.number}>A個</p>
-					<p className={styles.price}><span className={styles.priceUnit}>￥</span>ABC</p>
+					<p className={styles.price}><span className={styles.priceUnit}>￥</span>{product.price}</p>
 				</div>
 			</div>
 		</div>

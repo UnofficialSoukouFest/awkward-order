@@ -4,7 +4,7 @@ import YSFMap from "./ysfmap.client";
 /**
  * どこでも使えるマップ
  * @param {Object} prop
- * @param {number?} prop.width
+ * @param {number?} [prop.width]
  * @param {number?} prop.height
  */
 export function YMap({ width, height }) {
