@@ -18,6 +18,8 @@ export type Program = {
 	name: string;
 	class: number;
 	assets?: Assets;
+	description?: string;
+	color: string;
 };
 
 export type CompositeIngredients = {
@@ -39,8 +41,8 @@ export type Product = {
 	assets?: Assets;
 	allergens: string[]; // 28品目
 	rootIngredients: string[]; // 原材料
-	compositeIngredients: CompositeIngredients[];
-	mayContains: string[];
+	compositeIngredients?: CompositeIngredients[];
+	mayContains?: string[];
 	stock?: ProductStock;
 };
 

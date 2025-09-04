@@ -20,10 +20,15 @@ const Product = defineCommand({
 		},
 		outputPath: {
 			type: "string",
+			required: false,
+		},
+		isProd: {
+			type: "boolean",
+			required: false,
 		},
 	},
 	run({ args }) {
-		productCompile(args.inputPath, args.outputPath).catch(console.error);
+		productCompile(args.inputPath, args.outputPath, args.isProd).catch(console.error);
 	},
 });
 
@@ -39,9 +44,13 @@ const Program = defineCommand({
 			type: "string",
 			required: false,
 		},
+		isProd: {
+			type: "boolean",
+			required: false,
+		},
 	},
 	run({ args }) {
-		programMigrate(args.inputPath, args.outputPath).catch(console.error);
+		programMigrate(args.inputPath, args.outputPath, args.isProd).catch(console.error);
 	},
 });
 

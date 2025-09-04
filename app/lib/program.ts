@@ -15,8 +15,16 @@ export async function addProgram(
 	const { success, issues, output } = safeParse(programInsertSchema, program);
 	if (success) {
 		const returns = await db.insert(programTable).values(output).returning();
-		const first: Program = returns[0];
-		return Ok(first);
+		const first = returns[0];
+		const program = {
+			id: first.id,
+			name: first.name,
+			class: first.class,
+			color: first.color,
+			description: first.description ?? undefined,
+			assets: first.assets ?? undefined,
+		} satisfies Program;
+		return Ok(program);
 	} else {
 		return Err(new Error(`${issues}`));
 	}
@@ -36,8 +44,16 @@ export async function updateProgram(
 			builder.where(eq(programTable.name, program.name));
 		}
 		const returns = await builder.returning();
-		const first: Program = returns[0];
-		return Ok(first);
+		const first = returns[0];
+		const res = {
+			id: first.id,
+			name: first.name,
+			class: first.class,
+			color: first.color,
+			description: first.description ?? undefined,
+			assets: first.assets ?? undefined,
+		} satisfies Program;
+		return Ok(res);
 	} else {
 		return Err(new Error(`${issues}`));
 	}
@@ -58,8 +74,17 @@ export async function matchProgram(
 		queryBuilder.where(eq(programTable.name, query.name));
 	}
 	const matched = await queryBuilder;
+	const first = matched[0];
+	const res = {
+		id: first.id,
+		name: first.name,
+		class: first.class,
+		color: first.color,
+		description: first.description ?? undefined,
+		assets: first.assets ?? undefined,
+	} satisfies Program;
 	return matched.length > 0 && matched.length < 2
-		? Ok(matched[0])
+		? Ok(res)
 		: Err(new Error(`Matched ${matched.length} results. It's unexpected.`));
 }
 
@@ -83,7 +108,16 @@ export async function deleteProgram(
 		queryBuilder.where(eq(programTable.name, query.name));
 	}
 	const matched = await queryBuilder.returning();
+	const first = matched[0];
+	const res = {
+		id: first.id,
+		name: first.name,
+		class: first.class,
+		color: first.color,
+		description: first.description ?? undefined,
+		assets: first.assets ?? undefined,
+	} satisfies Program;
 	return matched.length > 0 && matched.length < 2
-		? Ok(matched[0])
+		? Ok(res)
 		: Err(new Error(`Deleted ${matched.length} results. It's unexpected.`));
 }
