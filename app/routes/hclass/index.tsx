@@ -9,8 +9,6 @@ import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
 import type { Route } from "./+types/index";
 import styles from "./programs.module.css";
-import { OrderCard } from "~/component/card/order-card";
-import { SelectCard, SelectCardPick } from "~/component/card/select-card";
 import { select, order } from "~/lib/hogeType";
 
 export async function loader({ params, context }: Route.LoaderArgs) {

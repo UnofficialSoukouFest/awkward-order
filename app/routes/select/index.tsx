@@ -9,28 +9,8 @@ import { useAtom } from "jotai";
 import { useState } from "react";
 import { data } from "react-router";
 import { Drawer } from "vaul";
-import {
-	OrderCard,
-	type OrderProps,
-	type OrderType,
-} from "~/component/card/order-card";
-import {
-	type DisplayType,
-	SelectCard,
-	type SelectType,
-} from "~/component/card/select-card";
 import { SelectSubstance } from "~/component/food/select-substances";
 import { TitleBarWithBack } from "~/component/title-bar";
-import {
-	OrderCard,
-	type OrderType,
-	type OrderProps,
-} from "~/component/card/order-card";
-import {
-	SelectCard,
-	type SelectType,
-	type DisplayType,
-} from "~/component/card/select-card";
 import { addOrder, matchOrder } from "~/lib/order";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
@@ -39,7 +19,6 @@ import MdiPencilOutline from "~icons/mdi/pencil-outline";
 import type { Route } from "./+types";
 import { allergySelectAtom } from "./atom";
 import styles from "./index.module.css";
-import { useAtom } from "jotai";
 import { specificSubstanceList } from "~/lib/allergen";
 import { select, order } from "~/lib/hogeType";
 
