@@ -21,7 +21,8 @@
 		"typecheck": "tsc --noEmit",
 		"syncPublic": "latimeria gdrive",
 		"syncAssets": "latimeria assets",
-		"db:sync": "drizzle-kit generate && drizzle-kit push"
+		"db:sync": "drizzle-kit generate --config=drizzle.dev.config.ts && drizzle-kit push --config=drizzle.dev.config.ts",
+		"db:prodSync": "drizzle-kit generate --config=drizzle.prod.config.ts && drizzle-kit push --config=drizzle.prod.config.ts"
 	},
 	"dependencies": {
 		"@hono/valibot-validator": "catalog:",
