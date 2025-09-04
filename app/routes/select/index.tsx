@@ -131,12 +131,13 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 								})
 							}
 							<p>
-								<MdiPencilOutline /> 合計金額:
+								<MdiPencilOutline /> 合計金額: {  loaderData.order.purchases.reduce((sum, item) => sum + item.price, 0) }円
 							</p>
 						</Drawer.Content>
 					</Drawer.Portal>
 				</Drawer.Root>
 			</div>
+			<Link href={"../../order/" + loaderData.order.id}>拡大表示</Link>
 		</>
 	);
 }
