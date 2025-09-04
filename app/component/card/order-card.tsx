@@ -11,7 +11,8 @@ export type OrderType = {
 	product: OrderProps;
 };
 
-export function OrderCard({ product }: OrderType) {
+export function OrderCard({ productData }: OrderType) {// product => productData
+	const product = productData.product;// 追加
 	return (
 		<div className={styles.body}>
 			<Image alt="商品画像です。" />
