@@ -1,3 +1,4 @@
+import Image from "~/component/image";
 import styles from "./order-card.module.css";
 
 type OrderProps = {
@@ -13,7 +14,7 @@ type OrderType = {
 export function OrderCard({ product }: OrderType) {
 	return (
 		<div className={styles.body}>
-			<img alt="商品画像です。" />
+			<Image alt="商品画像です。" />
 			<div className={styles.texts}>
 				<p className={styles.name}>{product.name}</p>
 				<div className={styles.values}>

@@ -1,55 +1,55 @@
 {
-  "version": "7",
-  "dialect": "sqlite",
-  "entries": [
-    {
-      "idx": 0,
-      "version": "6",
-      "when": 1756118759071,
-      "tag": "0000_stiff_martin_li",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "6",
-      "when": 1756126534127,
-      "tag": "0001_stale_beast",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "6",
-      "when": 1756301767226,
-      "tag": "0002_happy_mathemanic",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "6",
-      "when": 1756519432098,
-      "tag": "0003_known_stepford_cuckoos",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "6",
-      "when": 1756730471396,
-      "tag": "0004_tidy_thena",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "6",
-      "when": 1756730640660,
-      "tag": "0005_good_the_captain",
-      "breakpoints": true
-    },
-    {
-      "idx": 6,
-      "version": "6",
-      "when": 1756730658996,
-      "tag": "0006_public_emma_frost",
-      "breakpoints": true
-    }
-  ]
+	"version": "7",
+	"dialect": "sqlite",
+	"entries": [
+		{
+			"idx": 0,
+			"version": "6",
+			"when": 1756118759071,
+			"tag": "0000_stiff_martin_li",
+			"breakpoints": true
+		},
+		{
+			"idx": 1,
+			"version": "6",
+			"when": 1756126534127,
+			"tag": "0001_stale_beast",
+			"breakpoints": true
+		},
+		{
+			"idx": 2,
+			"version": "6",
+			"when": 1756301767226,
+			"tag": "0002_happy_mathemanic",
+			"breakpoints": true
+		},
+		{
+			"idx": 3,
+			"version": "6",
+			"when": 1756519432098,
+			"tag": "0003_known_stepford_cuckoos",
+			"breakpoints": true
+		},
+		{
+			"idx": 4,
+			"version": "6",
+			"when": 1756730471396,
+			"tag": "0004_tidy_thena",
+			"breakpoints": true
+		},
+		{
+			"idx": 5,
+			"version": "6",
+			"when": 1756730640660,
+			"tag": "0005_good_the_captain",
+			"breakpoints": true
+		},
+		{
+			"idx": 6,
+			"version": "6",
+			"when": 1756730658996,
+			"tag": "0006_public_emma_frost",
+			"breakpoints": true
+		}
+	]
 }
