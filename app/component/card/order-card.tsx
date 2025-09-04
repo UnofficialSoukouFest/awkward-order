@@ -10,6 +10,7 @@ export type OrderType = {
 	product: OrderProps;
 };
 
+
 export function OrderCard({ productData }: OrderType) {
 	// product => productData
 	const product = productData.product; // 追加
@@ -44,11 +45,12 @@ export function OrderCard({ productData }: OrderType) {
 				</svg>
 			</div>
 			<div className={styles.texts}>
-				<p className={styles.name}>メニュー名＊＊＊＊＊＊＊＊＊＊</p>
+				<p className={styles.name}>{product.name}</p>
 				<div className={styles.values}>
 					<p className={styles.number}>A個</p>
 					<p className={styles.price}>
-						<span className={styles.priceUnit}>￥</span>ABC
+						<span className={styles.priceUnit}>￥</span>
+						{product.price}
 					</p>
 				</div>
 			</div>

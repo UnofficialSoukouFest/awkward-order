@@ -5,9 +5,20 @@ import {
 	PopupProvider,
 	PopupToggleButton,
 } from "@latimeria/ganoine";
+import { useAtom } from "jotai";
 import { useState } from "react";
 import { data } from "react-router";
 import { Drawer } from "vaul";
+import {
+	OrderCard,
+	type OrderProps,
+	type OrderType,
+} from "~/component/card/order-card";
+import {
+	type DisplayType,
+	SelectCard,
+	type SelectType,
+} from "~/component/card/select-card";
 import { SelectSubstance } from "~/component/food/select-substances";
 import { TitleBarWithBack } from "~/component/title-bar";
 import {
@@ -26,8 +37,8 @@ import { matchProgram } from "~/lib/program";
 import { commitSession, getSession } from "~/sessions.server";
 import MdiPencilOutline from "~icons/mdi/pencil-outline";
 import type { Route } from "./+types";
-import styles from "./index.module.css";
 import { allergySelectAtom } from "./atom";
+import styles from "./index.module.css";
 import { useAtom } from "jotai";
 import { specificSubstanceList } from "~/lib/allergen";
 import { select, order } from "~/lib/hogeType";
@@ -135,12 +146,18 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 								<OrderCard key={item[1]} productData={item[0]} />
 							))}
 							<p>
-								<MdiPencilOutline /> 合計金額:
+								<MdiPencilOutline /> 合計金額:{" "}
+								{loaderData.order.purchases.reduce(
+									(sum, item) => sum + item.price,
+									0,
+								)}
+								円
 							</p>
 						</Drawer.Content>
 					</Drawer.Portal>
 				</Drawer.Root>
 			</div>
+			<Link href={`order/${loaderData.order.id}`}>拡大表示</Link>
 		</>
 	);
 }

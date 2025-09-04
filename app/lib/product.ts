@@ -33,6 +33,8 @@ export async function addProduct(
 			stock: {
 				sellout: false,
 			},
+			isFavorite: first.isFavorite ?? false,
+			mayContains: first.mayContains ?? [],
 		} satisfies Product;
 		return Ok(product);
 	} else {
@@ -63,6 +65,8 @@ export async function updateProduct(
 			stock: {
 				sellout: false,
 			},
+			isFavorite: first.isFavorite ?? false,
+			mayContains: first.mayContains ?? [],
 		} satisfies Product;
 		return Ok(product);
 	} else {
@@ -75,44 +79,55 @@ export async function matchProducts(
 	query: PartialProducts | undefined,
 ): Promise<Result<Products>> {
 	const condictions =
-		query == undefined
+		query === undefined
 			? () => {
 					const childCondictions = [];
-					for (let i = 0; i < 6; i++) {
-						childCondictions.push(eq(productTable.classId, `${i}`));
+					for (let i = 1; i <= 6; i++) {
+						childCondictions.push(eq(productTable.classId, i));
 					}
-					return childCondictions;
+					return [childCondictions];
 				}
-			: query.map((q) => {
-					const childCondictions = [];
-					if (q.id) {
-						childCondictions.push(eq(productTable.id, q.id));
-					}
-					if (q.name) {
-						childCondictions.push(eq(productTable.name, q.name));
-					}
-					if (q.classId) {
-						childCondictions.push(eq(productTable.classId, q.classId));
-					}
-					if (q.price) {
-						childCondictions.push(eq(productTable.price, q.price));
-					}
-					if (q.allergens) {
-						childCondictions.push(eq(productTable.allergen, q.allergens));
-					}
-					if (q.rootIngredients) {
-						childCondictions.push(
-							eq(productTable.rootIngredients, q.rootIngredients),
-						);
-					}
-					if (q.compositeIngredients) {
-						childCondictions.push(
-							eq(productTable.compositeIngredients, q.compositeIngredients),
-						);
-					}
-					return childCondictions;
-				});
-	const whereBuilder = and(...flattenDeep(condictions));
+			: () => {
+					return query.map((q) => {
+						const childCondictions = [];
+						if (q.id) {
+							childCondictions.push(eq(productTable.id, q.id));
+						}
+						if (q.name) {
+							childCondictions.push(eq(productTable.name, q.name));
+						}
+						if (q.classId) {
+							childCondictions.push(eq(productTable.classId, q.classId));
+						}
+						if (q.price) {
+							childCondictions.push(eq(productTable.price, q.price));
+						}
+						if (q.allergens) {
+							childCondictions.push(eq(productTable.allergen, q.allergens));
+						}
+						if (q.rootIngredients) {
+							childCondictions.push(
+								eq(productTable.rootIngredients, q.rootIngredients),
+							);
+						}
+						if (q.compositeIngredients) {
+							childCondictions.push(
+								eq(productTable.compositeIngredients, q.compositeIngredients),
+							);
+						}
+						if (q.isFavorite) {
+							childCondictions.push(eq(productTable.isFavorite, q.isFavorite));
+						}
+						if (q.mayContains) {
+							childCondictions.push(
+								eq(productTable.mayContains, q.mayContains),
+							);
+						}
+						return childCondictions;
+					});
+				};
+
+	const whereBuilder = and(...flattenDeep(condictions()));
 	const queryBuilder = db.query.productTable.findMany({
 		with: { productStock: true },
 		where: whereBuilder,
@@ -121,22 +136,27 @@ export async function matchProducts(
 	if (!matched) {
 		return Err(new Error("No matched thing"));
 	}
-	const products = matched.map((v) => ({
-		id: v.id,
-		classId: v.classId,
-		name: v.name,
-		price: v.price,
-		allergens: v.allergen ?? [],
-		rootIngredients: v.rootIngredients ?? [],
-		compositeIngredients: v.compositeIngredients ?? [],
-		assets: {
-			thumbnail: v.assets?.thumbnail,
-		},
-		stock: {
-			sellout: v.productStock?.sellout ?? false,
-			volume: v.productStock?.volume ?? 100,
-		},
-	}));
+	const products = matched.map(
+		(v) =>
+			({
+				id: v.id,
+				classId: v.classId,
+				name: v.name,
+				price: v.price,
+				allergens: v.allergen ?? [],
+				rootIngredients: v.rootIngredients ?? [],
+				compositeIngredients: v.compositeIngredients ?? [],
+				assets: {
+					thumbnail: v.assets?.thumbnail,
+				},
+				stock: {
+					sellout: v.productStock?.sellout ?? false,
+					volume: v.productStock?.volume ?? 100,
+				},
+				isFavorite: v.isFavorite ?? false,
+				mayContains: v.mayContains ?? [],
+			}) satisfies Product,
+	);
 
 	return Ok(products);
 }
@@ -173,6 +193,8 @@ export async function deleteProduct(
 		stock: {
 			sellout: false,
 		},
+		isFavorite: first.isFavorite ?? false,
+		mayContains: first.mayContains ?? [],
 	} satisfies Product;
 	return matched.length > 0 && matched.length < 2
 		? Ok(product)

@@ -1,4 +1,4 @@
-import { type CompositeIngredients } from "@latimeria/shared";
+import type { CompositeIngredients } from "@latimeria/shared";
 
 export function formatIngredient(
 	ingredient: string[],

@@ -1,0 +1,1536 @@
+[
+	{
+		"name": "ポップコーン（塩）",
+		"class": 1,
+		"price": 150,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": ["ポップコーン豆", "オイル", "調味料"],
+		"compositeIngredients": [
+			{
+				"name": "ポップコーン豆",
+				"compositeIngredients": [
+					{
+						"name": "ポップコーン豆（遺伝子組換えでない）"
+					},
+					{
+						"name": "調味料（精製塩,アミノ酸等,香料,食用色素（黄色4号,黄色5号））"
+					}
+				]
+			},
+			{
+				"name": "オイル",
+				"compositeIngredients": [
+					{
+						"name": "食用植物油（バーム油）"
+					},
+					{
+						"name": "シリコーン"
+					}
+				]
+			},
+			{
+				"name": "調味料",
+				"compositeIngredients": [
+					{
+						"name": "食塩／調味料（アミノ酸等）"
+					},
+					{
+						"name": "炭酸マグネシウム"
+					},
+					{
+						"name": "炭酸カルシウム"
+					},
+					{
+						"name": "着色料（黄4）"
+					},
+					{
+						"name": "香料"
+					}
+				]
+			}
+		],
+		"allergens": []
+	},
+	{
+		"name": "ポップコーン（キャラメル）",
+		"class": 1,
+		"price": 150,
+		"isFavorite": true,
+		"description": null,
+		"rootIngredients": ["ポップコーン豆", "調味料", "オイル"],
+		"compositeIngredients": [
+			{
+				"name": "ポップコーン豆",
+				"compositeIngredients": [
+					{
+						"name": "ポップコーン豆（遺伝子組換えでない）"
+					},
+					{
+						"name": "調味料（精製塩,アミノ酸等,香料,食用色素（黄色4号,黄色5号））"
+					}
+				]
+			},
+			{
+				"name": "オイル",
+				"compositeIngredients": [
+					{
+						"name": "食用植物油（バーム油）"
+					},
+					{
+						"name": "シリコーン"
+					}
+				]
+			},
+			{
+				"name": "キャラメルシュガー",
+				"compositeIngredients": [
+					{
+						"name": "砂糖（米国産）"
+					},
+					{
+						"name": "食塩／香料"
+					},
+					{
+						"name": "乳化剤（大豆由来）"
+					},
+					{
+						"name": "着色料（黄4,赤40,青1,ｶﾗﾒﾙ）"
+					}
+				]
+			}
+		],
+		"allergens": ["大豆"]
+	},
+	{
+		"name": "ポップコーン（しょうゆバター）",
+		"class": 1,
+		"price": 150,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": ["ポップコーン豆", "オイル", "調味料"],
+		"compositeIngredients": [
+			{
+				"name": "ポップコーン豆",
+				"compositeIngredients": [
+					{
+						"name": "ポップコーン豆（遺伝子組換えでない）"
+					},
+					{
+						"name": "調味料（精製塩,アミノ酸等,香料,食用色素（黄色4号,黄色5号））"
+					}
+				]
+			},
+			{
+				"name": "オイル",
+				"compositeIngredients": [
+					{
+						"name": "食用植物油（バーム油）"
+					},
+					{
+						"name": "シリコーン"
+					}
+				]
+			},
+			{
+				"name": "調味料",
+				"compositeIngredients": [
+					{
+						"name": "粉末醤油（国内製造）"
+					},
+					{
+						"name": "ブドウ糖"
+					},
+					{
+						"name": "食塩"
+					},
+					{
+						"name": "魚介類エキスパウダー"
+					},
+					{
+						"name": "砂糖"
+					},
+					{
+						"name": "乳糖"
+					},
+					{
+						"name": "チキンエキスパウダー"
+					},
+					{
+						"name": "粉末油脂"
+					},
+					{
+						"name": "ホエーパウダー"
+					},
+					{
+						"name": "バターパウダー"
+					},
+					{
+						"name": "調味料（アミノ酸等）"
+					},
+					{
+						"name": "香料"
+					},
+					{
+						"name": "カラメル色素"
+					},
+					{
+						"name": "微粒二酸化ケイ素"
+					}
+				]
+			}
+		],
+		"allergens": ["乳", "小麦", "さば", "大豆", "鶏肉"]
+	},
+	{
+		"name": "ポップコーン（コンソメ）",
+		"class": 1,
+		"price": 150,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": ["ポップコーン豆", "オイル", "調味料"],
+		"compositeIngredients": [
+			{
+				"name": "ポップコーン豆",
+				"compositeIngredients": [
+					{
+						"name": "ポップコーン豆（遺伝子組換えでない）"
+					},
+					{
+						"name": "調味料（精製塩,アミノ酸等,香料,食用色素（黄色4号,黄色5号））"
+					}
+				]
+			},
+			{
+				"name": "オイル",
+				"compositeIngredients": [
+					{
+						"name": "食用植物油（バーム油）"
+					},
+					{
+						"name": "シリコーン"
+					}
+				]
+			},
+			{
+				"name": "調味料",
+				"compositeIngredients": [
+					{
+						"name": "砂糖"
+					},
+					{
+						"name": "ブドウ糖"
+					},
+					{
+						"name": "野菜パウダー"
+					},
+					{
+						"name": "蛋白加水分解物"
+					},
+					{
+						"name": "香辛料"
+					},
+					{
+						"name": "粉末油脂"
+					},
+					{
+						"name": "デキストリン"
+					},
+					{
+						"name": "酵母"
+					},
+					{
+						"name": "エキスパウダー"
+					},
+					{
+						"name": "香味食用油"
+					},
+					{
+						"name": "調味料（アミノ酸等）"
+					},
+					{
+						"name": "香辛料抽出物"
+					},
+					{
+						"name": "微粒二酸化ケイ素"
+					},
+					{
+						"name": "甘味料（ステビア）"
+					},
+					{
+						"name": "酸味料"
+					},
+					{
+						"name": "パプリカ色素"
+					},
+					{
+						"name": "香料"
+					},
+					{
+						"name": "カラメル色素"
+					}
+				]
+			}
+		],
+		"allergens": ["乳", "小麦", "大豆"]
+	},
+	{
+		"name": "激ウマフロート（メロンソーダ味）",
+		"class": 2,
+		"price": 300,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": [
+			"炭酸水",
+			"ラクトアイス",
+			"メロンソーダベース",
+			"スライスオレンジ"
+		],
+		"compositeIngredients": [
+			{
+				"name": "炭酸水",
+				"compositeIngredients": [
+					{
+						"name": "水(鉱水)"
+					},
+					{
+						"name": "炭酸"
+					}
+				]
+			},
+			{
+				"name": "ラクトアイス",
+				"compositeIngredients": [
+					{
+						"name": "乳製品（国内製造,外国製造）"
+					},
+					{
+						"name": "異性化液糖"
+					},
+					{
+						"name": "砂糖"
+					},
+					{
+						"name": "植物油脂"
+					},
+					{
+						"name": "食塩"
+					},
+					{
+						"name": "安定剤"
+					},
+					{
+						"name": "乳化剤"
+					},
+					{
+						"name": "香料"
+					},
+					{
+						"name": "カロチン色素"
+					}
+				]
+			},
+			{
+				"name": "メロンソーダベース",
+				"compositeIngredients": [
+					{
+						"name": "果糖ぶどう糖液糖"
+					},
+					{
+						"name": "香料製剤"
+					},
+					{
+						"name": "結晶クエン酸"
+					}
+				]
+			},
+			{
+				"name": "カットオレンジ"
+			}
+		],
+		"allergens": ["乳", "オレンジ"]
+	},
+	{
+		"name": "激ウマフロート（コーラ味）",
+		"class": 2,
+		"price": 300,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": [
+			"炭酸水",
+			"ラクトアイス",
+			"コーラベース",
+			"スライスオレンジ"
+		],
+		"compositeIngredients": [
+			{
+				"name": "炭酸水",
+				"compositeIngredients": [
+					{
+						"name": "水(鉱水)"
+					},
+					{
+						"name": "炭酸"
+					}
+				]
+			},
+			{
+				"name": "ラクトアイス",
+				"compositeIngredients": [
+					{
+						"name": "乳製品（国内製造,外国製造）"
+					},
+					{
+						"name": "異性化液糖"
+					},
+					{
+						"name": "砂糖"
+					},
+					{
+						"name": "植物油脂"
+					},
+					{
+						"name": "食塩"
+					},
+					{
+						"name": "安定剤"
+					},
+					{
+						"name": "乳化剤"
+					},
+					{
+						"name": "香料"
+					},
+					{
+						"name": "カロチン色素"
+					}
+				]
+			},
+			{
+				"name": "コーラベース",
+				"compositeIngredients": [
+					{
+						"name": "果糖ぶどう糖液糖"
+					},
+					{
+						"name": "水あめ"
+					},
+					{
+						"name": "カラメル色素"
+					}
+				]
+			},
+			{
+				"name": "カットオレンジ"
+			}
+		],
+		"allergens": ["乳", "オレンジ"]
+	},
+	{
+		"name": "激ウマフロート（ラムネ味）",
+		"class": 2,
+		"price": 300,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": [
+			"炭酸水",
+			"ラクトアイス",
+			"ラムネベース",
+			"スライスオレンジ"
+		],
+		"compositeIngredients": [
+			{
+				"name": "炭酸水",
+				"compositeIngredients": [
+					{
+						"name": "水(鉱水)"
+					},
+					{
+						"name": "炭酸"
+					}
+				]
+			},
+			{
+				"name": "ラクトアイス",
+				"compositeIngredients": [
+					{
+						"name": "乳製品（国内製造,外国製造）"
+					},
+					{
+						"name": "異性化液糖"
+					},
+					{
+						"name": "砂糖"
+					},
+					{
+						"name": "植物油脂"
+					},
+					{
+						"name": "食塩"
+					},
+					{
+						"name": "安定剤"
+					},
+					{
+						"name": "乳化剤"
+					},
+					{
+						"name": "香料"
+					},
+					{
+						"name": "カロチン色素"
+					}
+				]
+			},
+			{
+				"name": "ラムネベース",
+				"compositeIngredients": [
+					{
+						"name": "果糖ぶどう糖液糖"
+					},
+					{
+						"name": "結晶クエン酸"
+					},
+					{
+						"name": "グルコン酸ナトリウム"
+					}
+				]
+			},
+			{
+				"name": "カットオレンジ"
+			}
+		],
+		"allergens": ["乳", "オレンジ"]
+	},
+	{
+		"name": "タピオカミルクティー",
+		"class": 3,
+		"price": 200,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": ["ミルクティー", "タピオカ"],
+		"compositeIngredients": [
+			{
+				"name": "ミルクティー"
+			},
+			{
+				"name": "タピオカ",
+				"compositeIngredients": [
+					{
+						"name": "加工デンプン(タイ)"
+					},
+					{
+						"name": "カラメル色素"
+					},
+					{
+						"name": "増粘剤(グァーガム)"
+					},
+					{
+						"name": "乳化剤製剤",
+						"compositeIngredients": [
+							{
+								"name": "増粘多糖類"
+							},
+							{
+								"name": "乳化剤"
+							}
+						]
+					}
+				]
+			}
+		],
+		"allergens": ["乳"]
+	},
+	{
+		"name": "タピオカピーチティー",
+		"class": 3,
+		"price": 200,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": ["ピーチティー", "タピオカ"],
+		"compositeIngredients": [
+			{
+				"name": "ピーチティー"
+			},
+			{
+				"name": "タピオカ",
+				"compositeIngredients": [
+					{
+						"name": "加工デンプン(タイ)"
+					},
+					{
+						"name": "カラメル色素"
+					},
+					{
+						"name": "増粘剤(グァーガム)"
+					},
+					{
+						"name": "乳化剤製剤",
+						"compositeIngredients": [
+							{
+								"name": "増粘多糖類"
+							},
+							{
+								"name": "乳化剤"
+							}
+						]
+					}
+				]
+			}
+		],
+		"allergens": ["乳"]
+	},
+	{
+		"name": "タピオカコーラ",
+		"class": 3,
+		"price": 200,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": ["コーラ", "タピオカ"],
+		"compositeIngredients": [
+			{
+				"name": "コーラ",
+				"compositeIngredients": [
+					{
+						"name": "糖類（果糖ぶどう糖液糖(国内製造)、砂糖）"
+					},
+					{
+						"name": "炭酸"
+					},
+					{
+						"name": "カラメル色素"
+					},
+					{
+						"name": "酸味料"
+					},
+					{
+						"name": "香料"
+					},
+					{
+						"name": "カフェイン"
+					}
+				]
+			},
+			{
+				"name": "タピオカ",
+				"compositeIngredients": [
+					{
+						"name": "加工デンプン(タイ)"
+					},
+					{
+						"name": "カラメル色素"
+					},
+					{
+						"name": "増粘剤(グァーガム)"
+					},
+					{
+						"name": "乳化剤製剤",
+						"compositeIngredients": [
+							{
+								"name": "増粘多糖類"
+							},
+							{
+								"name": "乳化剤"
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "調味料",
+				"compositeIngredients": [
+					{
+						"name": "食塩／調味料（アミノ酸等）"
+					},
+					{
+						"name": "炭酸マグネシウム"
+					},
+					{
+						"name": "炭酸カルシウム"
+					},
+					{
+						"name": "着色料（黄4）"
+					},
+					{
+						"name": "香料"
+					}
+				]
+			}
+		],
+		"allergens": []
+	},
+	{
+		"name": "タピオカコーヒー牛乳",
+		"class": 3,
+		"price": 200,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": ["コーヒー牛乳", "タピオカ"],
+		"compositeIngredients": [
+			{
+				"name": "コーヒー牛乳"
+			},
+			{
+				"name": "タピオカ",
+				"compositeIngredients": [
+					{
+						"name": "加工デンプン(タイ)"
+					},
+					{
+						"name": "カラメル色素"
+					},
+					{
+						"name": "増粘剤(グァーガム)"
+					},
+					{
+						"name": "乳化剤製剤",
+						"compositeIngredients": [
+							{
+								"name": "増粘多糖類"
+							},
+							{
+								"name": "乳化剤"
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "調味料",
+				"compositeIngredients": [
+					{
+						"name": "食塩／調味料（アミノ酸等）"
+					},
+					{
+						"name": "炭酸マグネシウム"
+					},
+					{
+						"name": "炭酸カルシウム"
+					},
+					{
+						"name": "着色料（黄4）"
+					},
+					{
+						"name": "香料"
+					}
+				]
+			}
+		],
+		"allergens": ["乳"]
+	},
+	{
+		"name": "クレープ（ヨーグルト）",
+		"class": 4,
+		"price": 150,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": [],
+		"compositeIngredients": [
+			{
+				"name": "豆乳（遺伝子組換えでない）"
+			},
+			{
+				"name": "砂糖"
+			},
+			{
+				"name": "加工油脂"
+			},
+			{
+				"name": "米粉"
+			},
+			{
+				"name": "水あめ"
+			},
+			{
+				"name": "植物油"
+			},
+			{
+				"name": "調製豆乳粉末"
+			},
+			{
+				"name": "砂糖"
+			},
+			{
+				"name": "ぶどう糖果糖液糖"
+			},
+			{
+				"name": "レモン果汁（濃縮還元）"
+			},
+			{
+				"name": "麦芽糖"
+			},
+			{
+				"name": "水"
+			},
+			{
+				"name": "使用添加物",
+				"compositeIngredients": [
+					{
+						"name": "加工デンプン"
+					},
+					{
+						"name": "増粘剤（カードラン）"
+					},
+					{
+						"name": "乳化剤"
+					},
+					{
+						"name": "ゲル化剤（増粘多糖類）"
+					},
+					{
+						"name": "安定剤（増粘多糖類）"
+					},
+					{
+						"name": "香料"
+					},
+					{
+						"name": "酸味料"
+					},
+					{
+						"name": "凝固剤"
+					},
+					{
+						"name": "メタリン酸Ｎａ"
+					},
+					{
+						"name": "カラメル色素"
+					},
+					{
+						"name": "ベーキングパウダー"
+					},
+					{
+						"name": "ピロリン酸第二鉄"
+					},
+					{
+						"name": "カロチノイド色素"
+					}
+				],
+				"allergens": ["大豆"]
+			}
+		]
+	},
+	{
+		"name": "クレープ（いちご）",
+		"class": 4,
+		"price": 150,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": [],
+		"compositeIngredients": [
+			{
+				"name": "豆乳（遺伝子組換えでない）"
+			},
+			{
+				"name": "砂糖"
+			},
+			{
+				"name": "加工油脂"
+			},
+			{
+				"name": "米粉"
+			},
+			{
+				"name": "水あめ"
+			},
+			{
+				"name": "いちごピューレー",
+				"compositeIngredients": [
+					{
+						"name": "いちご"
+					},
+					{
+						"name": "砂糖"
+					},
+					{
+						"name": "水あめ"
+					},
+					{
+						"name": "ぶどう糖果糖液糖）"
+					}
+				]
+			},
+			{
+				"name": "植物油"
+			},
+			{
+				"name": "調製豆乳粉末"
+			},
+			{
+				"name": "砂糖"
+			},
+			{
+				"name": "ぶどう糖果糖液糖"
+			},
+			{
+				"name": "いちご果汁（濃縮還元）"
+			},
+			{
+				"name": "麦芽糖"
+			},
+			{
+				"name": "レモン果汁（濃縮還元）"
+			},
+			{
+				"name": "水"
+			},
+			{
+				"name": "使用添加物",
+				"compositeIngredients": [
+					{
+						"name": "加工デンプン"
+					},
+					{
+						"name": "増粘剤（カードラン）"
+					},
+					{
+						"name": "乳化剤"
+					},
+					{
+						"name": "ゲル化剤（増粘多糖類）"
+					},
+					{
+						"name": "安定剤（増粘多糖類）"
+					},
+					{
+						"name": "香料"
+					},
+					{
+						"name": "凝固剤"
+					},
+					{
+						"name": "酸味料"
+					},
+					{
+						"name": "メタリン酸Ｎａ"
+					},
+					{
+						"name": "カラメル色素"
+					},
+					{
+						"name": "紅麹色素"
+					},
+					{
+						"name": "ベーキングパウダー"
+					},
+					{
+						"name": "ピロリン酸第二鉄"
+					},
+					{
+						"name": "カロチノイド色素"
+					}
+				]
+			}
+		],
+		"allergens": ["大豆"]
+	},
+	{
+		"name": "クレープ（みかん）",
+		"class": 4,
+		"price": 150,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": [],
+		"compositeIngredients": [
+			[
+				{
+					"name": "豆乳"
+				},
+				{
+					"name": "砂糖"
+				},
+				{
+					"name": "加工油脂"
+				},
+				{
+					"name": "米粉"
+				},
+				{
+					"name": "みかん"
+				},
+				{
+					"name": "シラップづけ"
+				},
+				{
+					"name": "うんしゅうみかん果汁(濃縮還元)"
+				},
+				{
+					"name": "水あめ"
+				},
+				{
+					"name": "植物油"
+				},
+				{
+					"name": "調整豆乳粉末"
+				},
+				{
+					"name": "砂糖"
+				},
+				{
+					"name": "ぶどう糖果糖液糖"
+				},
+				{
+					"name": "麦芽糖"
+				},
+				{
+					"name": "レモン果汁(濃縮還元)"
+				},
+				{
+					"name": "加工デンプン"
+				},
+				{
+					"name": "増粘剤(カードラン)"
+				},
+				{
+					"name": "乳化剤"
+				},
+				{
+					"name": "ゲル化剤(増粘多糖類)"
+				},
+				{
+					"name": "安定剤(増粘多糖類)"
+				},
+				{
+					"name": "香料"
+				},
+				{
+					"name": "凝固剤"
+				},
+				{
+					"name": "酸味料"
+				},
+				{
+					"name": "メタリン酸Na"
+				},
+				{
+					"name": "着色料",
+					"compositeIngredients": [
+						{
+							"name": "カラメル"
+						},
+						{
+							"name": "カルチノイド"
+						}
+					]
+				},
+				{
+					"name": "ベーキングパウダー"
+				},
+				{
+					"name": "ピロリン酸第二鉄"
+				}
+			]
+		],
+		"allergens": ["大豆"]
+	},
+	{
+		"name": "クレープ（チョコ）",
+		"class": 4,
+		"price": 150,
+		"isFavorite": true,
+		"description": null,
+		"rootIngredients": [],
+		"compositeIngredients": [
+			{
+				"name": "豆乳（遺伝子組換えでない）"
+			},
+			{
+				"name": "砂糖"
+			},
+			{
+				"name": "加工油脂"
+			},
+			{
+				"name": "米粉"
+			},
+			{
+				"name": "植物油"
+			},
+			{
+				"name": "水あめ"
+			},
+			{
+				"name": "調製豆乳粉末"
+			},
+			{
+				"name": "ココアパウダー"
+			},
+			{
+				"name": "麦芽糖"
+			},
+			{
+				"name": "水"
+			},
+			{
+				"name": "使用添加物",
+				"compositeIngredients": [
+					{
+						"name": "加工デンプン"
+					},
+					{
+						"name": "増粘剤（カードラン）"
+					},
+					{
+						"name": "乳化剤"
+					},
+					{
+						"name": "安定剤（増粘多糖類）"
+					},
+					{
+						"name": "香料"
+					},
+					{
+						"name": "凝固剤"
+					},
+					{
+						"name": "カラメル色素"
+					},
+					{
+						"name": "メタリン酸Ｎａ"
+					},
+					{
+						"name": "ベーキングパウダー"
+					},
+					{
+						"name": "ピロリン酸第二鉄"
+					},
+					{
+						"name": "カロチノイド色"
+					}
+				]
+			}
+		],
+		"allergens": ["大豆"]
+	},
+	{
+		"name": "クレープ（ブルーベリー）",
+		"class": 4,
+		"price": 150,
+		"isFavorite": true,
+		"description": null,
+		"rootIngredients": [],
+		"compositeIngredients": [
+			[
+				{
+					"name": "豆乳"
+				},
+				{
+					"name": "砂糖"
+				},
+				{
+					"name": "加工油脂"
+				},
+				{
+					"name": "米粉"
+				},
+				{
+					"name": "ブルーベリー果汁(濃縮還元)"
+				},
+				{
+					"name": "水あめ"
+				},
+				{
+					"name": "植物油"
+				},
+				{
+					"name": "調整豆乳粉末"
+				},
+				{
+					"name": "砂糖"
+				},
+				{
+					"name": "ぶどう糖果糖液糖"
+				},
+				{
+					"name": "麦芽糖"
+				},
+				{
+					"name": "レモン果汁(濃縮還元)"
+				},
+				{
+					"name": "使用添加物",
+					"compositeIngredients": [
+						{
+							"name": "加工デンプン"
+						},
+						{
+							"name": "増粘剤(カードラン)"
+						},
+						{
+							"name": "乳化剤"
+						},
+						{
+							"name": "ゲル化剤(増粘多糖類)"
+						},
+						{
+							"name": "安定剤(増粘多糖類)"
+						},
+						{
+							"name": "香料"
+						},
+						{
+							"name": "凝固剤"
+						},
+						{
+							"name": "酸味料"
+						},
+						{
+							"name": "メタリン酸Na"
+						},
+						{
+							"name": "着色料(カラメル"
+						},
+						{
+							"name": "カロチノイド)"
+						},
+						{
+							"name": "ベーキングパウダー"
+						},
+						{
+							"name": "ピロリン酸第二鉄"
+						}
+					]
+				}
+			]
+		],
+		"allergens": ["大豆"]
+	},
+	{
+		"name": "焼き鳥(塩味)",
+		"class": 5,
+		"price": 150,
+		"isFavorite": true,
+		"description": null,
+		"rootIngredients": ["焼き鳥", "塩だれ"],
+		"compositeIngredients": [
+			{
+				"name": "焼き鳥（もも）"
+			},
+			{
+				"name": "塩だれ",
+				"compositeIngredients": [
+					{
+						"name": "果糖ぶどう糖液糖"
+					},
+					{
+						"name": "食塩"
+					},
+					{
+						"name": "にんにく粉末"
+					},
+					{
+						"name": "砂糖"
+					},
+					{
+						"name": "ゆず果汁"
+					},
+					{
+						"name": "たん白加水分解物"
+					},
+					{
+						"name": "食用ごま油"
+					},
+					{
+						"name": "オニオン粉末"
+					},
+					{
+						"name": "牛肉だし"
+					},
+					{
+						"name": "こしょう"
+					},
+					{
+						"name": "唐辛子"
+					},
+					{
+						"name": "増粘剤",
+						"compositeIngredients": [
+							{
+								"name": "加工デンプン"
+							},
+							{
+								"name": "キサンタン"
+							}
+						]
+					},
+					{
+						"name": "調味料（アミノ酸等）"
+					},
+					{
+						"name": "pH調整剤"
+					},
+					{
+						"name": "酸味料"
+					},
+					{
+						"name": "香料"
+					},
+					{
+						"name": "甘味料（ステビア）"
+					}
+				]
+			}
+		],
+		"allergens": ["小麦", "牛肉", "ごま", "大豆", "鶏肉"],
+		"mayContains": [
+			"卵",
+			"乳製品",
+			"えび",
+			"牛肉",
+			"大豆",
+			"豚肉",
+			"やまいも",
+			"りんご",
+			"ごま"
+		]
+	},
+	{
+		"name": "焼き鳥(たれ味)",
+		"class": 5,
+		"price": 150,
+		"isFavorite": true,
+		"description": null,
+		"rootIngredients": ["焼き鳥", "焼き鳥のたれ"],
+		"compositeIngredients": [
+			{
+				"name": "焼き鳥（もも）"
+			},
+			{
+				"name": "焼き鳥のたれ",
+				"compositeIngredients": [
+					{
+						"name": "果糖ぶどう糖液糖"
+					},
+					{
+						"name": "しょうゆ"
+					},
+					{
+						"name": "たん白加水分解物"
+					},
+					{
+						"name": "砂糖"
+					},
+					{
+						"name": "食塩"
+					},
+					{
+						"name": "粉末しょうゆ"
+					},
+					{
+						"name": "しょうがペースト"
+					},
+					{
+						"name": "醸造酢"
+					},
+					{
+						"name": "唐辛子"
+					},
+					{
+						"name": "増粘剤",
+						"compositeIngredients": [
+							{
+								"name": "加工デンプン"
+							},
+							{
+								"name": "キサンタン"
+							}
+						]
+					},
+					{
+						"name": "カラメル色素"
+					},
+					{
+						"name": "pH調整剤"
+					},
+					{
+						"name": "酸味料"
+					}
+				]
+			}
+		],
+		"allergens": ["小麦", "牛肉", "ごま", "大豆", "鶏肉"],
+		"mayContains": [
+			"卵",
+			"乳製品",
+			"えび",
+			"牛肉",
+			"大豆",
+			"豚肉",
+			"やまいも",
+			"りんご",
+			"ごま"
+		]
+	},
+	{
+		"name": "ワッフル（プレーン）",
+		"class": 6,
+		"price": 150,
+		"isFavorite": true,
+		"description": null,
+		"rootIngredients": ["ホットケーキミックス", "牛乳", "卵", "砂糖", "バター"],
+		"compositeIngredients": [
+			{
+				"name": "ホットケーキミックス",
+				"compositeIngredients": [
+					{
+						"name": "小麦粉"
+					},
+					{
+						"name": "砂糖調製品（砂糖",
+						"compositeIngredients": [
+							{
+								"name": "砂糖"
+							},
+							{
+								"name": "小麦粉"
+							}
+						]
+					},
+					{
+						"name": "ぶどう糖"
+					},
+					{
+						"name": "食塩"
+					},
+					{
+						"name": "ベーキングパウダー"
+					},
+					{
+						"name": "牛乳"
+					},
+					{
+						"name": "卵"
+					},
+					{
+						"name": "砂糖"
+					},
+					{
+						"name": "バター"
+					}
+				]
+			}
+		],
+		"allergens": ["小麦", "卵", "乳"]
+	},
+	{
+		"name": "ワッフル（抹茶）",
+		"class": 6,
+		"price": 150,
+		"isFavorite": true,
+		"description": null,
+		"rootIngredients": [
+			"ホットケーキミックス",
+			"牛乳",
+			"卵",
+			"砂糖",
+			"バター",
+			"抹茶パウダー（緑茶）"
+		],
+		"compositeIngredients": [
+			{
+				"name": "ホットケーキミックス",
+				"compositeIngredients": [
+					{
+						"name": "小麦粉"
+					},
+					{
+						"name": "砂糖調製品（砂糖",
+						"compositeIngredients": [
+							{
+								"name": "砂糖"
+							},
+							{
+								"name": "小麦粉"
+							}
+						]
+					},
+					{
+						"name": "ぶどう糖"
+					},
+					{
+						"name": "食塩"
+					},
+					{
+						"name": "ベーキングパウダー"
+					}
+				]
+			},
+			{
+				"name": "牛乳"
+			},
+			{
+				"name": "卵"
+			},
+			{
+				"name": "砂糖"
+			},
+			{
+				"name": "バター"
+			},
+			{
+				"name": "抹茶パウダー（緑茶）"
+			}
+		],
+		"allergens": ["小麦", "卵", "乳"]
+	},
+	{
+		"name": "ワッフル（ココア）",
+		"class": 6,
+		"price": 150,
+		"isFavorite": true,
+		"description": null,
+		"rootIngredients": [
+			"ホットケーキミックス",
+			"牛乳",
+			"卵",
+			"砂糖",
+			"バター",
+			"ココアパウダー"
+		],
+		"compositeIngredients": [
+			{
+				"name": "ホットケーキミックス",
+				"compositeIngredients": [
+					{
+						"name": "小麦粉"
+					},
+					{
+						"name": "砂糖調製品（砂糖",
+						"compositeIngredients": [
+							{
+								"name": "砂糖"
+							},
+							{
+								"name": "小麦粉"
+							}
+						]
+					},
+					{
+						"name": "ぶどう糖"
+					},
+					{
+						"name": "食塩"
+					},
+					{
+						"name": "ベーキングパウダー"
+					}
+				]
+			},
+			{
+				"name": "牛乳"
+			},
+			{
+				"name": "卵"
+			},
+			{
+				"name": "砂糖"
+			},
+			{
+				"name": "バター"
+			},
+			{
+				"name": "ココアパウダー"
+			}
+		],
+		"allergens": ["小麦", "卵", "乳"]
+	}
+]
