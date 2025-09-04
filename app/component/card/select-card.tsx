@@ -15,10 +15,9 @@ export type SelectType = {
 	product: DisplayType;
 };
 
-export function SelectCard({ productData }: SelectType) {
+export function SelectCard({ product }: SelectType) {
 	// product => productData
 	const [isOpen, setIsOpen] = useState(false);
-	const product = productData.product; // 追加
 	return (
 		<div className={styles.card}>
 			<div className={styles.main}>

@@ -127,10 +127,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 						mayContainAllergens: product.mayContains ?? [],
 						Ingredients: product.rootIngredients.join("、"), // ここは暫定的にrootIngredientsを使用
 					};
-					const selectType: SelectType = {
-						product: displayProduct,
-					};
-					return <SelectCard key={product.id} product={selectType} />;
+					return <SelectCard key={product.id} product={displayProduct} />;
 				})}
 			</div>
 			<div className={styles.selectButtom}>
