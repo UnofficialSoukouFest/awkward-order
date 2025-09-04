@@ -42,18 +42,27 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 		<>
 			<TitleBarWithBack
 				pagename={loaderData.program.name}
-				themeColor="var(--themecolor-main-class-${loaderData.program.class})"
+				themeColor={
+					"var(--themecolor-main-class-" +
+					["one", "two", "three", "four", "five", "six"][
+						loaderData.program.class - 1
+					] +
+					")"
+				}
 				textColor="var(--semantic-text-white)"
 			/>
 			<div className={styles.body}>
 				<div className={styles.pr}>
-					{/* TODO：データベースから各クラス向けに引用してくる。データベースにはテキストと画像パスは定義されていないので今はこれが限界 */}
 					<Image
 						src={loaderData.program.assets}
 						alt="クラスのPR画像"
 						style={{
 							backgroundColor:
-								"var(--themecolor-main-class-${loaderData.program.class})",
+								"var(--themecolor-main-class-" +
+								["one", "two", "three", "four", "five", "six"][
+									loaderData.program.class - 1
+								] +
+								")",
 						}}
 					/>
 					<p>{loaderData.program.description}</p>
