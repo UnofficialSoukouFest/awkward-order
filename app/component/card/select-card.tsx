@@ -15,9 +15,10 @@ export type SelectType = {
 	product: DisplayType;
 };
 
-export function SelectCard({ productData }: SelectType) {// product => productData
+export function SelectCard({ productData }: SelectType) {
+	// product => productData
 	const [isOpen, setIsOpen] = useState(false);
-	const product = productData.product;// 追加
+	const product = productData.product; // 追加
 	return (
 		<div className={styles.card}>
 			<div className={styles.main}>
@@ -51,11 +52,13 @@ export function SelectCard({ productData }: SelectType) {// product => productDa
 				</div>
 				<div className={styles.menuPrice}>
 					<p className={styles.menu}>メニュー名＊＊＊＊＊＊＊＊＊</p>
-					<div className={styles.bottom}>	
+					<div className={styles.bottom}>
 						<p className={styles.price}>
 							<span className={styles.priceUnit}>￥</span>ABC
 						</p>
-						<button onClick={() => setIsOpen(isOpen => !isOpen)}>{ isOpen ? "表示を折り畳む" : "原材料・アレルゲンを表示" }</button>
+						<button onClick={() => setIsOpen((isOpen) => !isOpen)}>
+							{isOpen ? "表示を折り畳む" : "原材料・アレルゲンを表示"}
+						</button>
 					</div>
 				</div>
 			</div>
@@ -116,11 +119,13 @@ export function SelectCardPick() {
 				</div>
 				<div className={styles.menuPrice}>
 					<p className={styles.menu}>メニュー名＊＊＊＊＊＊＊＊＊</p>
-					<div className={styles.bottom}>	
+					<div className={styles.bottom}>
 						<p className={styles.price}>
 							<span className={styles.priceUnit}>￥</span>ABC
 						</p>
-						<button onClick={() => setIsOpen(isOpen => !isOpen)}>{ isOpen ? "表示を折り畳む" : "原材料・アレルゲンを表示" }</button>
+						<button onClick={() => setIsOpen((isOpen) => !isOpen)}>
+							{isOpen ? "表示を折り畳む" : "原材料・アレルゲンを表示"}
+						</button>
 					</div>
 				</div>
 			</div>
@@ -142,7 +147,9 @@ export function SelectCardPick() {
 						<p>原材料＊＊＊＊＊＊＊＊</p>
 					</div>
 				</>
-			) : (<></>)}
+			) : (
+				<></>
+			)}
 		</div>
 	);
 }

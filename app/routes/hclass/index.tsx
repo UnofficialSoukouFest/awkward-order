@@ -1,14 +1,14 @@
 import { Button } from "@latimeria/ganoine";
 import { data } from "react-router";
 import { MenuCard, MenuCardPick } from "~/component/card/menu-card";
+import { OrderCard } from "~/component/card/order-card";
+import { SelectCard, SelectCardPick } from "~/component/card/select-card";
 import Image from "~/component/image";
 import { TitleBarWithBack } from "~/component/title-bar";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
 import type { Route } from "./+types/index";
 import styles from "./programs.module.css";
-import { OrderCard } from "~/component/card/order-card";
-import { SelectCard, SelectCardPick } from "~/component/card/select-card";
 
 export async function loader({ params, context }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -84,8 +84,9 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 						</div>
 					</div>
 					<h2>試作品用欄</h2>
-					<OrderCard />
-					<SelectCard />
+					{/* INFO: この中にデータがないとエラーが出るので暫定的なコメントアウト */}
+					{/* <OrderCard /> */}
+					{/* <SelectCard /> */}
 					<SelectCardPick />
 				</div>
 				<Button

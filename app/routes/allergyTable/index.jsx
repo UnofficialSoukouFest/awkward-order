@@ -1,8 +1,8 @@
 // import foodMenus from '../../../foodSales.mock.json';
 import { data } from "react-router";
+import { matchProducts } from "~/lib/product";
 import { ClassBox } from "./class-box";
 import styles from "./index.module.css";
-import { matchProducts } from "~/lib/product";
 // import Link from 'next/link'
 
 export const metadata = {
@@ -59,7 +59,7 @@ export default function AllergyTable({ loaderData }) {
 
 	// クラスごとに食品を分ける
 	const products = loaderData.products;
-	let classesWithMenus = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [] };
+	const classesWithMenus = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [] };
 	products.forEach((item) => {
 		classesWithMenus[item.classId].push(item);
 	});

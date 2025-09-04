@@ -10,8 +10,7 @@ export type OrderType = {
 	product: OrderProps;
 };
 
-export function OrderCard({ productData }: OrderType) {// product => productData
-	const product = productData.product;// 追加
+export function OrderCard({ product }: OrderType) {
 	return (
 		<div className={styles.body}>
 			<div className={styles.productImage}>
@@ -40,13 +39,16 @@ export function OrderCard({ productData }: OrderType) {// product => productData
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<path d="M51 43.8702L51 0.0584219C43.6767 14.6623 45.3667 24.211 36.3534 29.2662C27.34 34.3214 16.6843 20.6551 0.30003 43.8702L30.4383 43.8702L51 43.8702Z" />
-			    </svg>
+				</svg>
 			</div>
 			<div className={styles.texts}>
-				<p className={styles.name}>{product.id}</p>
+				<p className={styles.name}>{product.name}</p>
 				<div className={styles.values}>
 					<p className={styles.number}>A個</p>
-					<p className={styles.price}><span className={styles.priceUnit}>￥</span>{product.price}</p>
+					<p className={styles.price}>
+						<span className={styles.priceUnit}>￥</span>
+						{product.price}
+					</p>
 				</div>
 			</div>
 		</div>
