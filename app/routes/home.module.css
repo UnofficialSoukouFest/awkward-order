@@ -101,20 +101,11 @@
 	grid-column: 1 / -1;
 }
 
-.mapContainer {
-	width: 100%;
-}
-
-.GooglemapContainer {
-	position: relative;
-	width: 80%;
-	margin: 0 auto;
-}
-
-.Googlemap {
-	aspect-ratio: 16 / 9;
-	border: none;
-	border-radius: var(--semantic-radius-medium);
+.slide {
+	width: min(92vw, 600px);
+	height: auto;
+	aspect-ratio: 16 / 11;
+	margin: 96px auto;
 }
 
 .YSFmap {

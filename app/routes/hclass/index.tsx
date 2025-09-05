@@ -1,8 +1,7 @@
 import { Button } from "@latimeria/ganoine";
+import type { Product } from "@latimeria/shared";
 import { data } from "react-router";
 import { MenuCard, MenuCardPick } from "~/component/card/menu-card";
-import { OrderCard } from "~/component/card/order-card";
-import { SelectCard, SelectCardPick } from "~/component/card/select-card";
 import Image from "~/component/image";
 import { TitleBarWithBack } from "~/component/title-bar";
 import { matchProducts } from "~/lib/product";
@@ -20,7 +19,7 @@ export async function loader({ params, context }: Route.LoaderArgs) {
 	}
 	const productResult = await matchProducts(context.db, [
 		{
-			classId: Number(params.classId),
+			classId: Number(programResult.payload.id),
 		},
 	]);
 	if (productResult.type === "error") {
@@ -44,19 +43,19 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 		<>
 			<TitleBarWithBack
 				pagename={loaderData.program.name}
-				themeColor="var(--themecolor-main)"
+				themeColor={loaderData.program.color}
 				textColor="var(--semantic-text-white)"
 			/>
 			<div className={styles.body}>
 				<div className={styles.pr}>
-					{/* TODO：データベースから各クラス向けに引用してくる。データベースにはテキストと画像パスは定義されていないので今はこれが限界 */}
-					<img
+					<Image
+						src={`/${loaderData.program.assets?.thumbnail ?? "kari-fallback.png"}`}
 						alt="クラスのPR画像"
-						style={{ backgroundColor: "var(--themecolor-main)" }}
+						style={{
+							backgroundColor: loaderData.program.color,
+						}}
 					/>
-					<p>
-						1階コミュニケーションコート鶴見川側にて焼き鳥を販売中！塩味とたれ味の二種類を取り扱っています。我々にはあるのだよ！美味しさへの確かな自信がな！それ故に、売り切れ御免！お早めにな！
-					</p>
+					<p>{loaderData.program.description}</p>
 				</div>
 				<div className={styles.menu}>
 					<h1>メニュー</h1>
@@ -65,10 +64,16 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 						<div className={styles.topCards}>
 							<div
 								className={styles.topBack}
-								style={{ backgroundColor: "var(--themecolor-main)" }}
+								style={{
+									backgroundColor: loaderData.program.color,
+								}}
 							>
 								<div className={styles.topCenter}>
-									<MenuCardPick />
+									{loaderData.products
+										.filter((content: Product) => content.isFavorite)
+										.map((content: Product) => (
+											<MenuCardPick product={content} key={content.id} />
+										))}
 								</div>
 							</div>
 						</div>
@@ -77,10 +82,20 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 						<h2>その他のメニュー</h2>
 						<div
 							className={styles.cardback}
-							style={{ backgroundColor: "var(--themecolor-main)" }}
+							style={{
+								backgroundColor: loaderData.program.color,
+							}}
 						>
 							<div className={styles.cards}>
-								<MenuCard />
+								{loaderData.products
+									.filter((content: Product) => !content.isFavorite)
+									.map((content: Product) => (
+										<MenuCard
+											product={content}
+											classNumber={loaderData.program.class}
+											key={content.id}
+										/>
+									))}
 							</div>
 						</div>
 					</div>
@@ -90,9 +105,9 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 					<SelectCardPick /> */}
 				</div>
 				<Button
-					onPress={() => alert("まだ繋がっていません！")}
+					onPress={() => alert("この先は1日目から使用できます！")}
 					style={{
-						backgroundColor: "var(--themecolor-main)",
+						backgroundColor: loaderData.program.color,
 						border: "none",
 						boxShadow: "0px 0px 3px 3px var(--semantic-shadow-default)",
 					}}

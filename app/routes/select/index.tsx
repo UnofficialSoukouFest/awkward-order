@@ -109,7 +109,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				""
 			)}
 			<div className={styles.selectProducts}>
-				{select(loaderData).map((item) => (
+				{select(loaderData).map((item) => ( // todo:selectの返り値をDisplayTypeにする
 					<SelectCard key={item[1]} productData={item[0]} />
 				))}
 			</div>
@@ -136,7 +136,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 					</Drawer.Portal>
 				</Drawer.Root>
 			</div>
-			<Link href={`order/${loaderData.order.id}`}>拡大表示</Link>
+			<Link href={`../order/${loaderData.order.id}`}>拡大表示</Link>
 		</>
 	);
 }
