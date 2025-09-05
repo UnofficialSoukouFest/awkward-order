@@ -12,8 +12,10 @@ export function formatIngredient(
 		formattedPart += compositeIngredients
 			.filter((item) => item.name == part)
 			.map(
-				(item) =>
-					`${item}${compositeIngredientsConstructerFirst(compositeIngredients, part)}`,
+				(item) =>{
+					console.log(compositeIngredients)
+					return `${compositeIngredientsConstructerFirst(compositeIngredients, part)}`
+				}
 			)
 			.join("、");
 		constructedIngredient.push(formattedPart);
@@ -28,20 +30,20 @@ function compositeIngredientsConstructerFirst(
 ) {
 	let result = "";
 	if (compositeIngredients.map((item) => item.name).includes(root)) {
-		result += " (";
+		result += compositeIngredients.length > 0 ? "（" : "";
 		for (
 			let i = 0;
 			i < compositeIngredients.filter((item) => item.name == root).length;
 			i++
 		) {
-			result += compositeIngredients.filter((item) => item.name == root)[i]
-				.name;
+			// result += compositeIngredients.filter((item) => item.name == root)[i]
+			// 	.name;
 			result += compositeIngredientsConstructer(
 				compositeIngredients.filter((item) => item.name == root)[i]
 					.compositeIngredients ?? [],
 			);
 		}
-		result += "）";
+		// result += compositeIngredients.length > 0 ? "）" : "";
 	}
 	return result;
 }
@@ -51,14 +53,16 @@ function compositeIngredientsConstructer(
 ) {
 	let result = "";
 	if (compositeIngredients != undefined) {
-		result += " (";
+		// result += " (";
 		for (let i = 0; i < compositeIngredients.length; i++) {
 			result += compositeIngredients[i].name;
 			result += compositeIngredientsConstructer(
 				compositeIngredients[i].compositeIngredients ?? [],
 			);
+			if (i + 1 != compositeIngredients.length)
+				result += "、";
 		}
-		result += "）";
+		result += compositeIngredients.length > 0 ? "）" : "";
 	}
 	return result;
 }
