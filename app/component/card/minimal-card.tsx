@@ -1,6 +1,6 @@
+import { Link } from "@latimeria/ganoine";
 import baseStyles from "./card.module.css";
 import styles from "./minimal-card.module.css";
-import { Link } from "@latimeria/ganoine";
 
 export default function MinimalCard({
 	classNumber,
@@ -10,7 +10,7 @@ export default function MinimalCard({
 	title: string;
 }) {
 	return (
-		<Link href={`/${classNumber}`}>
+		<Link href={`/${classNumber}`} className={styles.cardLink}>
 			<div className={`${styles.cardImg} ${baseStyles.cardContent}`}>
 				<span>{classNumber}組</span>
 				<h2 className={styles.title}>{title}</h2>
