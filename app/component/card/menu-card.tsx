@@ -6,12 +6,12 @@ export function MenuCard({ product }: Product) {
 	return (
 		<div className={styles.menuCard}>
 			<div className={styles.productImage}>
-				<img alt="商品の画像です。" />
-				<p>{product.classId}</p>
+				<img src={ product.assets } alt="商品の画像です。" />
+				<p>{ product.classId + "組"}</p>
 				<svg
 					className={styles.decoration_ul}
 					style={{
-						fill: "var(--themecolor-main)",
+						fill: "#ffad19",
 						color: "var(--semantic-text-dark)",
 					}}
 					width="74"
@@ -24,7 +24,7 @@ export function MenuCard({ product }: Product) {
 				</svg>
 				<svg
 					className={styles.decoration_dr}
-					style={{ fill: "var(--themecolor-main)" }}
+					style={{ fill: "#ffad19" }}
 					width="51"
 					height="44"
 					viewBox="0 -10 51 44"
@@ -50,11 +50,11 @@ export function MenuCardPick({ product }: Product) {
 		<div className={styles.pickMenuCard}>
 			<div className={styles.productImage}>
 				<Image src={product.assets} alt="商品の画像です。" />
-				<p>{product.classId}</p>
+				<p>{ typeof color}</p>
 				<svg
 					className={styles.decoration_ul}
 					style={{
-						fill: "var(--themecolor-main-class-${classID})",
+						fill: "#ffad19",
 						color: "var(--semantic-text-dark)",
 					}}
 					width="74"
@@ -67,7 +67,7 @@ export function MenuCardPick({ product }: Product) {
 				</svg>
 				<svg
 					className={styles.decoration_dr}
-					style={{ fill: "var(--themecolor-main-class-${classID})" }}
+					style={{ fill: "#ffad19" }}
 					width="51"
 					height="44"
 					viewBox="0 -10 51 44"

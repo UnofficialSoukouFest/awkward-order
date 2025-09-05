@@ -43,11 +43,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 			<TitleBarWithBack
 				pagename={loaderData.program.name}
 				themeColor={
-					"var(--themecolor-main-class-" +
-					["one", "two", "three", "four", "five", "six"][
-						loaderData.program.class - 1
-					] +
-					")"
+					loaderData.program.color
 				}
 				textColor="var(--semantic-text-white)"
 			/>
@@ -58,11 +54,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 						alt="クラスのPR画像"
 						style={{
 							backgroundColor:
-								"var(--themecolor-main-class-" +
-								["one", "two", "three", "four", "five", "six"][
-									loaderData.program.class - 1
-								] +
-								")",
+								loaderData.program.color,
 						}}
 					/>
 					<p>{loaderData.program.description}</p>
@@ -76,11 +68,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 								className={styles.topBack}
 								style={{
 									backgroundColor:
-										"var(--themecolor-main-class-" +
-										["one", "two", "three", "four", "five", "six"][
-											loaderData.products.classID - 1
-										] +
-										")",
+										loaderData.program.color,
 								}}
 							>
 								<div className={styles.topCenter}>
@@ -99,11 +87,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 							className={styles.cardback}
 							style={{
 								backgroundColor:
-									"var(--themecolor-main-class-" +
-									["one", "two", "three", "four", "five", "six"][
-										loaderData.products.classID - 1
-									] +
-									")",
+									loaderData.program.color,
 							}}
 						>
 							<div className={styles.cards}>
@@ -119,12 +103,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 				<Button
 					onPress={() => alert("この先は1日目から使用できます！")}
 					style={{
-						backgroundColor:
-							"var(--themecolor-main-class-" +
-							["one", "two", "three", "four", "five", "six"][
-								loaderData.program.class - 1
-							] +
-							")",
+						backgroundColor: loaderData.program.color ,
 						border: "none",
 						boxShadow: "0px 0px 3px 3px var(--semantic-shadow-default)",
 					}}
