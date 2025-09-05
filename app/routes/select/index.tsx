@@ -158,7 +158,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 					</Drawer.Portal>
 				</Drawer.Root>
 			</div>
-			<Link href={`order/${loaderData.order.id}`}>拡大表示</Link>
+			<Link href={`../order/${loaderData.order.id}`}>拡大表示</Link>
 		</>
 	);
 }
