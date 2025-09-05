@@ -28,7 +28,7 @@ import styles from "./index.module.css";
 
 export async function loader({ params, context, request }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
-		class: Number(params.classId),
+		class: Number(params.classNumber),
 	});
 	if (programResult.type === "error") {
 		throw programResult.payload;

@@ -11,7 +11,7 @@ import styles from "./programs.module.css";
 
 export async function loader({ params, context }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
-		class: Number(params.classId),
+		class: Number(params.classNumber),
 	});
 	if (programResult.type === "error") {
 		throw data(programResult.payload, { status: 500 });
