@@ -1,7 +1,5 @@
 import { useState } from "react";
-import Image from "~/component/image";
 import styles from "./select-card.module.css";
-import { productFactory } from "workers/seed";
 
 export type DisplayType = {
 	name: string;
@@ -10,6 +8,7 @@ export type DisplayType = {
 	allergens: string[];
 	mayContainAllergens: string[];
 	Ingredients: string;
+	isFavorite: boolean;
 };
 
 export type SelectType = {
@@ -17,7 +16,6 @@ export type SelectType = {
 };
 
 export function SelectCard({ product }: SelectType) {
-	// product => productData
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<div className={styles.card}>
@@ -58,7 +56,10 @@ export function SelectCard({ product }: SelectType) {
 							<span className={styles.priceUnit}>￥</span>
 							{product.price}
 						</p>
-						<button onClick={() => setIsOpen((isOpen) => !isOpen)}>
+						<button
+							onClick={() => setIsOpen((isOpen) => !isOpen)}
+							type="button"
+						>
 							{isOpen ? "表示を折り畳む" : "原材料・アレルゲンを表示"}
 						</button>
 					</div>
