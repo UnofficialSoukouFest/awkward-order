@@ -113,7 +113,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 					(
 						[productDisplayData, productId], // todo:selectの返り値をDisplayTypeにする
 					) => (
-						<SelectCard key={productId} product={productDisplayData} />
+						<SelectCard key={productId} product={productDisplayData} color={loaderData.program.color} />
 					),
 				)}
 			</div>
