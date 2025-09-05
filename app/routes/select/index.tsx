@@ -25,6 +25,7 @@ import MdiPencilOutline from "~icons/mdi/pencil-outline";
 import type { Route } from "./+types";
 import { allergySelectAtom } from "./atom";
 import styles from "./index.module.css";
+import { select, order } from "~/lib/hogeType";
 
 export async function loader({ params, context, request }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
