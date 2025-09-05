@@ -1,5 +1,4 @@
 import { lazy, Suspense } from "react";
-import YSFMap from "./ysfmap.client";
 
 /**
  * どこでも使えるマップ
@@ -19,13 +18,20 @@ export function YMap({ width, height }) {
 /**
  * 企画ページ向けのマップ
  * @param {Object} prop
- * @param {number} prop.width
+ * @param {number} [prop.width]
  * @param {number} prop.height
- * @param {number} prop.floor
- * @param {number} prop.id
+ * @param {String} prop.id
  */
-export function MapFromSpecRoom({ width, height, floor, id }) {
+
+export function MapFromSpecRoom({ width, height, id }) {
+	const LazyMap = lazy(() => import("./ysfmap.client"));
 	return (
-		<YSFMap picWidth={width} picHeight={height} initialFloor={floor} id={id} />
+		<Suspense fallback={<p>Loading...</p>}>
+			<LazyMap
+				picWidth={width}
+				picHeight={height}
+				id={id}
+			/>
+		</Suspense>
 	);
 }

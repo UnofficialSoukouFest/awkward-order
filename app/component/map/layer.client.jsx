@@ -60,7 +60,6 @@ export function FloorLayer({
 										: {}
 								}
 								pathOptions={{
-									fillOpacity: open ? 1 : 0, // タップ時に認識させるため透明度で管理
 									color: "#ffd080",
 									stroke: open ? true : false,
 								}}
