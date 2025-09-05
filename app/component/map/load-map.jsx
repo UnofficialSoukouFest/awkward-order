@@ -1,5 +1,4 @@
 import { lazy, Suspense } from "react";
-import YSFMap from "./ysfmap.client";
 
 /**
  * どこでも使えるマップ
@@ -23,6 +22,7 @@ export function YMap({ width, height }) {
  * @param {number} prop.height
  * @param {String} prop.id
  */
+
 export function MapFromSpecRoom({ width, height, id }) {
 	const LazyMap = lazy(() => import("./ysfmap.client"));
 	return (

@@ -52,16 +52,10 @@ function compositeIngredientsConstructer(
 	let result = "";
 	if (compositeIngredients != undefined) {
 		result += " (";
-		for (
-			let i = 0;
-			i < compositeIngredients.filter((item) => item.name == root).length;
-			i++
-		) {
-			result += compositeIngredients.filter((item) => item.name == root)[i]
-				.name;
+		for (let i = 0; i < compositeIngredients.length; i++) {
+			result += compositeIngredients[i].name;
 			result += compositeIngredientsConstructer(
-				compositeIngredients.filter((item) => item.name == root)[i]
-					.compositeIngredients ?? [],
+				compositeIngredients[i].compositeIngredients ?? [],
 			);
 		}
 		result += "）";

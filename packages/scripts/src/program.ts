@@ -34,6 +34,7 @@ export async function programMigrate(
 						description: program.description,
 						color: program.color,
 						thumbnail: program.assets?.thumbnail,
+						svgProgramId: program.assets?.svgProgramId,
 					},
 				}),
 			);

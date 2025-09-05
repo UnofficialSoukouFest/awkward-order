@@ -6,22 +6,14 @@ import {
 	PopupToggleButton,
 } from "@latimeria/ganoine";
 import { useAtom } from "jotai";
-import { useState } from "react";
 import { data } from "react-router";
 import { Drawer } from "vaul";
-import {
-	OrderCard,
-	type OrderProps,
-	type OrderType,
-} from "~/component/card/order-card";
-import {
-	type DisplayType,
-	SelectCard,
-	type SelectType,
-} from "~/component/card/select-card";
+import { OrderCard } from "~/component/card/order-card";
+import { SelectCard } from "~/component/card/select-card";
 import { SelectSubstance } from "~/component/food/select-substances";
 import { TitleBarWithBack } from "~/component/title-bar";
 import { specificSubstanceList } from "~/lib/allergen";
+import { order, select } from "~/lib/card-builder";
 import { addOrder, matchOrder } from "~/lib/order";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
@@ -33,13 +25,13 @@ import styles from "./index.module.css";
 
 export async function loader({ params, context, request }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
-		class: Number(params.classId),
+		class: Number(params.classNumber),
 	});
 	if (programResult.type === "error") {
 		throw programResult.payload;
 	}
 	const productResult = await matchProducts(context.db, [
-		{ classId: Number(params.classId) },
+		{ classId: programResult.payload.id },
 	]);
 	if (productResult.type === "error") {
 		throw productResult.payload;
@@ -48,7 +40,7 @@ export async function loader({ params, context, request }: Route.LoaderArgs) {
 	const orderData = session.has("orderId")
 		? await matchOrder(context.db, { id: session.get("orderId") })
 		: await addOrder(context.db, {
-				classId: Number(params.classId),
+				classId: programResult.payload.id,
 				date: new Date(),
 				purchases: [],
 			});
@@ -71,11 +63,10 @@ export async function loader({ params, context, request }: Route.LoaderArgs) {
 }
 
 export default function Select({ loaderData }: Route.ComponentProps) {
-	// const [selected, setSelected] = useState(new Set([0]));
-	const [selected, setSelected] = useAtom(allergySelectAtom);
+	const [selected, _setSelected] = useAtom(allergySelectAtom);
 	// filteredproductsは、選択されたアレルギーを含まない商品のリスト
-	let filteredproducts = [];
-	filteredproducts = loaderData.products.filter((product) =>
+	let _filteredproducts = [];
+	_filteredproducts = loaderData.products.filter((product) =>
 		product.allergens.every(
 			(allergen) =>
 				!specificSubstanceList
@@ -118,20 +109,13 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				""
 			)}
 			<div className={styles.selectProducts}>
-				{loaderData.products.map((product) => {
-					const displayProduct: DisplayType = {
-						name: product.name,
-						price: product.price,
-						classId: product.classId,
-						allergens: product.allergens,
-						mayContainAllergens: product.mayContains ?? [],
-						Ingredients: product.rootIngredients.join("、"), // ここは暫定的にrootIngredientsを使用
-					};
-					const selectType: SelectType = {
-						product: displayProduct,
-					};
-					return <SelectCard key={product.id} product={selectType} />;
-				})}
+				{select(loaderData.products).map(
+					(
+						[productDisplayData, productId], // todo:selectの返り値をDisplayTypeにする
+					) => (
+						<SelectCard key={productId} product={productDisplayData} />
+					),
+				)}
 			</div>
 			<div className={styles.selectButtom}>
 				<Drawer.Root open={true}>
@@ -141,14 +125,13 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 							data-testid="content"
 							className={styles.selectButtomContent}
 						>
-							{loaderData.order.purchases.map((item) => {
-								const product: OrderProps = {
-									name: item.name,
-									price: item.price,
-									number: 1,
-								};
-								return <OrderCard key={item.id} product={product} />;
-							})}
+							{order(loaderData.order, loaderData.program.class).map((item) => (
+								<OrderCard
+									key={item[1]}
+									product={item[0].product}
+									classNumber={loaderData.program.class}
+								/>
+							))}
 							<p>
 								<MdiPencilOutline /> 合計金額:{" "}
 								{loaderData.order.purchases.reduce(
@@ -161,7 +144,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 					</Drawer.Portal>
 				</Drawer.Root>
 			</div>
-			<Link href={`order/${loaderData.order.id}`}>拡大表示</Link>
+			<Link href={`../order/${loaderData.order.id}`}>拡大表示</Link>
 		</>
 	);
 }

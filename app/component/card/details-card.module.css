@@ -6,3 +6,8 @@
 	border-radius: var(--semantic-radius-medium);
 	background-color: #fff29f;
 }
+
+.detailsCardLink {
+	text-decoration: none;
+	color: var(--semantic-text-dark);
+}
