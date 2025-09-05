@@ -112,7 +112,10 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 				</Button>
 				<div className={styles.place}>
 					<h1>販売場所</h1>
-					<MapFromSpecRoom height={300} id={loaderData.program.assets?.svgProgramId}/>
+					<MapFromSpecRoom
+						height={300}
+						id={loaderData.program.assets?.svgProgramId}
+					/>
 				</div>
 				<div className={styles.crowded}></div>
 			</div>

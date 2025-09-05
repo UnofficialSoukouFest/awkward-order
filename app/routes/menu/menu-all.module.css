@@ -1,0 +1,29 @@
+.PopUpCloseButtonDiv {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.selectHeader {
+	grid-column: 2 / span 10;
+}
+
+.dialogBox {
+	overflow-y: auto;
+	height: 100%;
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 25rem;
+    justify-content: center;
+    align-items: center;
+}

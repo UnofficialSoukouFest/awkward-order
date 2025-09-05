@@ -27,11 +27,7 @@ export function MapFromSpecRoom({ width, height, id }) {
 	const LazyMap = lazy(() => import("./ysfmap.client"));
 	return (
 		<Suspense fallback={<p>Loading...</p>}>
-			<LazyMap
-				picWidth={width}
-				picHeight={height}
-				id={id}
-			/>
+			<LazyMap picWidth={width} picHeight={height} id={id} />
 		</Suspense>
 	);
 }
