@@ -1,7 +1,7 @@
 import type { OrderData, Products } from "@latimeria/shared";
+import type { OrderCardProps, OrderProps } from "~/component/card/order-card";
 import type { DisplayType } from "~/component/card/select-card";
 import { formatIngredient } from "./ingredients";
-import type { OrderCardProps, OrderProps } from "~/component/card/order-card";
 
 export function select(products: Products): [DisplayType, number][] {
 	return products.map((product) => {

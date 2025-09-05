@@ -9,6 +9,7 @@ import { matchProgram } from "~/lib/program";
 import type { Route } from "./+types/index";
 import styles from "./programs.module.css";
 import { MapFromSpecRoom } from "~/component/map/load-map";
+import { Congestion } from "~/component/congestion";
 
 export async function loader({ params, context }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -114,7 +115,9 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 					<h1>販売場所</h1>
 					<MapFromSpecRoom height={300} id={loaderData.program.assets?.svgProgramId}/>
 				</div>
-				<div className={styles.crowded}></div>
+				<div className={styles.crowded}>
+					<Congestion program={loaderData.program} />
+				</div>
 			</div>
 		</>
 	);
