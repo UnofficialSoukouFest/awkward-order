@@ -1,20 +1,17 @@
 import styles from "./order-card.module.css";
-import type { Product } from "@latimeria/shared";
 
 export type OrderProps = {
 	name: string;
 	price: number;
-	number: number;
+	count: number;
 };
 
-export type OrderType = {
+export type OrderCardProps = {
 	product: OrderProps;
+	classNumber: number;
 };
 
-
-export function OrderCard({ product }: OrderType) {
-	// product => productData
-	// const product = productData.product; // 追加
+export function OrderCard({ product, classNumber }: OrderCardProps) {
 	return (
 		<div className={styles.body}>
 			<div className={styles.productImage}>
@@ -24,15 +21,14 @@ export function OrderCard({ product }: OrderType) {
 					style={{
 						fill:
 							"var(--themecolor-main-class-" +
-							["one", "two", "three", "four", "five", "six"][
-								product.classID - 1
-							] +
+							["one", "two", "three", "four", "five", "six"][classNumber - 1] +
 							")",
 						color: "var(--semantic-text-dark)",
 					}}
 					width="74"
 					height="43"
 					viewBox="0 5 74 43"
+					role="graphics-symbol"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
 				>
@@ -43,14 +39,13 @@ export function OrderCard({ product }: OrderType) {
 					style={{
 						fill:
 							"var(--themecolor-main-class-" +
-							["one", "two", "three", "four", "five", "six"][
-								product.classID - 1
-							] +
+							["one", "two", "three", "four", "five", "six"][classNumber - 1] +
 							")",
 					}}
 					width="51"
 					height="44"
 					viewBox="0 -10 51 44"
+					role="graphics-symbol"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
 				>
