@@ -22,20 +22,22 @@ const app = new Hono<{ Bindings: Bindings }>();
 
 app.route("/api", apiApp);
 
-app.get("/dev", async (c) => {
-	// NOTE: このオブジェクトの並びは外部キーの依存順を考慮したものです
-	const tables = {
-		program: schema.programTable,
-		product: schema.productTable,
-		stock: schema.productStockTable,
-		order: schema.orderDataTable,
-	};
-	const db = drizzle(c.env.DB, { schema: tables });
-	for (const table of Object.values(tables).reverse()) {
-		await db.delete(table);
-	}
-	return c.json({ message: "all data cleaned!" });
-});
+if (import.meta.env.DEV) {
+	app.get("/dev", async (c) => {
+		// NOTE: このオブジェクトの並びは外部キーの依存順を考慮したものです
+		const tables = {
+			program: schema.programTable,
+			product: schema.productTable,
+			stock: schema.productStockTable,
+			order: schema.orderDataTable,
+		};
+		const db = drizzle(c.env.DB, { schema: tables });
+		for (const table of Object.values(tables).reverse()) {
+			await db.delete(table);
+		}
+		return c.json({ message: "all data cleaned!" });
+	});
+}
 
 app.get("*", (c) => {
 	const requestHandler = createRequestHandler(
