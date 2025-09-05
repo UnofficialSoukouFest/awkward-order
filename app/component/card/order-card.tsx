@@ -12,7 +12,7 @@ export type OrderType = {
 };
 
 
-export function OrderCard({ product }: OrderProps) {
+export function OrderCard({ product }: OrderType) {
 	// product => productData
 	// const product = productData.product; // 追加
 	return (

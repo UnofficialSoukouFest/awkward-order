@@ -17,7 +17,6 @@ export type SelectType = {
 };
 
 export function SelectCard({ product }: SelectType) {
-	// product => productData
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<div className={styles.card}>

@@ -11,6 +11,8 @@ import { data } from "react-router";
 import { Drawer } from "vaul";
 import { SelectSubstance } from "~/component/food/select-substances";
 import { TitleBarWithBack } from "~/component/title-bar";
+import { SelectCard } from "~/component/card/select-card";
+import { OrderCard } from "~/component/card/order-card";
 import { addOrder, matchOrder } from "~/lib/order";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
@@ -109,8 +111,8 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				""
 			)}
 			<div className={styles.selectProducts}>
-				{select(loaderData).map((item) => ( // todo:selectの返り値をDisplayTypeにする
-					<SelectCard key={item[1]} productData={item[0]} />
+				{select(loaderData).map((item) => (
+					<SelectCard key={item[1]} {...item[0]} />
 				))}
 			</div>
 			<div className={styles.selectButtom}>
@@ -122,7 +124,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 							className={styles.selectButtomContent}
 						>
 							{order(loaderData).map((item) => (
-								<OrderCard key={item[1]} productData={item[0]} />
+								<OrderCard key={item[1]} {...item[0]} />
 							))}
 							<p>
 								<MdiPencilOutline /> 合計金額:{" "}
