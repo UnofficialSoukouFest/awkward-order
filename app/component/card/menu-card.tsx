@@ -5,9 +5,11 @@ import styles from "./menu-card.module.css";
 export function MenuCard({
 	classNumber,
 	product,
+	color,
 }: {
 	classNumber: number;
 	product: Product;
+	color: string;
 }) {
 	return (
 		<div className={styles.menuCard}>
@@ -17,7 +19,7 @@ export function MenuCard({
 				<svg
 					className={styles.decoration_ul}
 					style={{
-						fill: "#ffad19",
+						fill: color,
 						color: "var(--semantic-text-dark)",
 					}}
 					role="graphics-symbol"
@@ -31,7 +33,7 @@ export function MenuCard({
 				</svg>
 				<svg
 					className={styles.decoration_dr}
-					style={{ fill: "#ffad19" }}
+					style={{ fill: color }}
 					width="51"
 					height="44"
 					viewBox="0 -10 51 44"
@@ -53,7 +55,13 @@ export function MenuCard({
 	);
 }
 
-export function MenuCardPick({ product }: { product: Product }) {
+export function MenuCardPick({
+	product,
+	color,
+}: {
+	product: Product;
+	color: string;
+}) {
 	return (
 		<div className={styles.pickMenuCard}>
 			<div className={styles.productImage}>
@@ -61,7 +69,7 @@ export function MenuCardPick({ product }: { product: Product }) {
 				<svg
 					className={styles.decoration_ul}
 					style={{
-						fill: "#ffad19",
+						fill: color,
 						color: "var(--semantic-text-dark)",
 					}}
 					width="74"
@@ -75,7 +83,7 @@ export function MenuCardPick({ product }: { product: Product }) {
 				</svg>
 				<svg
 					className={styles.decoration_dr}
-					style={{ fill: "#ffad19" }}
+					style={{ fill: color }}
 					width="51"
 					height="44"
 					viewBox="0 -10 51 44"

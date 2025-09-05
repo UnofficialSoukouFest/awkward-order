@@ -72,7 +72,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 									{loaderData.products
 										.filter((content: Product) => content.isFavorite)
 										.map((content: Product) => (
-											<MenuCardPick product={content} key={content.id} />
+											<MenuCardPick product={content} key={content.id} color={loaderData.program.color} />
 										))}
 								</div>
 							</div>
@@ -94,6 +94,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 											product={content}
 											classNumber={loaderData.program.class}
 											key={content.id}
+											color={loaderData.program.color}
 										/>
 									))}
 							</div>
