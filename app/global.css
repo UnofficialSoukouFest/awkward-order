@@ -2,28 +2,36 @@
 	font-family: "LINE Seed JP";
 	font-style: normal;
 	font-weight: bold;
-	src: local("LINESeedJP_OTF_Bd.woff2");
+	src:
+		local("LINESeedJP_OTF_Bd.woff2"),
+		url("https://cdn.jsdelivr.net/npm/line-seed-jp@0.0.5/woff2/LINESeedJP_OTF_Bd.woff2");
 }
 
 @font-face {
 	font-family: "LINE Seed JP";
 	font-style: normal;
 	font-weight: normal;
-	src: local("LINESeedJP_OTF_Rg.woff2");
+	src:
+		local("LINESeedJP_OTF_Rg.woff2"),
+		url("https://cdn.jsdelivr.net/npm/line-seed-jp@0.0.5/woff2/LINESeedJP_OTF_Rg.woff2");
 }
 
 @font-face {
 	font-family: "LINE Seed JP";
 	font-style: normal;
 	font-weight: 300;
-	src: local("LINESeedJP_OTF_Th.woff2");
+	src:
+		local("LINESeedJP_OTF_Th.woff2"),
+		url("https://cdn.jsdelivr.net/npm/line-seed-jp@0.0.5/woff2/LINESeedJP_OTF_Th.woff2");
 }
 
 @font-face {
 	font-family: "LINE Seed JP";
 	font-style: normal;
 	font-weight: 900;
-	src: local("LINESeedJP_OTF_Eb.woff2");
+	src:
+		local("LINESeedJP_OTF_Eb.woff2"),
+		url("https://cdn.jsdelivr.net/npm/line-seed-jp@0.0.5/woff2/LINESeedJP_OTF_Eb.woff2");
 }
 
 :root {
