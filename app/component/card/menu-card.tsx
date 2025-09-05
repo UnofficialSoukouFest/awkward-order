@@ -20,6 +20,7 @@ export function MenuCard({
 						fill: "#ffad19",
 						color: "var(--semantic-text-dark)",
 					}}
+					role="graphics-symbol"
 					width="74"
 					height="43"
 					viewBox="0 5 74 43"
@@ -34,6 +35,7 @@ export function MenuCard({
 					width="51"
 					height="44"
 					viewBox="0 -10 51 44"
+					role="graphics-symbol"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
 				>
@@ -64,6 +66,7 @@ export function MenuCardPick({ product }: { product: Product }) {
 					}}
 					width="74"
 					height="43"
+					role="graphics-symbol"
 					viewBox="0 5 74 43"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
@@ -76,6 +79,7 @@ export function MenuCardPick({ product }: { product: Product }) {
 					width="51"
 					height="44"
 					viewBox="0 -10 51 44"
+					role="graphics-symbol"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
 				>
