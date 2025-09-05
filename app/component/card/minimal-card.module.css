@@ -13,3 +13,8 @@
 .title {
 	margin: var(--semantic-space-small) 0;
 }
+
+.cardLink {
+	text-decoration: none;
+	color: var(--semantic-text-dark);
+}
