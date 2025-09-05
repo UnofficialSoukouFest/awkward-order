@@ -65,12 +65,12 @@ export default function Home() {
 			</div>
 			<iframe
 				className={styles.slide}
+				title="食販の使い方"
 				src="https://docs.google.com/presentation/d/e/2PACX-1vRSvoPrrU09BtDllWGcO3DX-EMw352OwDCt9hkw02RBTGMx-iumWjVnqMANDBV99leJqEyKKtKIeyIi/pubembed?start=false&loop=false&delayms=5000"
 				width={320}
 				height={190}
 				allowFullScreen={true}
-				mozallowfullscreen="true"
-				webkitallowfullscreen="true"
+				allow="fullscreen"
 			></iframe>
 			<div className={styles.mapContainer}>
 				<h2 className={styles.mainHeading}>販売場所</h2>
