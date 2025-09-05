@@ -1,16 +1,17 @@
 import Image from "~/component/image";
 import styles from "./menu-card.module.css";
+import type { Product } from "@latimeria/shared";
 
-export function MenuCard() {
+export function MenuCard({ product }: Product) {
 	return (
 		<div className={styles.menuCard}>
 			<div className={styles.productImage}>
-				<img alt="商品の画像です。" />
-				<p>1組</p>
+				<img src={ product.assets } alt="商品の画像です。" />
+				<p>{ product.classId + "組"}</p>
 				<svg
 					className={styles.decoration_ul}
 					style={{
-						fill: "var(--themecolor-main)",
+						fill: "#ffad19",
 						color: "var(--semantic-text-dark)",
 					}}
 					width="74"
@@ -23,7 +24,7 @@ export function MenuCard() {
 				</svg>
 				<svg
 					className={styles.decoration_dr}
-					style={{ fill: "var(--themecolor-main)" }}
+					style={{ fill: "#ffad19" }}
 					width="51"
 					height="44"
 					viewBox="0 -10 51 44"
@@ -34,25 +35,26 @@ export function MenuCard() {
 				</svg>
 			</div>
 			<div className={styles.cardText}>
-				<p className={styles.menuName}>メニュー名＊＊＊＊＊＊＊＊＊</p>
+				<p className={styles.menuName}>{product.name}</p>
 				<p className={styles.price}>
-					<span className={styles.priceUnit}>￥</span>ABC
+					<span className={styles.priceUnit}>￥</span>
+					{product.price}
 				</p>
 			</div>
 		</div>
 	);
 }
 
-export function MenuCardPick() {
+export function MenuCardPick({ product }: Product) {
 	return (
 		<div className={styles.pickMenuCard}>
 			<div className={styles.productImage}>
-				<img alt="商品の画像です。" />
-				<p>1組</p>
+				<Image src={product.assets} alt="商品の画像です。" />
+				<p>{ typeof color}</p>
 				<svg
 					className={styles.decoration_ul}
 					style={{
-						fill: "var(--themecolor-main)",
+						fill: "#ffad19",
 						color: "var(--semantic-text-dark)",
 					}}
 					width="74"
@@ -65,7 +67,7 @@ export function MenuCardPick() {
 				</svg>
 				<svg
 					className={styles.decoration_dr}
-					style={{ fill: "var(--themecolor-main)" }}
+					style={{ fill: "#ffad19" }}
 					width="51"
 					height="44"
 					viewBox="0 -10 51 44"
@@ -76,9 +78,10 @@ export function MenuCardPick() {
 				</svg>
 			</div>
 			<div className={styles.pickCardText}>
-				<p className={styles.pickMenuName}>メニュー名＊＊＊＊＊＊＊＊＊</p>
+				<p className={styles.pickMenuName}>{product.name}</p>
 				<p className={styles.pickPrice}>
-					<span className={styles.priceUnit}>￥</span>ABC
+					<span className={styles.priceUnit}>￥</span>
+					{product.price}
 				</p>
 			</div>
 		</div>
