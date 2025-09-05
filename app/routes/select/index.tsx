@@ -21,7 +21,16 @@ import {
 } from "~/component/card/select-card";
 import { SelectSubstance } from "~/component/food/select-substances";
 import { TitleBarWithBack } from "~/component/title-bar";
-import { specificSubstanceList } from "~/lib/allergen";
+import {
+	OrderCard,
+	type OrderType,
+	type OrderProps,
+} from "~/component/card/order-card";
+import {
+	SelectCard,
+	type SelectType,
+	type DisplayType,
+} from "~/component/card/select-card";
 import { addOrder, matchOrder } from "~/lib/order";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
@@ -30,6 +39,9 @@ import MdiPencilOutline from "~icons/mdi/pencil-outline";
 import type { Route } from "./+types";
 import { allergySelectAtom } from "./atom";
 import styles from "./index.module.css";
+import { useAtom } from "jotai";
+import { specificSubstanceList } from "~/lib/allergen";
+import { select, order } from "~/lib/hogeType";
 
 export async function loader({ params, context, request }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -118,17 +130,9 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				""
 			)}
 			<div className={styles.selectProducts}>
-				{loaderData.products.map((product) => {
-					const displayProduct: DisplayType = {
-						name: product.name,
-						price: product.price,
-						classId: product.classId,
-						allergens: product.allergens,
-						mayContainAllergens: product.mayContains ?? [],
-						Ingredients: product.rootIngredients.join("、"), // ここは暫定的にrootIngredientsを使用
-					};
-					return <SelectCard key={product.id} product={displayProduct} />;
-				})}
+				{select(loaderData).map((item) => ( // todo:selectの返り値をDisplayTypeにする
+					<SelectCard key={item[1]} productData={item[0]} />
+				))}
 			</div>
 			<div className={styles.selectButtom}>
 				<Drawer.Root open={true}>
@@ -138,14 +142,9 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 							data-testid="content"
 							className={styles.selectButtomContent}
 						>
-							{loaderData.order.purchases.map((item) => {
-								const product: OrderProps = {
-									name: item.name,
-									price: item.price,
-									number: 1,
-								};
-								return <OrderCard key={item.id} product={product} />;
-							})}
+							{order(loaderData).map((item) => (
+								<OrderCard key={item[1]} productData={item[0]} />
+							))}
 							<p>
 								<MdiPencilOutline /> 合計金額:{" "}
 								{loaderData.order.purchases.reduce(

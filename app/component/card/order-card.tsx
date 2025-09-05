@@ -1,7 +1,20 @@
 import styles from "./order-card.module.css";
 import type { Product } from "@latimeria/shared";
 
-export function OrderCard({ product }: Product) {
+export type OrderProps = {
+	name: string;
+	price: number;
+	number: number;
+};
+
+export type OrderType = {
+	product: OrderProps;
+};
+
+
+export function OrderCard({ product }: OrderProps) {
+	// product => productData
+	// const product = productData.product; // 追加
 	return (
 		<div className={styles.body}>
 			<div className={styles.productImage}>
