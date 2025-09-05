@@ -12,7 +12,7 @@ import { select, order } from "~/lib/hogeType";
 
 export async function loader({ params, context }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
-		class: Number(params.classId),
+		class: Number(params.classNumber),
 	});
 	if (programResult.type === "error") {
 		throw data(programResult.payload, { status: 500 });
@@ -99,10 +99,6 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 							</div>
 						</div>
 					</div>
-					{/* <h2>試作品用欄</h2>
-					<OrderCard productData={order(loaderData)[0]}/>
-					<SelectCard productData={select(loaderData)[0]}/>
-					<SelectCardPick /> */}
 				</div>
 				<Button
 					onPress={() => alert("この先は1日目から使用できます！")}

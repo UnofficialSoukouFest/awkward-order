@@ -28,7 +28,9 @@ const Product = defineCommand({
 		},
 	},
 	run({ args }) {
-		productCompile(args.inputPath, args.outputPath, args.isProd).catch(console.error);
+		productCompile(args.inputPath, args.outputPath, args.isProd).catch(
+			console.error,
+		);
 	},
 });
 
@@ -50,7 +52,9 @@ const Program = defineCommand({
 		},
 	},
 	run({ args }) {
-		programMigrate(args.inputPath, args.outputPath, args.isProd).catch(console.error);
+		programMigrate(args.inputPath, args.outputPath, args.isProd).catch(
+			console.error,
+		);
 	},
 });
 
