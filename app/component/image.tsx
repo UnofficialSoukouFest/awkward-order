@@ -23,8 +23,8 @@ export default function Image(props: ImageProps) {
 		<img
 			{...props}
 			src={imageURL}
-			width={props.width ?? 0}
-			height={props.height ?? 0}
+			width={props.width}
+			height={props.height}
 			alt={props.alt}
 		/>
 	);
