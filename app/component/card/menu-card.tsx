@@ -1,13 +1,19 @@
+import type { Product } from "@latimeria/shared";
 import Image from "~/component/image";
 import styles from "./menu-card.module.css";
-import type { Product } from "@latimeria/shared";
 
-export function MenuCard({ product }: Product) {
+export function MenuCard({
+	classNumber,
+	product,
+}: {
+	classNumber: number;
+	product: Product;
+}) {
 	return (
 		<div className={styles.menuCard}>
 			<div className={styles.productImage}>
-				<img src={ product.assets } alt="商品の画像です。" />
-				<p>{ product.classId + "組"}</p>
+				<img src={product.assets?.thumbnail} alt="商品の画像です。" />
+				<p>{`${classNumber}組`}</p>
 				<svg
 					className={styles.decoration_ul}
 					style={{
@@ -45,12 +51,11 @@ export function MenuCard({ product }: Product) {
 	);
 }
 
-export function MenuCardPick({ product }: Product) {
+export function MenuCardPick({ product }: { product: Product }) {
 	return (
 		<div className={styles.pickMenuCard}>
 			<div className={styles.productImage}>
-				<Image src={product.assets} alt="商品の画像です。" />
-				<p>{ typeof color}</p>
+				<Image src={product.assets?.thumbnail} alt="商品の画像です。" />
 				<svg
 					className={styles.decoration_ul}
 					style={{
