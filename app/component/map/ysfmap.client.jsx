@@ -20,7 +20,7 @@ import styles from "./ysfmap.module.css";
  * @param {number?} [props.picHeight] 地図の表示高さ 指定がない場合は `window.innerHeight - 64`
  * @param {number?} [props.picWidth] 地図の表示幅 指定がない場合は `window.innerWidth`
  * @param {number} [props.initialFloor=1] 初期表示する階(1~6) 指定しなかった場合`1`
- * @param {number} [props.id] 初期フォーカス対象の企画id (指定する場合初期表示する階を正しく必ず指定して下さい)
+ * @param {String} [props.id] 初期フォーカス対象の企画id (指定する場合初期表示する階を正しく必ず指定して下さい)
  * @param {(ids: string[], layer: L.Polygon) => void} [props.onRoomClick] 部屋選択時に呼び出すコールバック関数\
  * 選択された部屋が持つ企画idの配列と、クリックした部屋の`L.Polygon`を受け取る。\
  * 指定しなかった場合デフォルトのポップアップが表示される。

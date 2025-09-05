@@ -9,6 +9,7 @@ import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
 import type { Route } from "./+types/index";
 import styles from "./programs.module.css";
+import { MapFromSpecRoom } from "~/component/map/load-map";
 
 export async function loader({ params, context }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -101,6 +102,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 				</Button>
 				<div className={styles.place}>
 					<h1>販売場所</h1>
+					<MapFromSpecRoom height={300} id={'class-h-3' + loaderData.program.id}/>
 				</div>
 				<div className={styles.crowded}></div>
 			</div>
