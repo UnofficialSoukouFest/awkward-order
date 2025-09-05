@@ -13,7 +13,7 @@ import { specificSubstanceList } from "~/lib/allergen";
 import { allergySelectAtom } from "../select/atom";
 import { SelectSubstance } from "~/component/food/select-substances";
 import styles from "./menu-all.module.css";
-import { MenuCard } from "~/component/card/menu-card";
+import { MenuCardAll } from "~/component/card/menu-card";
 import { TitleBarWithBack } from "~/component/title-bar";
 
 export async function loader({ context }: Route.LoaderArgs) {
@@ -77,7 +77,9 @@ export default function Menu({ loaderData }: Route.ComponentProps) {
 				)}
 				<div className={styles.cards}>
 					{products.map((content) => (
-						<MenuCard key={content.id} product={content} classNumber={1} />
+						<div className={styles.card} key={content.id}>
+							<MenuCardAll key={content.id} product={content} classNumber={content.classId - 12} />
+						</div>
 					))}
 				</div>
 			</div>
