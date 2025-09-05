@@ -8,7 +8,6 @@ import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
 import type { Route } from "./+types/index";
 import styles from "./programs.module.css";
-import { select, order } from "~/lib/hogeType";
 
 export async function loader({ params, context }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {

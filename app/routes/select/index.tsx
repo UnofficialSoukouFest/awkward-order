@@ -5,18 +5,15 @@ import {
 	PopupProvider,
 	PopupToggleButton,
 } from "@latimeria/ganoine";
-import type { OrderData, Products } from "@latimeria/shared";
 import { useAtom } from "jotai";
 import { data } from "react-router";
 import { Drawer } from "vaul";
-import type { OrderCardProps, OrderProps } from "~/component/card/order-card";
 import { OrderCard } from "~/component/card/order-card";
-import type { DisplayType } from "~/component/card/select-card";
 import { SelectCard } from "~/component/card/select-card";
 import { SelectSubstance } from "~/component/food/select-substances";
 import { TitleBarWithBack } from "~/component/title-bar";
 import { specificSubstanceList } from "~/lib/allergen";
-import { formatIngredient } from "~/lib/ingredients";
+import { order, select } from "~/lib/card-builder";
 import { addOrder, matchOrder } from "~/lib/order";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
@@ -25,7 +22,6 @@ import MdiPencilOutline from "~icons/mdi/pencil-outline";
 import type { Route } from "./+types";
 import { allergySelectAtom } from "./atom";
 import styles from "./index.module.css";
-import { select, order } from "~/lib/hogeType";
 
 export async function loader({ params, context, request }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -151,39 +147,4 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 			<Link href={`../order/${loaderData.order.id}`}>拡大表示</Link>
 		</>
 	);
-}
-
-function select(products: Products): [DisplayType, number][] {
-	return products.map((product) => {
-		const displayProduct: DisplayType = {
-			name: product.name,
-			price: product.price,
-			classId: product.classId,
-			allergens: product.allergens,
-			mayContainAllergens: product.mayContains ?? [],
-			Ingredients: formatIngredient(
-				product.rootIngredients,
-				product.compositeIngredients ?? [],
-			),
-			isFavorite: product.isFavorite,
-		};
-		return [displayProduct, product.id];
-	});
-}
-function order(
-	orderData: OrderData,
-	classNumber: number,
-): [OrderCardProps, number][] {
-	return orderData.purchases.map((item) => {
-		const product: OrderProps = {
-			name: item.name,
-			price: item.price,
-			count: 1,
-		};
-		const orderType: OrderCardProps = {
-			product: product,
-			classNumber: classNumber,
-		};
-		return [orderType, item.id];
-	});
 }
