@@ -21,6 +21,7 @@ const addProgramSchema = v.object({
 	description: v.string(),
 	color: v.string(),
 	thumbnail: v.optional(v.string()),
+	svgProgramId: v.optional(v.string()),
 });
 
 app.post(
@@ -36,7 +37,7 @@ app.post(
 	vValidator("json", addProgramSchema),
 	async (c) => {
 		const db = drizzle(c.env.DB, { schema: schema });
-		const { name, classNumber, description, color, thumbnail } =
+		const { name, classNumber, description, color, thumbnail, svgProgramId } =
 			c.req.valid("json");
 		const result = await addProgram(db, {
 			name: name,
@@ -45,6 +46,7 @@ app.post(
 			description: description,
 			assets: {
 				thumbnail: thumbnail,
+				svgProgramId: svgProgramId,
 			},
 		});
 		if (isOk(result)) {
