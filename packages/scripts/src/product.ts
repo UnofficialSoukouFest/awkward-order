@@ -19,7 +19,8 @@ export async function productCompile(
 		const content = await readFile(inputPath, {
 			encoding: "utf-8",
 		});
-		const template: ProductIDOmittedWithClass[] = JSON.parse(content);
+		const template: (ProductIDOmittedWithClass | Product)[] =
+			JSON.parse(content);
 		const client = createClient<paths>({
 			baseUrl: isProd
 				? AWKWARD_ORDER_PROD_ENDPOINT
@@ -27,21 +28,40 @@ export async function productCompile(
 		});
 		const postPromises = [];
 		for (const product of template) {
-			postPromises.push(
-				await client.POST("/product", {
-					body: {
-						name: product.name,
-						classNumber: product.class,
-						price: product.price,
-						isFavorite: product.isFavorite,
-						rootIngredients: product.rootIngredients,
-						compositeIngredients: product.compositeIngredients,
-						mayContains: product.mayContains,
-						allergens: product.allergens,
-						thumbnail: product.assets?.thumbnail,
-					},
-				}),
-			);
+			if ("class" in product) {
+				postPromises.push(
+					await client.POST("/product", {
+						body: {
+							name: product.name,
+							classNumber: product.class,
+							price: product.price,
+							isFavorite: product.isFavorite,
+							rootIngredients: product.rootIngredients,
+							compositeIngredients: product.compositeIngredients,
+							mayContains: product.mayContains,
+							allergens: product.allergens,
+							thumbnail: product.assets?.thumbnail,
+						},
+					}),
+				);
+			} else if ("classId" in product && "id" in product) {
+				postPromises.push(
+					await client.POST("/product", {
+						body: {
+							id: product.id,
+							name: product.name,
+							classId: product.classId,
+							price: product.price,
+							isFavorite: product.isFavorite,
+							rootIngredients: product.rootIngredients,
+							compositeIngredients: product.compositeIngredients,
+							mayContains: product.mayContains,
+							allergens: product.allergens,
+							thumbnail: product.assets?.thumbnail,
+						},
+					}),
+				);
+			}
 			console.log(`Push ${product.name}...`);
 		}
 		const results = postPromises;
