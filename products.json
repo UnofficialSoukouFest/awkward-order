@@ -37,7 +37,6 @@
 		],
 		"assets": {},
 		"stock": { "sellout": false },
-		"isFavorite": false,
 		"mayContains": []
 	},
 	{
@@ -77,7 +76,6 @@
 		],
 		"assets": {},
 		"stock": { "sellout": false },
-		"isFavorite": true,
 		"mayContains": []
 	},
 	{
@@ -127,7 +125,6 @@
 		],
 		"assets": {},
 		"stock": { "sellout": false },
-		"isFavorite": false,
 		"mayContains": []
 	},
 	{
@@ -181,7 +178,6 @@
 		],
 		"assets": {},
 		"stock": { "sellout": false },
-		"isFavorite": false,
 		"mayContains": []
 	},
 	{
