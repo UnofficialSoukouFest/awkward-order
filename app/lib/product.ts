@@ -44,11 +44,20 @@ export async function addProduct(
 
 export async function updateProduct(
 	db: DBClient,
-	program: Partial<Product>,
+	pproduct: Partial<Product>,
 ): Promise<Result<Product>> {
-	const { success, issues, output } = safeParse(productUpdateSchema, program);
+	const { success, issues, output } = safeParse(productUpdateSchema, pproduct);
 	if (success) {
 		const builder = db.update(productTable).set(output);
+		if (pproduct.id) {
+			builder.where(eq(productTable.id, pproduct.id));
+		}
+		if (pproduct.classId) {
+			builder.where(eq(productTable.classId, pproduct.classId));
+		}
+		if (pproduct.name) {
+			builder.where(eq(productTable.name, pproduct.name));
+		}
 		const returns = await builder.returning();
 		const first = returns[0];
 		const product = {

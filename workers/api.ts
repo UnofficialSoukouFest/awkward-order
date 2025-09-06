@@ -51,32 +51,19 @@ app.post(
 			garbageWarningText,
 			subColor,
 		} = c.req.valid("json");
-		const result = id
-			? await updateProgram(db, {
-					id: id,
-					name: name,
-					class: classNumber,
-					color: color,
-					description: description,
-					assets: {
-						thumbnail: thumbnail,
-						svgProgramId: svgProgramId,
-						garbageWarningText: garbageWarningText,
-						subColor: subColor,
-					},
-				})
-			: await addProgram(db, {
-					name: name,
-					class: classNumber,
-					color: color,
-					description: description,
-					assets: {
-						thumbnail: thumbnail,
-						svgProgramId: svgProgramId,
-						garbageWarningText: garbageWarningText,
-						subColor: subColor,
-					},
-				});
+		const result = await updateProgram(db, {
+			id: id,
+			name: name,
+			class: classNumber,
+			color: color,
+			description: description,
+			assets: {
+				thumbnail: thumbnail,
+				svgProgramId: svgProgramId,
+				garbageWarningText: garbageWarningText,
+				subColor: subColor,
+			},
+		});
 		if (isOk(result)) {
 			return c.json(result.payload);
 		} else {
@@ -157,26 +144,22 @@ app.post(
 				return c.text(`${result.payload}`, 500);
 			}
 		} else {
-			if (classId && id) {
-				const result = await updateProduct(db, {
-					id: id,
-					name: name,
-					classId: classId,
-					price: price,
-					isFavorite: isFavorite,
-					rootIngredients: rootIngredients,
-					compositeIngredients: compositeIngredients,
-					mayContains: mayContains,
-					allergens: allergens,
-					assets: {
-						thumbnail: thumbnail,
-					},
-				});
-				if (isOk(result)) {
-					return c.json(result.payload);
-				} else {
-					return c.text(`${result.payload}`, 500);
-				}
+			const result = await updateProduct(db, {
+				name: name,
+				price: price,
+				isFavorite: isFavorite,
+				rootIngredients: rootIngredients,
+				compositeIngredients: compositeIngredients,
+				mayContains: mayContains,
+				allergens: allergens,
+				assets: {
+					thumbnail: thumbnail,
+				},
+			});
+			if (isOk(result)) {
+				return c.json(result.payload);
+			} else {
+				return c.text(`${result.payload}`, 500);
 			}
 		}
 	},
