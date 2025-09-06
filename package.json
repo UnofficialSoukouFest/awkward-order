@@ -23,9 +23,9 @@
 		"syncAssets": "latimeria assets",
 		"db:sync": "drizzle-kit generate --config=drizzle.dev.config.ts && drizzle-kit push --config=drizzle.dev.config.ts",
 		"db:prodSync": "drizzle-kit generate --config=drizzle.prod.config.ts && drizzle-kit push --config=drizzle.prod.config.ts",
-		"program": "latimeria program --inputPath ./program.json",
+		"program": "latimeria program --inputPath ./program.json --outputPath ./program.json",
 		"program:prod": "latimeria program --inputPath ./program.json --isProd=true",
-		"products": "latimeria product --inputPath ./products.json",
+		"products": "latimeria product --inputPath ./products.json --outputPath ./products.json",
 		"products:prod": "latimeria product --inputPath ./products.json --isProd=true"
 	},
 	"dependencies": {

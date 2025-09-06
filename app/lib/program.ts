@@ -1,15 +1,15 @@
 import type { Program } from "@latimeria/shared";
 import { and, eq } from "drizzle-orm";
 import { createInsertSchema, createUpdateSchema } from "drizzle-valibot";
+import { flattenDeep } from "es-toolkit";
 import { safeParse } from "valibot";
 import { programTable } from "~/schema";
 import { type DBClient, Err, Ok, type Result } from ".";
-import { flattenDeep } from "es-toolkit";
 
 const programInsertSchema = createInsertSchema(programTable);
 const programUpdateSchema = createUpdateSchema(programTable);
 
-export type PartialPrograms = Partial<Program>[]
+export type PartialPrograms = Partial<Program>[];
 
 export async function addProgram(
 	db: DBClient,
@@ -35,11 +35,14 @@ export async function addProgram(
 
 export async function updateProgram(
 	db: DBClient,
-	program: Partial<Omit<Program, "id">>,
-) {
+	program: Partial<Program>,
+): Promise<Result<Program>> {
 	const { success, issues, output } = safeParse(programUpdateSchema, program);
 	if (success) {
 		const builder = db.update(programTable).set(output);
+		if (program.id) {
+			builder.where(eq(programTable.id, program.id));
+		}
 		if (program.class) {
 			builder.where(eq(programTable.class, program.class));
 		}

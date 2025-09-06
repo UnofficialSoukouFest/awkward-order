@@ -44,8 +44,8 @@ export async function addProduct(
 
 export async function updateProduct(
 	db: DBClient,
-	program: Partial<Omit<Product, "id">>,
-) {
+	program: Partial<Product>,
+): Promise<Result<Product>> {
 	const { success, issues, output } = safeParse(productUpdateSchema, program);
 	if (success) {
 		const builder = db.update(productTable).set(output);
