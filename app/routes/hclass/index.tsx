@@ -102,7 +102,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 					</div>
 				</div>
 				<Button
-					onPress={() => alert("この先は1日目から使用できます！")}
+					onClick={() => aleart("2日目に表示できます！")}
 					style={{
 						backgroundColor: loaderData.program.color,
 						border: "none",

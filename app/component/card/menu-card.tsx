@@ -1,6 +1,7 @@
 import type { Product } from "@latimeria/shared";
 import Image from "~/component/image";
 import styles from "./menu-card.module.css";
+import { Link } from "@latimeria/ganoine";
 
 export function MenuCard({
 	classNumber,
@@ -113,6 +114,7 @@ export function MenuCardAll({
 	product: Product;
 }) {
 	return (
+		<Link href={`/${classNumber}`} style={{ color:"#3d3d46"}}>
 		<div className={styles.menuCardAll}>
 			<div className={styles.productImage}>
 				<img src={product.assets?.thumbnail} alt="商品の画像です。" />
@@ -153,5 +155,6 @@ export function MenuCardAll({
 				</p>
 			</div>
 		</div>
+		</Link>
 	);
 }
