@@ -15,7 +15,7 @@ export function MenuCard({
 	return (
 		<div className={styles.menuCard}>
 			<div className={styles.productImage}>
-				<img src={product.assets?.thumbnail} alt="商品の画像です。" />
+				<Image src={`/${product.assets?.thumbnail}`} alt="商品の画像です。" />
 				<p>{`${classNumber}組`}</p>
 				<svg
 					className={styles.decoration_ul}
@@ -66,7 +66,7 @@ export function MenuCardPick({
 	return (
 		<div className={styles.pickMenuCard}>
 			<div className={styles.productImage}>
-				<Image src={product.assets?.thumbnail} alt="商品の画像です。" />
+				<Image src={`/${product.assets?.thumbnail}`} alt="商品の画像です。" />
 				<svg
 					className={styles.decoration_ul}
 					style={{
@@ -114,10 +114,10 @@ export function MenuCardAll({
 	product: Product;
 }) {
 	return (
-		<Link href={`/${classNumber}`} style={{ color:"#3d3d46"}}>
+		<Link href={`/${classNumber}`} className={styles.Link}>
 		<div className={styles.menuCardAll}>
 			<div className={styles.productImage}>
-				<img src={product.assets?.thumbnail} alt="商品の画像です。" />
+				<Image src={`/${product.assets?.thumbnail}`} alt="商品の画像です。" />
 				<p>{`${classNumber}組`}</p>
 				<svg
 					className={styles.decoration_ul}
