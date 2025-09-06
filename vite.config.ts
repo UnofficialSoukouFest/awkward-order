@@ -2,6 +2,7 @@ import { cloudflare } from "@cloudflare/vite-plugin";
 import { reactRouter } from "@react-router/dev/vite";
 import Icons from "unplugin-icons/vite";
 import { defineConfig } from "vite";
+import svgr from "vite-plugin-svgr";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
@@ -12,6 +13,7 @@ export default defineConfig({
 			compiler: "jsx",
 			jsx: "react",
 		}),
+		svgr(),
 		tsconfigPaths(),
 	],
 	resolve: {
