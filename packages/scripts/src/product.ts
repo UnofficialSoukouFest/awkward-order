@@ -48,9 +48,7 @@ export async function productCompile(
 				postPromises.push(
 					await client.POST("/product", {
 						body: {
-							id: product.id,
 							name: product.name,
-							classId: product.classId,
 							price: product.price,
 							isFavorite: product.isFavorite,
 							rootIngredients: product.rootIngredients,
@@ -58,6 +56,12 @@ export async function productCompile(
 							mayContains: product.mayContains,
 							allergens: product.allergens,
 							thumbnail: product.assets?.thumbnail,
+							...(isProd
+								? {}
+								: {
+										id: product.id,
+										classId: product.classId,
+									}),
 						},
 					}),
 				);
