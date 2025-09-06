@@ -64,8 +64,7 @@ function compositeIngredientsConstructer(
 			result += compositeIngredientsConstructer(
 				compositeIngredients[i].compositeIngredients ?? [],
 			);
-			if (i + 1 != compositeIngredients.length)
-				result += "、";
+			if (i + 1 != compositeIngredients.length) result += "、";
 		}
 		result += compositeIngredients.length > 0 ? "）" : "";
 	}

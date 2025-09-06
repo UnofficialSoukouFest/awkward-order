@@ -82,14 +82,14 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				themeColor="#0066cc"
 				textColor="#FFFCFC"
 			/>
-			<div className={styles.selectHeader}>
+			{/*<div className={styles.selectHeader}>
 				<PopupProvider>
 					<PopupToggleButton>アレルギーでフィルター</PopupToggleButton>
 					<Popup>
 						<div className={styles.dialogBox}>
 							<SelectSubstance />
 							{/* selected={selected} setSelected={setSelected} /> */}
-							<div className={styles.PopUpCloseButtonDiv}>
+							{/*<div className={styles.PopUpCloseButtonDiv}>
 								<PopupCloseButton>完了</PopupCloseButton>
 							</div>
 						</div>
@@ -107,16 +107,17 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				</p>
 			) : (
 				""
-			)}
+			)}*/}
 			<div className={styles.selectProducts}>
 				{select(loaderData.products).map(
 					(
 						[productDisplayData, productId],
 					) => (
-						<SelectCard key={productId} product={productDisplayData} />
+						<SelectCard key={productId} product={productDisplayData} color={loaderData.program.color} />
 					),
 				)}
 			</div>
+			{/*
 			<div className={styles.selectButtom}>
 				<Drawer.Root open={true}>
 					<Drawer.Overlay className="" />
@@ -144,7 +145,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 					</Drawer.Portal>
 				</Drawer.Root>
 			</div>
-			<Link href={`../order/${loaderData.order.id}`}>拡大表示</Link>
+			<Link href={`../order/${loaderData.order.id}`}>拡大表示</Link>*/}
 		</>
 	);
 }
