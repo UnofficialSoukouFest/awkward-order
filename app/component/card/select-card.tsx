@@ -11,11 +11,7 @@ export type DisplayType = {
 	isFavorite: boolean;
 };
 
-export type SelectType = {
-	product: DisplayType;
-};
-
-export function SelectCard({ product }: SelectType) {
+export function SelectCard({ product,color }: {	product:DisplayType, color:string }) {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<div className={styles.card}>
@@ -26,7 +22,7 @@ export function SelectCard({ product }: SelectType) {
 					<svg
 						className={styles.decoration_ul}
 						style={{
-							fill: "var(--themecolor-main)",
+							fill: color,
 							color: "var(--semantic-text-dark)",
 						}}
 						width="74"
@@ -39,7 +35,7 @@ export function SelectCard({ product }: SelectType) {
 					</svg>
 					<svg
 						className={styles.decoration_dr}
-						style={{ fill: "var(--themecolor-main)" }}
+						style={{ fill: color }}
 						width="51"
 						height="44"
 						viewBox="0 -10 51 44"

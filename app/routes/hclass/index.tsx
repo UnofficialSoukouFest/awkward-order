@@ -73,7 +73,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 									{loaderData.products
 										.filter((content: Product) => content.isFavorite)
 										.map((content: Product) => (
-											<MenuCardPick product={content} key={content.id} />
+											<MenuCardPick product={content} key={content.id} color={loaderData.program.color} />
 										))}
 								</div>
 							</div>
@@ -95,6 +95,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 											product={content}
 											classNumber={loaderData.program.class}
 											key={content.id}
+											color={loaderData.program.color}
 										/>
 									))}
 							</div>
@@ -102,7 +103,7 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 					</div>
 				</div>
 				<Button
-					onPress={() => alert("この先は1日目から使用できます！")}
+					onClick={() => aleart("2日目に表示できます！")}
 					style={{
 						backgroundColor: loaderData.program.color,
 						border: "none",
@@ -113,7 +114,10 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 				</Button>
 				<div className={styles.place}>
 					<h1>販売場所</h1>
-					<MapFromSpecRoom height={300} id={loaderData.program.assets?.svgProgramId}/>
+					<MapFromSpecRoom
+						height={300}
+						id={loaderData.program.assets?.svgProgramId}
+					/>
 				</div>
 				<div className={styles.crowded}>
 					<Congestion program={loaderData.program} />

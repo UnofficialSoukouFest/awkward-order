@@ -82,14 +82,14 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				themeColor="#0066cc"
 				textColor="#FFFCFC"
 			/>
-			<div className={styles.selectHeader}>
+			{/*<div className={styles.selectHeader}>
 				<PopupProvider>
 					<PopupToggleButton>アレルギーでフィルター</PopupToggleButton>
 					<Popup>
 						<div className={styles.dialogBox}>
 							<SelectSubstance />
 							{/* selected={selected} setSelected={setSelected} /> */}
-							<div className={styles.PopUpCloseButtonDiv}>
+							{/*<div className={styles.PopUpCloseButtonDiv}>
 								<PopupCloseButton>完了</PopupCloseButton>
 							</div>
 						</div>
@@ -107,13 +107,13 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 				</p>
 			) : (
 				""
-			)}
+			)}*/}
 			<div className={styles.selectProducts}>
 				{select(loaderData.products).map(
 					(
 						[productDisplayData, productId],
 					) => (
-						<SelectCard key={productId} product={productDisplayData} />
+						<SelectCard key={productId} product={productDisplayData} color={loaderData.program.color} />
 					),
 				)}
 			</div>
