@@ -11,12 +11,10 @@ export function formatIngredient(
 		let formattedPart = part;
 		formattedPart += compositeIngredients
 			.filter((item) => item.name == part)
-			.map(
-				(item) =>{
-					console.log(compositeIngredients)
-					return `${compositeIngredientsConstructerFirst(compositeIngredients, part)}`
-				}
-			)
+			.map((item) => {
+				console.log(compositeIngredients);
+				return `${compositeIngredientsConstructerFirst(compositeIngredients, part)}`;
+			})
 			.join("、");
 		constructedIngredient.push(formattedPart);
 	}
@@ -59,8 +57,7 @@ function compositeIngredientsConstructer(
 			result += compositeIngredientsConstructer(
 				compositeIngredients[i].compositeIngredients ?? [],
 			);
-			if (i + 1 != compositeIngredients.length)
-				result += "、";
+			if (i + 1 != compositeIngredients.length) result += "、";
 		}
 		result += compositeIngredients.length > 0 ? "）" : "";
 	}
