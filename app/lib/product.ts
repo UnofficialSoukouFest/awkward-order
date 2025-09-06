@@ -76,16 +76,12 @@ export async function updateProduct(
 
 export async function matchProducts(
 	db: DBClient,
-	query: PartialProducts | undefined,
+	query?: PartialProducts,
 ): Promise<Result<Products>> {
 	const condictions =
 		query === undefined
 			? () => {
-					const childCondictions = [];
-					for (let i = 1; i <= 6; i++) {
-						childCondictions.push(eq(productTable.classId, i));
-					}
-					return [childCondictions];
+					return [];
 				}
 			: () => {
 					return query.map((q) => {

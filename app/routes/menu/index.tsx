@@ -15,13 +15,19 @@ import { SelectSubstance } from "~/component/food/select-substances";
 import styles from "./menu-all.module.css";
 import { MenuCardAll } from "~/component/card/menu-card";
 import { TitleBarWithBack } from "~/component/title-bar";
+import { matchPrograms } from "~/lib/program";
 
 export async function loader({ context }: Route.LoaderArgs) {
+	const programsResult = await matchPrograms(context.db, []);
+	if (programsResult.type === "error") {
+		throw data(programsResult.payload, { status: 500 })
+	}
 	const productResult = await matchProducts(context.db, []);
 	if (productResult.type === "error") {
 		throw data(productResult.payload, { status: 500 });
 	}
 	return {
+		programs: programsResult.payload,
 		products: productResult.payload,
 	};
 }
@@ -77,11 +83,14 @@ export default function Menu({ loaderData }: Route.ComponentProps) {
 					""
 								)*/}
 				<div className={styles.cards}>
-					{products.map((content) => (
+					{products.map((content) => {
+						const classNumber = loaderData.programs.find(v => v.id === content.classId)?.class ?? 0
+						return (
 						<div className={styles.card} key={content.id}>
-							<MenuCardAll key={content.id} product={content} classNumber={content.classId - 14} />
+							<MenuCardAll key={content.id} product={content} classNumber={classNumber} />
 						</div>
-					))}
+					)
+					})}
 				</div>
 			</div>
 		</>
