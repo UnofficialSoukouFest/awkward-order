@@ -130,7 +130,7 @@ export default function Select({ loaderData }: Route.ComponentProps) {
 								<OrderCard
 									key={item[1]}
 									product={item[0].product}
-									classNumber={loaderData.program.class}
+									program={loaderData.program}
 								/>
 							))}
 							<p>
