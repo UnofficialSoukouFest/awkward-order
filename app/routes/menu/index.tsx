@@ -49,14 +49,15 @@ export default function Menu({ loaderData }: Route.ComponentProps) {
 			/>
 			<div className={styles.body}>
 				<p>商品をタップすると、それを取り扱っているクラスのページへ移動します。</p>
-				<div className={styles.selectHeader}>
+				<p>アレルギー情報は現在準備中です</p>
+				{/*<div className={styles.selectHeader}>
 					<PopupProvider>
 						<PopupToggleButton>アレルギーでフィルター</PopupToggleButton>
 						<Popup>
 							<div className={styles.dialogBox}>
 								<SelectSubstance />
 								{/* selected={selected} setSelected={setSelected} /> */}
-								<div className={styles.PopUpCloseButtonDiv}>
+								{/*<div className={styles.PopUpCloseButtonDiv}>
 									<PopupCloseButton>完了</PopupCloseButton>
 								</div>
 							</div>
@@ -74,11 +75,11 @@ export default function Menu({ loaderData }: Route.ComponentProps) {
 					</p>
 				) : (
 					""
-				)}
+								)*/}
 				<div className={styles.cards}>
 					{products.map((content) => (
 						<div className={styles.card} key={content.id}>
-							<MenuCardAll key={content.id} product={content} classNumber={content.classId - 12} />
+							<MenuCardAll key={content.id} product={content} classNumber={content.classId - 14} />
 						</div>
 					))}
 				</div>
