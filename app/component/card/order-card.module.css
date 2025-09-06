@@ -1,76 +1,71 @@
 .body {
 	display: flex;
 	flex-direction: row;
+	align-items: stretch;
 	width: min(30rem, 90vw);
-	border-top: 1px solid var(--semantic-text-dark);
-	margin-left: auto;
-	margin-right: auto;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	border-bottom: 1px solid var(--semantic-text-dark);
+	margin-inline: auto;
+	padding-block: 5px;
 }
 
 .productImage {
 	position: relative;
-	height: 100%;
 	margin-left: 10px;
 	margin-right: 10px;
 }
 
 .productImage > img {
 	height: 100%;
-	display: flex;
 	object-fit: cover;
-	background-color: var(--semantic-color-accent);
-	color: var(--semantic-text-white);
+}
+
+.decoration_dr, .decoration_ul {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	mask-repeat: no-repeat;
+	mask-size: 100px 100px;
 }
 
 .decoration_ul {
-	position: absolute;
-	width: 65.5px;
-	top: 0;
-	left: 0;
+	mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M0 4C0 1.8 1.8 0 4 0H65.5C65.5 0 51 2 47.5 13.5C44 25 37 27.5 30 27.5C23 27.5 14.5 23.5 9 25.5C3.5 27.5 2 31 0 37.5V4Z' fill='white'/></svg>");
 }
 
 .decoration_dr {
-	position: absolute;
-	width: 39px;
-	right: 0;
-	bottom: 0;
+	mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M100 100 v -39 c -6.5,13 -5,21.5 -13,26 -8,4.5 -17.5,-7.5 -32,13 h 26.75 z' fill='white'/></svg>");
+	mask-position: right bottom;
 }
 
 .texts {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	font-weight: bolder;
-	font-size: 1.25rem;
+	font-weight: bold;
+	font-size: x-large;
 }
 
 .name {
-	display: flex;
-	margin-top: 5px;
+	margin: 10px;
 }
 
 .values {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
-	padding-bottom: 5px;
+	margin: 10px;
 }
 
 .number {
-	display: flex;
-	margin-left: 5px;
 	margin-right: auto;
-	font-weight: bolder;
+	font-weight: bold;
 }
 .price {
-	display: flex;
 	margin-left: auto;
-	margin-right: 5px;
-	font-weight: bolder;
+	font-weight: bold;
 }
 
 .priceUnit {
-	font-size: 0.67em;
+	font-size: small;
 }
