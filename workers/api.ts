@@ -5,8 +5,8 @@ import { describeRoute, openAPISpecs } from "hono-openapi";
 import { validator as vValidator } from "hono-openapi/valibot";
 import * as v from "valibot";
 import { isOk } from "~/lib";
-import { addProduct } from "~/lib/product";
-import { addProgram, matchProgram } from "~/lib/program";
+import { addProduct, updateProduct } from "~/lib/product";
+import { addProgram, matchProgram, updateProgram } from "~/lib/program";
 import * as schema from "~/schema";
 
 type Binding = {
@@ -16,12 +16,15 @@ type Binding = {
 export const app = new Hono<{ Bindings: Binding }>();
 
 const addProgramSchema = v.object({
+	id: v.optional(v.number()),
 	name: v.string(),
 	classNumber: v.number(),
 	description: v.string(),
 	color: v.string(),
 	thumbnail: v.optional(v.string()),
 	svgProgramId: v.optional(v.string()),
+	garbageWarningText: v.optional(v.string()),
+	subColor: v.optional(v.string()),
 });
 
 app.post(
@@ -37,9 +40,19 @@ app.post(
 	vValidator("json", addProgramSchema),
 	async (c) => {
 		const db = drizzle(c.env.DB, { schema: schema });
-		const { name, classNumber, description, color, thumbnail, svgProgramId } =
-			c.req.valid("json");
-		const result = await addProgram(db, {
+		const {
+			id,
+			name,
+			classNumber,
+			description,
+			color,
+			thumbnail,
+			svgProgramId,
+			garbageWarningText,
+			subColor,
+		} = c.req.valid("json");
+		const result = await updateProgram(db, {
+			id: id,
 			name: name,
 			class: classNumber,
 			color: color,
@@ -47,6 +60,8 @@ app.post(
 			assets: {
 				thumbnail: thumbnail,
 				svgProgramId: svgProgramId,
+				garbageWarningText: garbageWarningText,
+				subColor: subColor,
 			},
 		});
 		if (isOk(result)) {
@@ -66,12 +81,10 @@ const compositeIngredientsSchema: v.GenericSchema<CompositeIngredients> =
 	});
 
 const addProductSchema = v.object({
+	id: v.optional(v.number()),
 	name: v.string(),
-	classNumber: v.pipe(
-		v.number(),
-		v.minValue(1, "the number of class is only 6!"),
-		v.maxValue(6, "the number of class is only 6!"),
-	),
+	classNumber: v.optional(v.number()),
+	classId: v.optional(v.number()),
 	price: v.number(),
 	isFavorite: v.boolean(),
 	rootIngredients: v.array(v.string()),
@@ -95,8 +108,10 @@ app.post(
 	async (c) => {
 		const db = drizzle(c.env.DB, { schema: schema });
 		const {
+			id,
 			name,
 			classNumber,
+			classId,
 			price,
 			isFavorite,
 			rootIngredients,
@@ -105,27 +120,47 @@ app.post(
 			allergens,
 			thumbnail,
 		} = c.req.valid("json");
-		const program = await matchProgram(db, { class: classNumber });
-		if (program.type === "error") {
-			return c.text(`${program.payload}`, 500);
-		}
-		const result = await addProduct(db, {
-			name: name,
-			classId: program.payload.id,
-			price: price,
-			isFavorite: isFavorite,
-			rootIngredients: rootIngredients,
-			compositeIngredients: compositeIngredients,
-			mayContains: mayContains,
-			allergens: allergens,
-			assets: {
-				thumbnail: thumbnail,
-			},
-		});
-		if (isOk(result)) {
-			return c.json(result.payload);
+		if (classNumber) {
+			const program = await matchProgram(db, { class: classNumber });
+			if (program.type === "error") {
+				return c.text(`${program.payload}`, 500);
+			}
+			const result = await addProduct(db, {
+				name: name,
+				classId: program.payload.id,
+				price: price,
+				isFavorite: isFavorite,
+				rootIngredients: rootIngredients,
+				compositeIngredients: compositeIngredients,
+				mayContains: mayContains,
+				allergens: allergens,
+				assets: {
+					thumbnail: thumbnail,
+				},
+			});
+			if (result.type === "ok") {
+				return c.json(result.payload);
+			} else {
+				return c.text(`${result.payload}`, 500);
+			}
 		} else {
-			return c.text(`${result.payload}`, 500);
+			const result = await updateProduct(db, {
+				name: name,
+				price: price,
+				isFavorite: isFavorite,
+				rootIngredients: rootIngredients,
+				compositeIngredients: compositeIngredients,
+				mayContains: mayContains,
+				allergens: allergens,
+				assets: {
+					thumbnail: thumbnail,
+				},
+			});
+			if (isOk(result)) {
+				return c.json(result.payload);
+			} else {
+				return c.text(`${result.payload}`, 500);
+			}
 		}
 	},
 );

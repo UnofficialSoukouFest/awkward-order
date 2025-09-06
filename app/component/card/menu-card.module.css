@@ -116,3 +116,8 @@
 	height: 100%;
 	font-size: 1rem;
 }
+
+.Link {
+	text-decoration: none;
+	color: var(--semantic-text-dark);
+}

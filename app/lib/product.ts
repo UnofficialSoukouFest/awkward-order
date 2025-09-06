@@ -44,11 +44,20 @@ export async function addProduct(
 
 export async function updateProduct(
 	db: DBClient,
-	program: Partial<Omit<Product, "id">>,
-) {
-	const { success, issues, output } = safeParse(productUpdateSchema, program);
+	pproduct: Partial<Product>,
+): Promise<Result<Product>> {
+	const { success, issues, output } = safeParse(productUpdateSchema, pproduct);
 	if (success) {
 		const builder = db.update(productTable).set(output);
+		if (pproduct.id) {
+			builder.where(eq(productTable.id, pproduct.id));
+		}
+		if (pproduct.classId) {
+			builder.where(eq(productTable.classId, pproduct.classId));
+		}
+		if (pproduct.name) {
+			builder.where(eq(productTable.name, pproduct.name));
+		}
 		const returns = await builder.returning();
 		const first = returns[0];
 		const product = {
@@ -76,16 +85,12 @@ export async function updateProduct(
 
 export async function matchProducts(
 	db: DBClient,
-	query: PartialProducts | undefined,
+	query?: PartialProducts,
 ): Promise<Result<Products>> {
 	const condictions =
 		query === undefined
 			? () => {
-					const childCondictions = [];
-					for (let i = 1; i <= 6; i++) {
-						childCondictions.push(eq(productTable.classId, i));
-					}
-					return [childCondictions];
+					return [];
 				}
 			: () => {
 					return query.map((q) => {
