@@ -7,18 +7,23 @@ export function formatIngredient(
 	let result: string;
 	const constructedIngredient = [];
 
-	for (const part of ingredient) {
-		let formattedPart = part;
-		formattedPart += compositeIngredients
-			.filter((item) => item.name == part)
-			.map(
-				(item) =>{
-					console.log(compositeIngredients)
-					return `${compositeIngredientsConstructerFirst(compositeIngredients, part)}`
-				}
-			)
-			.join("、");
-		constructedIngredient.push(formattedPart);
+	if (!ingredient.includes("未確認")){
+		for (const part of ingredient) {
+			let formattedPart = part;
+			formattedPart += compositeIngredients
+				.filter((item) => item.name == part)
+				.map(
+					(item) =>{
+						console.log(compositeIngredients)
+						return `${compositeIngredientsConstructerFirst(compositeIngredients, part)}`
+					}
+				)
+				.join("、");
+			constructedIngredient.push(formattedPart);
+		}
+	}
+	else {
+		constructedIngredient.push("申し訳ありませんが、確認が取れていないためデータを表示できません。")
 	}
 	result = constructedIngredient.join("、");
 	return result;
@@ -59,8 +64,7 @@ function compositeIngredientsConstructer(
 			result += compositeIngredientsConstructer(
 				compositeIngredients[i].compositeIngredients ?? [],
 			);
-			if (i + 1 != compositeIngredients.length)
-				result += "、";
+			if (i + 1 != compositeIngredients.length) result += "、";
 		}
 		result += compositeIngredients.length > 0 ? "）" : "";
 	}
