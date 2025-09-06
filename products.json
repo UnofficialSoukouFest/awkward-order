@@ -5,7 +5,7 @@
 		"price": 150,
 		"isFavorite": false,
 		"description": null,
-		"rootIngredients": ["ポップコーン豆", "オイル", "調味料"],
+		"rootIngredients": ["未確認", "ポップコーン豆", "オイル", "調味料"],
 		"compositeIngredients": [
 			{
 				"name": "ポップコーン豆",
@@ -58,7 +58,7 @@
 		"price": 150,
 		"isFavorite": true,
 		"description": null,
-		"rootIngredients": ["ポップコーン豆", "調味料", "オイル"],
+		"rootIngredients": ["未確認", "ポップコーン豆", "調味料", "オイル"],
 		"compositeIngredients": [
 			{
 				"name": "ポップコーン豆",
@@ -108,7 +108,7 @@
 		"price": 150,
 		"isFavorite": false,
 		"description": null,
-		"rootIngredients": ["ポップコーン豆", "オイル", "調味料"],
+		"rootIngredients": ["未確認", "ポップコーン豆", "オイル", "調味料"],
 		"compositeIngredients": [
 			{
 				"name": "ポップコーン豆",
@@ -188,7 +188,7 @@
 		"price": 150,
 		"isFavorite": false,
 		"description": null,
-		"rootIngredients": ["ポップコーン豆", "オイル", "調味料"],
+		"rootIngredients": ["未確認", "ポップコーン豆", "オイル", "調味料"],
 		"compositeIngredients": [
 			{
 				"name": "ポップコーン豆",
@@ -281,6 +281,7 @@
 		"isFavorite": false,
 		"description": null,
 		"rootIngredients": [
+			"未確認", 
 			"炭酸水",
 			"ラクトアイス",
 			"メロンソーダベース",
@@ -357,6 +358,7 @@
 		"isFavorite": false,
 		"description": null,
 		"rootIngredients": [
+			"未確認", 
 			"炭酸水",
 			"ラクトアイス",
 			"コーラベース",
@@ -433,6 +435,7 @@
 		"isFavorite": false,
 		"description": null,
 		"rootIngredients": [
+			"未確認", 
 			"炭酸水",
 			"ラクトアイス",
 			"ラムネベース",
@@ -511,7 +514,38 @@
 		"rootIngredients": ["ミルクティー", "タピオカ"],
 		"compositeIngredients": [
 			{
-				"name": "ミルクティー"
+				"name": "ミルクティー",
+				"compositeIngredients": [
+					{
+						"name": "糖類",
+						"compositeIngredients": [
+							{
+								"name": "果糖ぶどう糖液糖(国内製造)"
+							},
+							{
+								"name": "砂糖"
+							}
+						]
+					},
+					{
+						"name": "生乳(国産)"
+					},
+					{
+						"name": "脱脂粉乳"
+					},
+					{
+						"name": "ココナッツオイル"
+					},
+					{
+						"name": "紅茶"
+					},
+					{
+						"name": "デキストリン"
+					},
+					{
+						"name": "食塩／香料"
+					}
+				]
 			},
 			{
 				"name": "タピオカ",
@@ -550,7 +584,35 @@
 		"rootIngredients": ["ピーチティー", "タピオカ"],
 		"compositeIngredients": [
 			{
-				"name": "ピーチティー"
+				"name": "ピーチティー",
+				"compositeIngredients": [
+					{
+						"name": "糖類",
+						"compositeIngredients": [
+							{
+								"name": "異性化液糖(国内製造)"
+							},
+							{
+								"name": "砂糖"
+							}
+						]
+					},
+					{
+						"name": "もも果汁"
+					},
+					{
+						"name": "紅茶"
+					},
+					{
+						"name": "酸味料"
+					},
+					{
+						"name": "甘味料(スクラロース、アセスルファムK)"
+					},
+					{
+						"name": "香料"
+					}
+				]
 			},
 			{
 				"name": "タピオカ",
@@ -668,7 +730,30 @@
 		"rootIngredients": ["コーヒー牛乳", "タピオカ"],
 		"compositeIngredients": [
 			{
-				"name": "コーヒー牛乳"
+				"name": "コーヒー牛乳",
+				"compositeIngredients": [
+					{
+						"name": "果糖ぶどう糖液糖(国内製造)"
+					},
+					{
+						"name": "乳"
+					},
+					{
+						"name": "乳製品"
+					},
+					{
+						"name": "砂糖"
+					},
+					{
+						"name": "コーヒー"
+					},
+					{
+						"name": "デキストリン"
+					},
+					{
+						"name": "香料"
+					}
+				]
 			},
 			{
 				"name": "タピオカ",
@@ -724,7 +809,7 @@
 		"price": 150,
 		"isFavorite": false,
 		"description": null,
-		"rootIngredients": [],
+		"rootIngredients": ["未確認"],
 		"compositeIngredients": [
 			{
 				"name": "豆乳（遺伝子組換えでない）"
@@ -815,7 +900,7 @@
 		"price": 150,
 		"isFavorite": false,
 		"description": null,
-		"rootIngredients": [],
+		"rootIngredients": ["未確認"],
 		"compositeIngredients": [
 			{
 				"name": "豆乳（遺伝子組換えでない）"
@@ -929,7 +1014,7 @@
 		"price": 150,
 		"isFavorite": false,
 		"description": null,
-		"rootIngredients": [],
+		"rootIngredients": ["未確認"],
 		"compositeIngredients": [
 			[
 				{
@@ -1028,7 +1113,7 @@
 		"price": 150,
 		"isFavorite": true,
 		"description": null,
-		"rootIngredients": [],
+		"rootIngredients": ["未確認"],
 		"compositeIngredients": [
 			{
 				"name": "豆乳（遺伝子組換えでない）"
@@ -1107,7 +1192,7 @@
 		"price": 150,
 		"isFavorite": true,
 		"description": null,
-		"rootIngredients": [],
+		"rootIngredients": ["未確認"],
 		"compositeIngredients": [
 			[
 				{
@@ -1200,7 +1285,7 @@
 		"price": 150,
 		"isFavorite": true,
 		"description": null,
-		"rootIngredients": ["焼き鳥", "塩だれ"],
+		"rootIngredients": ["未確認", "焼き鳥", "塩だれ"],
 		"compositeIngredients": [
 			{
 				"name": "焼き鳥（もも）"
@@ -1289,7 +1374,7 @@
 		"price": 150,
 		"isFavorite": true,
 		"description": null,
-		"rootIngredients": ["焼き鳥", "焼き鳥のたれ"],
+		"rootIngredients": ["未確認", "焼き鳥", "焼き鳥のたれ"],
 		"compositeIngredients": [
 			{
 				"name": "焼き鳥（もも）"
@@ -1366,7 +1451,7 @@
 		"price": 150,
 		"isFavorite": true,
 		"description": null,
-		"rootIngredients": ["ホットケーキミックス", "牛乳", "卵", "砂糖", "バター"],
+		"rootIngredients": ["未確認", "ホットケーキミックス", "牛乳", "卵", "砂糖", "バター"],
 		"compositeIngredients": [
 			{
 				"name": "ホットケーキミックス",
@@ -1418,6 +1503,7 @@
 		"isFavorite": true,
 		"description": null,
 		"rootIngredients": [
+			"未確認", 
 			"ホットケーキミックス",
 			"牛乳",
 			"卵",
@@ -1479,6 +1565,7 @@
 		"isFavorite": true,
 		"description": null,
 		"rootIngredients": [
+			"未確認", 
 			"ホットケーキミックス",
 			"牛乳",
 			"卵",
