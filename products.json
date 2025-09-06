@@ -4,7 +4,6 @@
 		"classId": 37,
 		"name": "ポップコーン（塩）",
 		"price": 150,
-		"isFavorite": false,
 		"description": null,
 		"rootIngredients": ["未確認", "ポップコーン豆", "オイル", "調味料"],
 		"compositeIngredients": [
@@ -45,7 +44,6 @@
 		"classId": 37,
 		"name": "ポップコーン（キャラメル）",
 		"price": 150,
-		"isFavorite": true,
 		"description": null,
 		"rootIngredients": ["未確認", "ポップコーン豆", "調味料", "オイル"],
 		"compositeIngredients": [
@@ -85,7 +83,6 @@
 		"classId": 37,
 		"name": "ポップコーン（しょうゆバター）",
 		"price": 150,
-		"isFavorite": false,
 		"description": null,
 		"rootIngredients": ["未確認", "ポップコーン豆", "オイル", "調味料"],
 		"compositeIngredients": [
@@ -135,7 +132,6 @@
 		"classId": 37,
 		"name": "ポップコーン（コンソメ）",
 		"price": 150,
-		"isFavorite": false,
 		"description": null,
 		"rootIngredients": ["未確認", "ポップコーン豆", "オイル", "調味料"],
 		"compositeIngredients": [
@@ -930,7 +926,6 @@
 		"classId": 41,
 		"name": "焼き鳥(塩味)",
 		"price": 150,
-		"isFavorite": true,
 		"description": null,
 		"rootIngredients": ["未確認", "焼き鳥", "塩だれ"],
 		"compositeIngredients": [
@@ -984,7 +979,6 @@
 		"classId": 41,
 		"name": "焼き鳥(たれ味)",
 		"price": 150,
-		"isFavorite": true,
 		"description": null,
 		"rootIngredients": ["未確認", "焼き鳥", "焼き鳥のたれ"],
 		"compositeIngredients": [
@@ -1034,7 +1028,6 @@
 		"classId": 42,
 		"name": "ワッフル（プレーン）",
 		"price": 150,
-		"isFavorite": true,
 		"description": null,
 		"rootIngredients": ["未確認", "ホットケーキミックス", "牛乳", "卵", "砂糖", "バター"],
 		"compositeIngredients": [
@@ -1142,4 +1135,3 @@
 		"mayContains": []
 	}
 ]
-

@@ -1,7 +1,7 @@
 import type { ProductID } from "@latimeria/shared";
 import { Err, Ok, OkAsVoid, type Result } from ".";
 
-type Purchases = Map<ProductID, number>;
+export type Purchases = Map<ProductID, number>;
 
 export class ProductCart {
 	purchases: Purchases;
@@ -20,7 +20,7 @@ export class ProductCart {
 	getQuantity(product: ProductID): Result<number> {
 		const p = this.purchases.get(product);
 		if (!p) {
-			return Err(new Error("This product doesn't be entered"));
+			return Err(new Error("This product doesn't be existed"));
 		}
 		return Ok(p);
 	}
@@ -28,7 +28,7 @@ export class ProductCart {
 	decrease(product: ProductID, difference?: number): Result<void> {
 		const p = this.purchases.get(product);
 		if (!p) {
-			return Err(new Error("This product doesn't be entered"));
+			return Err(new Error("This product doesn't be existed"));
 		}
 		if (p <= 1) {
 			this.purchases.delete(product);
