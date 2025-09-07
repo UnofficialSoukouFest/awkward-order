@@ -33,7 +33,9 @@
 				]
 			}
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class1.塩.jpg"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": false,
 		"mayContains": []
@@ -71,7 +73,9 @@
 				]
 			}
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class1.キャラメル.JPG"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": true,
 		"mayContains": []
@@ -119,7 +123,9 @@
 				]
 			}
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class1.バター醤油.jpg"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": false,
 		"mayContains": []
@@ -171,7 +177,9 @@
 				]
 			}
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class1.コンソメ.jpg"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": false,
 		"mayContains": []
@@ -217,7 +225,9 @@
 			},
 			{ "name": "カットオレンジ" }
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class2.メロンソーダ.jpg"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": false,
 		"mayContains": []
@@ -263,7 +273,9 @@
 			},
 			{ "name": "カットオレンジ" }
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/kari-fallback.png"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": false,
 		"mayContains": []
@@ -309,7 +321,9 @@
 			},
 			{ "name": "カットオレンジ" }
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/kari-fallback.png"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": false,
 		"mayContains": []
@@ -371,7 +385,9 @@
 				]
 			}
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class3.ミルクティー.jpg"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": false,
 		"mayContains": []
@@ -430,7 +446,9 @@
 				]
 			}
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class3.ピーチティー.jpg"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": false,
 		"mayContains": []
@@ -479,7 +497,9 @@
 				]
 			}
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class3.コーラ.jpg"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": false,
 		"mayContains": []
@@ -543,14 +563,212 @@
 				]
 			}
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class3.コーヒー牛乳.jpg"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": false,
 		"description": null
 	},
 	{
+		"name": "クレープ（ヨーグルト）",
 		"class": 4,
-		"name": "クレープ（いちご）",
+		"price": 150,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": [],
+		"compositeIngredients": [
+			{
+				"name": "豆乳（遺伝子組換えでない）"
+			},
+			{
+				"name": "砂糖"
+			},
+			{
+				"name": "加工油脂"
+			},
+			{
+				"name": "米粉"
+			},
+			{
+				"name": "水あめ"
+			},
+			{
+				"name": "植物油"
+			},
+			{
+				"name": "調製豆乳粉末"
+			},
+			{
+				"name": "砂糖"
+			},
+			{
+				"name": "ぶどう糖果糖液糖"
+			},
+			{
+				"name": "レモン果汁（濃縮還元）"
+			},
+			{
+				"name": "麦芽糖"
+			},
+			{
+				"name": "水"
+			},
+			{
+				"name": "使用添加物",
+				"compositeIngredients": [
+					{
+						"name": "加工デンプン"
+					},
+					{
+						"name": "増粘剤（カードラン）"
+					},
+					{
+						"name": "乳化剤"
+					},
+					{
+						"name": "ゲル化剤（増粘多糖類）"
+					},
+					{
+						"name": "安定剤（増粘多糖類）"
+					},
+					{
+						"name": "香料"
+					},
+					{
+						"name": "酸味料"
+					},
+					{
+						"name": "凝固剤"
+					},
+					{
+						"name": "メタリン酸Ｎａ"
+					},
+					{
+						"name": "カラメル色素"
+					},
+					{
+						"name": "ベーキングパウダー"
+					},
+					{
+						"name": "ピロリン酸第二鉄"
+					},
+					{
+						"name": "カロチノイド色素"
+					}
+				],
+				"allergens": ["大豆"]
+			}
+		],
+		"assets": {
+			"thumbnail": "/product.class4.ヨーグルト.jpg"
+		}
+	},
+	{
+		"name": "クレープ（みかん）",
+		"class": 4,
+		"price": 150,
+		"isFavorite": false,
+		"description": null,
+		"rootIngredients": [],
+		"compositeIngredients": [
+			[
+				{
+					"name": "豆乳"
+				},
+				{
+					"name": "砂糖"
+				},
+				{
+					"name": "加工油脂"
+				},
+				{
+					"name": "米粉"
+				},
+				{
+					"name": "みかん"
+				},
+				{
+					"name": "シラップづけ"
+				},
+				{
+					"name": "うんしゅうみかん果汁(濃縮還元)"
+				},
+				{
+					"name": "水あめ"
+				},
+				{
+					"name": "植物油"
+				},
+				{
+					"name": "調整豆乳粉末"
+				},
+				{
+					"name": "砂糖"
+				},
+				{
+					"name": "ぶどう糖果糖液糖"
+				},
+				{
+					"name": "麦芽糖"
+				},
+				{
+					"name": "レモン果汁(濃縮還元)"
+				},
+				{
+					"name": "加工デンプン"
+				},
+				{
+					"name": "増粘剤(カードラン)"
+				},
+				{
+					"name": "乳化剤"
+				},
+				{
+					"name": "ゲル化剤(増粘多糖類)"
+				},
+				{
+					"name": "安定剤(増粘多糖類)"
+				},
+				{
+					"name": "香料"
+				},
+				{
+					"name": "凝固剤"
+				},
+				{
+					"name": "酸味料"
+				},
+				{
+					"name": "メタリン酸Na"
+				},
+				{
+					"name": "着色料",
+					"compositeIngredients": [
+						{
+							"name": "カラメル"
+						},
+						{
+							"name": "カルチノイド"
+						}
+					]
+				},
+				{
+					"name": "ベーキングパウダー"
+				},
+				{
+					"name": "ピロリン酸第二鉄"
+				}
+			]
+		],
+		"allergens": ["大豆"],
+		"assets": {
+			"thumbnail": "/product.class4.みかん.jpg"
+		}
+	},
+	{
+		"class": 4,
+		"name": "クレープ（ブルーベリー）",
 		"price": 150,
 		"isFavorite": false,
 		"description": null,
@@ -637,11 +855,15 @@
 				]
 			}
 		],
-		"allergens": ["大豆"]
+		"allergens": ["大豆"],
+		"assets": {
+			"thumbnail": "/product.class4.ブルーベリー.jpg"
+		},
+		"stock": { "sellout": false }
 	},
 	{
 		"class": 4,
-		"name": "クレープ（いちご）",
+		"name": "クレープ（チョコ）",
 		"price": 150,
 		"isFavorite": false,
 		"description": null,
@@ -689,101 +911,10 @@
 				]
 			}
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class4.チョコ.jpg"
+		},
 		"stock": { "sellout": false },
-		"allergens": ["大豆"]
-	},
-	{
-		"class": 4,
-		"name": "クレープ（チョコ）",
-		"price": 150,
-		"isFavorite": true,
-		"description": null,
-		"rootIngredients": ["未確認"],
-		"compositeIngredients": [
-			[
-				{
-					"name": "豆乳"
-				},
-				{
-					"name": "砂糖"
-				},
-				{
-					"name": "加工油脂"
-				},
-				{
-					"name": "米粉"
-				},
-				{
-					"name": "ブルーベリー果汁(濃縮還元)"
-				},
-				{
-					"name": "水あめ"
-				},
-				{
-					"name": "植物油"
-				},
-				{
-					"name": "調整豆乳粉末"
-				},
-				{
-					"name": "砂糖"
-				},
-				{
-					"name": "ぶどう糖果糖液糖"
-				},
-				{
-					"name": "麦芽糖"
-				},
-				{
-					"name": "レモン果汁(濃縮還元)"
-				},
-				{
-					"name": "使用添加物",
-					"compositeIngredients": [
-						{
-							"name": "加工デンプン"
-						},
-						{
-							"name": "増粘剤(カードラン)"
-						},
-						{
-							"name": "乳化剤"
-						},
-						{
-							"name": "ゲル化剤(増粘多糖類)"
-						},
-						{
-							"name": "安定剤(増粘多糖類)"
-						},
-						{
-							"name": "香料"
-						},
-						{
-							"name": "凝固剤"
-						},
-						{
-							"name": "酸味料"
-						},
-						{
-							"name": "メタリン酸Na"
-						},
-						{
-							"name": "着色料(カラメル"
-						},
-						{
-							"name": "カロチノイド)"
-						},
-						{
-							"name": "ベーキングパウダー"
-						},
-						{
-							"name": "ピロリン酸第二鉄"
-						}
-					]
-				}
-			]
-		],
 		"allergens": ["大豆"]
 	},
 	{
@@ -823,7 +954,9 @@
 				]
 			}
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class5.焼き鳥.jpg"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": true,
 		"mayContains": [
@@ -871,7 +1004,9 @@
 				]
 			}
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class5.焼き鳥.jpg"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": true,
 		"mayContains": [
@@ -911,7 +1046,9 @@
 				]
 			}
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class6.プレーン.jpg"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": true,
 		"mayContains": []
@@ -950,7 +1087,9 @@
 			{ "name": "バター" },
 			{ "name": "抹茶パウダー（緑茶）" }
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class6.抹茶.jpg"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": true,
 		"mayContains": []
@@ -989,7 +1128,9 @@
 			{ "name": "バター" },
 			{ "name": "ココアパウダー" }
 		],
-		"assets": {},
+		"assets": {
+			"thumbnail": "/product.class6.ココア.jpg"
+		},
 		"stock": { "sellout": false },
 		"isFavorite": true,
 		"mayContains": []
