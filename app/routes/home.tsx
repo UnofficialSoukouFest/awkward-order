@@ -63,7 +63,7 @@ export default function Home() {
 							<h2 className={styles.titleC}>POP<br />MART</h2>
 						</div>
 					</Link>
-					<Link href={`/1`} className={styles.cardLink}>
+					<Link href={`/2`} className={styles.cardLink}>
 						<div className={`${styles.cardImg} ${styles.cardContent}`}>
 							<Image
 								className={styles.backImage}
@@ -76,7 +76,7 @@ export default function Home() {
 							<h2 className={styles.titleC}>激ウマ<br />フロート</h2>
 						</div>
 					</Link>
-					<Link href={`/1`} className={styles.cardLink}>
+					<Link href={`/3`} className={styles.cardLink}>
 						<div className={`${styles.cardImg} ${styles.cardContent}`}>
 							<Image
 								className={styles.backImage}
@@ -89,7 +89,7 @@ export default function Home() {
 							<h2 className={styles.titleC}>木薯軒</h2>
 						</div>
 					</Link>
-					<Link href={`/1`} className={styles.cardLink}>
+					<Link href={`/4`} className={styles.cardLink}>
 						<div className={`${styles.cardImg} ${styles.cardContent}`}>
 							<Image
 								className={styles.backImage}
@@ -102,7 +102,7 @@ export default function Home() {
 							<h2 className={styles.titleC}>買って<br />クレープ</h2>
 						</div>
 					</Link>
-					<Link href={`/1`} className={styles.cardLink}>
+					<Link href={`/5`} className={styles.cardLink}>
 						<div className={`${styles.cardImg} ${styles.cardContent}`}>
 							<Image
 								className={styles.backImage}
@@ -115,7 +115,7 @@ export default function Home() {
 							<h2 className={styles.titleC}>やきトリノ<br />サウルス</h2>
 						</div>
 					</Link>
-					<Link href={`/1`} className={styles.cardLink}>
+					<Link href={`/6`} className={styles.cardLink}>
 						<div className={`${styles.cardImg} ${styles.cardContent}`}>
 							<Image
 								className={styles.backImage}
