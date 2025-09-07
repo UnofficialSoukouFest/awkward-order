@@ -111,3 +111,44 @@
 .YSFmap {
 	margin: 5vw;
 }
+
+.cardImg {
+	position: relative;
+	width: 156px;
+	height: 156px;
+	margin: var(--semantic-space-0-5);
+	padding: var(--semantic-space-medium);
+	white-space: pre-wrap;
+	border: 1px solid var(--semantic-background-white);
+	box-shadow: 0px 4px 4px var(--semantic-shadow-default);
+	border-radius: var(--semantic-radius-medium);
+}
+
+.class {
+	position: relative;
+	z-index: 10;
+}
+
+.titleC {
+	margin: var(--semantic-space-small) 0;
+	z-index: 10;
+}
+
+.cardLink {
+	text-decoration: none;
+	color: var(--semantic-text-dark);
+}
+
+.cardContent {
+	display: flex;
+	flex-direction: column;
+	padding: var(--semantic-space-1);
+}
+
+.backImage {
+	z-index: 0;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	opacity: 0.3;
+}
