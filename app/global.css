@@ -77,3 +77,7 @@ h1 {
 	color: var(--semantic-text-dark);
 	margin-left: var(--semantic-space-medium);
 }
+
+*{
+	font-family:var(--font-line-seed-jp), sans-serif;
+}
