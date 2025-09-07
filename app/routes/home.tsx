@@ -3,6 +3,7 @@ import MinimalCard from "~/component/card/minimal-card";
 import Image from "~/component/image";
 import { YMap } from "~/component/map/load-map";
 import styles from "./home.module.css";
+import { Link } from "@latimeria/ganoine";
 
 export function meta() {
 	return [
@@ -49,12 +50,84 @@ export default function Home() {
 			</h2>
 			<div className={`${styles.cardContainer} overlayContent`}>
 				<div className={styles.cardWrapping}>
-					<MinimalCard classNumber={1} title={`POP\nMART`} />
-					<MinimalCard classNumber={2} title={`激ウマ\nフロート`} />
-					<MinimalCard classNumber={3} title={`木薯軒`} />
-					<MinimalCard classNumber={4} title={`買って\nクレープ`} />
-					<MinimalCard classNumber={5} title={`やきトリノ\nサウルス`} />
-					<MinimalCard classNumber={6} title={`Waffle-\n puff`} />
+					<Link href={`/1`} className={styles.cardLink}>
+						<div className={`${styles.cardImg} ${styles.cardContent}`}>
+							<Image
+								className={styles.backImage}
+								src="/PR.class1.png"
+								alt=""
+								width={156}
+								height={156}
+							/>
+							<span className={styles.class}>1組</span>
+							<h2 className={styles.titleC}>POP<br />MART</h2>
+						</div>
+					</Link>
+					<Link href={`/1`} className={styles.cardLink}>
+						<div className={`${styles.cardImg} ${styles.cardContent}`}>
+							<Image
+								className={styles.backImage}
+								src="/PR.class2.png"
+								alt=""
+								width={156}
+								height={156}
+							/>
+							<span className={styles.class}>2組</span>
+							<h2 className={styles.titleC}>激ウマ<br />フロート</h2>
+						</div>
+					</Link>
+					<Link href={`/1`} className={styles.cardLink}>
+						<div className={`${styles.cardImg} ${styles.cardContent}`}>
+							<Image
+								className={styles.backImage}
+								src="/PR.class3.png"
+								alt=""
+								width={156}
+								height={156}
+							/>
+							<span className={styles.class}>3組</span>
+							<h2 className={styles.titleC}>木薯軒</h2>
+						</div>
+					</Link>
+					<Link href={`/1`} className={styles.cardLink}>
+						<div className={`${styles.cardImg} ${styles.cardContent}`}>
+							<Image
+								className={styles.backImage}
+								src="/PR.class4.png"
+								alt=""
+								width={156}
+								height={156}
+							/>
+							<span className={styles.class}>4組</span>
+							<h2 className={styles.titleC}>買って<br />クレープ</h2>
+						</div>
+					</Link>
+					<Link href={`/1`} className={styles.cardLink}>
+						<div className={`${styles.cardImg} ${styles.cardContent}`}>
+							<Image
+								className={styles.backImage}
+								src="/PR.class5.png"
+								alt=""
+								width={156}
+								height={156}
+							/>
+							<span className={styles.class}>5組</span>
+							<h2 className={styles.titleC}>やきトリノ<br />サウルス</h2>
+						</div>
+					</Link>
+					<Link href={`/1`} className={styles.cardLink}>
+						<div className={`${styles.cardImg} ${styles.cardContent}`}>
+							<Image
+								className={styles.backImage}
+								src="/PR.class6.png"
+								alt=""
+								width={156}
+								height={156}
+							/>
+							<span className={styles.class}>6組</span>
+							<h2 className={styles.titleC}>Waffle-<br />puff</h2>
+						</div>
+					</Link>
 					<DetailsCard>
 						<h2 className={styles.detailsContent}>メニューの一覧</h2>
 						<p className={styles.detailsContent}>
