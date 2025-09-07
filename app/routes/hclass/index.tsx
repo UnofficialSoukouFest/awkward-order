@@ -2,14 +2,14 @@ import { Button } from "@latimeria/ganoine";
 import type { Product } from "@latimeria/shared";
 import { data } from "react-router";
 import { MenuCard, MenuCardPick } from "~/component/card/menu-card";
+import { Congestion } from "~/component/congestion";
 import Image from "~/component/image";
+import { MapFromSpecRoom } from "~/component/map/load-map";
 import { TitleBarWithBack } from "~/component/title-bar";
 import { matchProducts } from "~/lib/product";
 import { matchProgram } from "~/lib/program";
 import type { Route } from "./+types/index";
 import styles from "./programs.module.css";
-import { MapFromSpecRoom } from "~/component/map/load-map";
-import { Congestion } from "~/component/congestion";
 
 export async function loader({ params, context }: Route.LoaderArgs) {
 	const programResult = await matchProgram(context.db, {
@@ -73,7 +73,11 @@ export default function HClass({ loaderData }: Route.ComponentProps) {
 									{loaderData.products
 										.filter((content: Product) => content.isFavorite)
 										.map((content: Product) => (
-											<MenuCardPick product={content} key={content.id} color={loaderData.program.color} />
+											<MenuCardPick
+												product={content}
+												key={content.id}
+												color={loaderData.program.color}
+											/>
 										))}
 								</div>
 							</div>

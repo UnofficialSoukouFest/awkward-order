@@ -12,6 +12,11 @@
 	padding-bottom: 10px;
 }
 
+.cardButton {
+	background: transparent;
+	border: none;
+}
+
 .main {
 	display: flex;
 	flex-direction: row;
